@@ -234,6 +234,11 @@ p {
 .hero-cta { display: flex; flex-direction: column; gap: 22px; }
 .hero-btn { align-self: flex-start; }
 
+/* Mobile-only hero banner (full width on top — reference layout) */
+.hero-mobile-top {
+  display: none;
+}
+
 /* Social proof */
 .social-proof {
   display: flex;
@@ -1084,10 +1089,26 @@ footer {
 @media (max-width: 809px) {
 
   /* ── HERO ───────────────────────────────────────────── */
+  .hero-mobile-top {
+    display: block;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #0a0a0a;
+    height: clamp(200px, 48vw, 400px);
+  }
+  .hero-mobile-top img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+    display: block;
+  }
+
   .hero-inner { grid-template-columns: 1fr; overflow: hidden; }
 
   .hero-content {
-    padding: 28px 24px 200px;
+    padding: 24px 24px 200px;
     gap: 20px;
     background: #fff;
     position: relative;
@@ -1106,12 +1127,9 @@ footer {
   .avatars img { width: 36px; height: 36px; }
   .divider-v { margin: 0 12px; }
 
-  /* Photo: smaller, right side, semi-transparent on mobile */
+  /* Foto absoluta oculta no mobile — usa banner no topo */
   .hero-photo {
-    width: 60%;
-    right: 0;
-    opacity: 0.2;
-    z-index: 1;
+    display: none;
   }
 
   /* Tickers smaller */
@@ -1276,6 +1294,18 @@ footer {
      SECTION 1 — HERO (exact reference match)
      ============================================================ -->
 <section id="hero">
+  <!-- Banner full-bleed no topo (somente mobile, igual referência) -->
+  <div class="hero-mobile-top">
+    <img
+      src="assets/hero-mobile.png"
+      alt="Profissional United em ambiente corporativo"
+      width="1200"
+      height="800"
+      loading="eager"
+      decoding="async"
+    >
+  </div>
+
   <div class="hero-inner">
 
     <!-- LEFT COLUMN — white bg, all text content -->
