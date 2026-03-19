@@ -1,0 +1,1840 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>United Finance — Assessoria de Marketing para Empresas de Investimento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&family=Big+Shoulders+Display:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+body {
+  font-family: 'Onest', sans-serif;
+  font-weight: 400;
+  color: #03020B;
+  background: #fff;
+  overflow-x: hidden;
+  max-width: 100vw;
+  -webkit-font-smoothing: antialiased;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+
+/* ===== CSS VARIABLES ===== */
+:root {
+  --preto: #03020B;
+  --branco: #FFFFFF;
+  --azul: #004CFF;
+  --azul-escuro: #002FFF;
+  --azul-ticker: #0C1FED;
+  --cinza-fundo: #0D0D0D;
+  --cinza-claro: #F7F7F7;
+  --cinza-card: #0F0F0F;
+  --texto-muted: rgba(255,255,255,0.55);
+  --borda-sutil: rgba(255,255,255,0.1);
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1 {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 800;
+  font-size: clamp(32px, 4.2vw, 57px);
+  line-height: 1em;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+h2 {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 3.5vw, 47px);
+  line-height: 1em;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+h3 {
+  font-family: 'Onest', sans-serif;
+  font-weight: 500;
+  font-size: clamp(22px, 2.5vw, 36px);
+  line-height: 1.1em;
+  letter-spacing: -0.02em;
+}
+p {
+  font-family: 'Onest', sans-serif;
+  font-weight: 300;
+  font-size: clamp(16px, 1.5vw, 23px);
+  line-height: 1.3em;
+}
+
+/* ===== BUTTONS ===== */
+.btn-primary {
+  background: var(--azul);
+  color: #FFF;
+  font-family: 'Onest', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 10px 10px 10px 18px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+.btn-primary .btn-icon {
+  width: 26px;
+  height: 26px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.btn-primary .btn-icon svg { display: block; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,76,255,0.4); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--preto);
+  border: none;
+  font-family: 'Onest', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 10px 10px 18px;
+  border-radius: 50px;
+  transition: background 0.2s;
+}
+.btn-ghost .btn-icon {
+  width: 26px;
+  height: 26px;
+  background: var(--preto);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-ghost .btn-icon i { color: #fff; font-size: 11px; }
+.btn-ghost:hover { background: rgba(0,0,0,0.06); }
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ===== CONTAINER ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+/* ============================================================
+   SECTION 1 — HERO (WHITE BG, REFERENCE-EXACT)
+   ============================================================ */
+#hero {
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+  max-width: 100vw;
+}
+
+/* Single-column layout for content only; image is absolutely positioned */
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 55% 45%;
+}
+
+/* LEFT COLUMN — white bg, text */
+.hero-content {
+  padding: 50px 60px 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+  position: relative;
+  z-index: 3;
+  background: #fff;
+}
+
+/* RIGHT COLUMN — transparent placeholder that sets height; actual image is absolute */
+.hero-image-col {
+  position: relative;
+  z-index: 1;
+  /* transparent — the real image is positioned absolutely */
+  background: transparent;
+}
+
+/* The actual photo: absolutely positioned on #hero, right side,
+   tall enough to always show the full person + armchair,
+   behind tarjas (z-index 5) but above white bg (z-index 1) */
+.hero-photo {
+  position: absolute;
+  top: 0;
+  right: -4%;
+  width: 58%;
+  height: auto;
+  display: block;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Logo */
+.hero-logo { width: 184px; height: auto; }
+.hero-logo img { width: 100%; }
+
+/* Headline */
+.hero-title h1 {
+  color: #000;
+  font-size: clamp(30px, 3.6vw, 44px);
+  line-height: 1.05em;
+  font-weight: 800;
+}
+.hero-title .blue { color: var(--azul); }
+
+/* Subtitle */
+.hero-subtitle {
+  color: rgba(3,2,11,0.85);
+  font-weight: 400;
+  font-size: clamp(15px, 1.3vw, 19px);
+  max-width: 460px;
+  line-height: 1.4em;
+}
+
+/* CTA block */
+.hero-cta { display: flex; flex-direction: column; gap: 22px; }
+.hero-btn { align-self: flex-start; }
+
+/* Social proof */
+.social-proof {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+.avatars {
+  display: flex;
+  align-items: center;
+}
+.avatars img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2.5px solid rgba(200,215,215,0.9);
+  object-fit: cover;
+  margin-right: -10px;
+  background: #ddd;
+}
+.avatars img:last-child { margin-right: 0; }
+.divider-v {
+  width: 1px;
+  height: 24px;
+  background: rgba(0,0,0,0.3);
+  margin: 0 16px;
+}
+.social-proof-text {
+  font-family: 'Onest', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(64,64,79,1);
+  letter-spacing: 0;
+}
+
+/* ── TICKER BANDS ──────────────────────────────────────────── */
+.ticker-section {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 260px;
+  z-index: 10;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+@keyframes scroll-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes scroll-right {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.ticker-band {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  height: 54px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* Band 2 — blue, upper */
+.ticker-band-2 {
+  top: 28%;
+  transform: translateY(0) rotate(-6deg);
+  background: var(--azul-ticker);
+  box-shadow: 0 2px 20px rgba(12,31,237,0.4);
+}
+/* Band 3 — black, lower */
+.ticker-band-3 {
+  top: 66%;
+  transform: translateY(0) rotate(6deg);
+  background: #000;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+.ticker-track {
+  display: flex;
+  align-items: center;
+  animation: scroll-left 20s linear infinite;
+  width: max-content;
+  will-change: transform;
+}
+.ticker-track-rev {
+  display: flex;
+  align-items: center;
+  animation: scroll-right 20s linear infinite;
+  width: max-content;
+  will-change: transform;
+}
+
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1;
+  color: #fff;
+  white-space: nowrap;
+  padding: 0 24px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.ticker-sep {
+  color: #fff;
+  font-size: 13px;
+  opacity: 0.8;
+  font-weight: 900;
+}
+
+/* ============================================================
+   SECTION 2 — FORMULÁRIO / SERVICE
+   ============================================================ */
+#service {
+  background: var(--preto);
+  padding: 100px 0 120px;
+}
+.service-inner {
+  max-width: 1355px;
+  margin: 0 auto;
+  padding: 0 64px;
+  display: flex;
+  align-items: flex-start;
+  gap: 80px;
+}
+
+/* Left: title + features */
+.service-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-top: 4px;
+}
+
+/* Title: very large, fills full left column */
+.service-title {
+  color: #fff;
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 800;
+  font-size: clamp(40px, 5vw, 68px);
+  line-height: 0.98em;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+/* Feature block */
+.service-feature {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.service-icon-wrap {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+.service-icon-wrap svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.8;
+}
+.service-feature-title {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(18px, 1.6vw, 24px);
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.2em;
+}
+.service-feature-desc {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(13px, 1.1vw, 16px);
+  font-weight: 400;
+  color: rgba(156,163,175,1);
+  line-height: 1.6em;
+  max-width: 420px;
+}
+
+/* Right: form card — white floating, heavy rounded, big shadow */
+.service-form-col {
+  flex: 0 0 400px;
+}
+.form-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 32px 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 20px 80px rgba(0,0,0,0.5), 0 4px 24px rgba(0,0,0,0.25);
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.form-label {
+  font-family: 'Onest', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #111;
+  letter-spacing: 0;
+}
+.form-input {
+  background: rgba(187,187,187,0.13);
+  border: 1px solid rgba(136,136,136,0.12);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: 'Onest', sans-serif;
+  font-size: 14px;
+  width: 100%;
+  height: 44px;
+  color: #000;
+  outline: none;
+  transition: border-color 0.2s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.form-input::placeholder { color: #bbb; }
+.form-input:focus { border-color: var(--azul); box-shadow: 0 0 0 2px rgba(0,76,255,0.1); }
+.form-select-wrap { position: relative; }
+.form-select-wrap::after {
+  content: '';
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0; height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #999;
+  pointer-events: none;
+}
+.form-btn {
+  background: var(--azul);
+  color: #fff;
+  font-family: 'Onest', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  height: 54px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  transition: background 0.2s, transform 0.2s;
+  margin-top: 4px;
+}
+.form-btn:hover { background: #003acc; transform: translateY(-1px); }
+
+/* ============================================================
+   SECTION 3 — LOGOS
+   ============================================================ */
+#logos {
+  background: var(--preto);
+  padding: 60px 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+.logos-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+}
+.logos-title {
+  font-family: 'Onest', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.4em;
+  text-align: center;
+}
+
+.logos-carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  height: 55px;
+}
+.logos-carousel::before,
+.logos-carousel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+.logos-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, var(--cinza-fundo), transparent);
+}
+.logos-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, var(--cinza-fundo), transparent);
+}
+.logos-track {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  animation: scroll-left 25s linear infinite;
+  width: max-content;
+  will-change: transform;
+}
+.logos-track:hover { animation-play-state: paused; }
+.logo-item {
+  flex-shrink: 0;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+.logo-item img {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.7;
+  /* color logos */
+  transition: opacity 0.2s;
+}
+.logo-item img:hover { opacity: 1; }
+
+/* ============================================================
+   SECTION 4 — DEPOIMENTOS / ELES FALAM POR NÓS
+   ============================================================ */
+#testimonials {
+  background: var(--branco);
+  padding: 80px 0 100px;
+  overflow: hidden;
+}
+.testimonials-inner {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+/* Heading — centered, curved arrow + big title */
+.testimonials-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.testimonials-arrow {
+  font-size: clamp(40px, 5vw, 72px);
+  line-height: 1;
+  color: var(--preto);
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+}
+.testimonials-heading h2 {
+  font-size: clamp(40px, 6vw, 88px);
+  color: var(--preto);
+  text-transform: uppercase;
+}
+
+/* Carousel wrapper — relative for the floating next btn */
+.testimonials-carousel-wrap {
+  position: relative;
+}
+.testimonials-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 4px;
+  /* fade right edge so next card peeks */
+  -webkit-mask-image: linear-gradient(to right, black 0%, black 82%, transparent 100%);
+  mask-image: linear-gradient(to right, black 0%, black 82%, transparent 100%);
+}
+.testimonials-track::-webkit-scrollbar { display: none; }
+
+/* Cards */
+.testimonial-card {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  background: #1a1a1a;
+  border-radius: 20px;
+  width: 350px;
+  padding: 16px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Video — iframe loaded directly, no thumbnail */
+.card-video {
+  width: 100%;
+  height: 210px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+  flex-shrink: 0;
+}
+.card-video iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+  padding: 0 8px;
+}
+/* Logo in color */
+.card-logo {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+  max-width: 140px;
+  /* color, not inverted */
+  filter: none;
+  opacity: 1;
+}
+.card-quote {
+  font-family: 'Onest', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  line-height: 1.5em;
+  color: rgba(255,255,255,0.75);
+  flex: 1;
+}
+.card-client {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 4px;
+}
+.card-client-name {
+  font-family: 'Onest', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: -0.01em;
+}
+.card-client-role {
+  font-family: 'Onest', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: -0.01em;
+}
+
+/* Nav — only NEXT btn, floating right of carousel */
+.testimonials-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 20px;
+  gap: 10px;
+}
+.t-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s, transform 0.2s;
+  background: #e8341a;
+}
+.t-nav-btn:disabled { opacity: 0.3; cursor: default; }
+.t-nav-btn:not(:disabled):hover { transform: scale(1.06); background: #cc2a12; }
+.t-nav-btn svg { width: 22px; height: 22px; }
+
+/* ============================================================
+   SECTION 5 — MANIFESTO / TEXTO ANIMADO
+   ============================================================ */
+#manifesto {
+  background: #f5f5f3;
+  padding: 100px 60px 60px;
+}
+.manifesto-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.manifesto-text {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 800;
+  font-size: clamp(40px, 5.8vw, 80px);
+  line-height: 1.05em;
+  letter-spacing: -0.025em;
+  color: #03020B;
+  -webkit-text-fill-color: #03020B;
+  background-image: none;
+  text-align: left;
+}
+
+/* ============================================================
+   SECTION 6 — STATS / CONTADORES
+   ============================================================ */
+#stats {
+  background: #f5f5f3;
+  padding: 0 60px 100px;
+}
+.stats-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.stats-line {
+  width: 100%;
+  height: 1px;
+  background: #d0d0ce;
+  margin-bottom: 0;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr 1px 1fr;
+  align-items: start;
+  gap: 0;
+}
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 40px 20px;
+}
+.stat-item:first-child { padding-left: 0; }
+.stat-number {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 800;
+  font-size: clamp(52px, 7vw, 96px);
+  line-height: 1em;
+  letter-spacing: -0.03em;
+  color: var(--preto);
+}
+.stat-label {
+  font-family: 'Onest', sans-serif;
+  font-weight: 400;
+  font-size: clamp(13px, 1.2vw, 16px);
+  line-height: 1.4em;
+  color: rgba(60,60,60,0.75);
+  text-align: center;
+}
+.stat-divider {
+  width: 1px;
+  height: 120px;
+  background: #d0d0ce;
+  align-self: center;
+}
+
+/* ============================================================
+   SECTION 7 — CTA / MÉTODO
+   ============================================================ */
+#cta {
+  background: var(--cinza-claro);
+  padding: 100px 30px;
+}
+.cta-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.cta-text-block {
+  max-width: 644px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  text-align: center;
+  min-height: 240px;
+  justify-content: center;
+}
+
+.cta-tag {
+  font-family: 'Onest', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.5);
+}
+
+.cta-title {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 500;
+  font-size: clamp(28px, 3.5vw, 47px);
+  line-height: 1.1em;
+  letter-spacing: -0.02em;
+  color: var(--preto);
+  text-align: center;
+  text-transform: uppercase;
+}
+.cta-title strong {
+  font-weight: 900;
+}
+
+.cta-sub {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(15px, 1.5vw, 20px);
+  font-weight: 400;
+  color: rgba(10,10,10,0.8);
+  line-height: 1.3em;
+  max-width: 420px;
+  text-align: center;
+}
+
+.cta-buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: #fff;
+  padding: 0;
+}
+
+/* ── Logo bar ── */
+.footer-logo-bar {
+  padding: 50px 60px 36px;
+  max-width: 100%;
+}
+.footer-logo {
+  width: 130px;
+  height: auto;
+  display: block;
+}
+
+/* Full-width divider */
+.footer-hr {
+  width: 100%;
+  height: 1px;
+  background: #e0e0de;
+  border: none;
+  margin: 0;
+}
+
+/* ── Main area ── */
+.footer-main {
+  padding: 40px 60px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+/* Row 1: nav left, social right */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.footer-nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.footer-nav-link {
+  font-family: 'Onest', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #03020B;
+  transition: opacity 0.2s;
+}
+.footer-nav-link:hover { opacity: 0.55; }
+
+/* Social icons: black, larger */
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.footer-social a {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.footer-social a:hover { opacity: 0.6; transform: translateY(-2px); }
+.footer-social a img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  /* make icons black */
+  filter: brightness(0);
+}
+
+/* Row 2: CTA left, Connect right */
+.footer-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-cta-block {
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.footer-cta-block h3 {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(26px, 2.8vw, 42px);
+  font-weight: 500;
+  color: #03020B;
+  letter-spacing: -0.025em;
+  line-height: 1.1em;
+}
+
+.footer-connect {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 240px;
+}
+.footer-connect-title {
+  font-family: 'Onest', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #03020B;
+  letter-spacing: -0.01em;
+}
+.footer-connect-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.footer-connect-link {
+  font-family: 'Onest', sans-serif;
+  font-size: 15px;
+  color: #03020B;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: opacity 0.2s;
+}
+.footer-connect-link::after {
+  content: '↗';
+  font-size: 13px;
+  opacity: 0.6;
+}
+.footer-connect-link:hover { opacity: 0.6; }
+.footer-address {
+  font-family: 'Onest', sans-serif;
+  font-size: 15px;
+  color: #03020B;
+  line-height: 1.5em;
+  max-width: 260px;
+}
+
+/* Row 3: legal bottom */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 0;
+}
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.footer-legal-link {
+  font-family: 'Onest', sans-serif;
+  font-size: 14px;
+  color: #03020B;
+  transition: opacity 0.2s;
+}
+.footer-legal-link:hover { opacity: 0.55; }
+.footer-copy {
+  font-family: 'Onest', sans-serif;
+  font-size: 14px;
+  color: rgba(10,10,10,0.7);
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET (≤1199px)
+   ============================================================ */
+@media (max-width: 1199px) {
+  .hero-inner { grid-template-columns: 60% 40%; }
+  .hero-photo { width: 48%; }
+  .hero-content { padding: 40px 40px 180px; gap: 28px; }
+  .hero-title h1 { font-size: clamp(26px, 3.4vw, 40px); }
+
+  .service-inner { padding: 0 30px; gap: 50px; }
+  .service-form-col { flex: 0 0 380px; }
+  .service-title { font-size: clamp(34px, 4vw, 52px); }
+
+  #manifesto { padding: 80px 40px 50px; }
+  #stats { padding: 0 40px 80px; }
+
+  .footer-logo-bar { padding: 50px 40px 32px; }
+  .footer-main { padding: 36px 40px 48px; }
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE (≤809px)
+   ============================================================ */
+@media (max-width: 809px) {
+
+  /* ── HERO ───────────────────────────────────────────── */
+  .hero-inner { grid-template-columns: 1fr; overflow: hidden; }
+
+  .hero-content {
+    padding: 28px 24px 200px;
+    gap: 20px;
+    background: #fff;
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 100%;
+  }
+  .hero-logo { width: 120px; }
+  .hero-title h1 { font-size: clamp(30px, 8vw, 44px); line-height: 1em; }
+  .hero-subtitle { font-size: 16px; line-height: 1.45em; }
+  .hero-subtitle br { display: none; }
+  .hero-cta { gap: 18px; }
+
+  .social-proof { gap: 0; }
+  .social-proof-text { font-size: 15px; }
+  .avatars img { width: 36px; height: 36px; }
+  .divider-v { margin: 0 12px; }
+
+  /* Photo: smaller, right side, semi-transparent on mobile */
+  .hero-photo {
+    width: 60%;
+    right: 0;
+    opacity: 0.2;
+    z-index: 1;
+  }
+
+  /* Tickers smaller */
+  .ticker-section { height: 180px; }
+  .ticker-band { height: 42px; }
+  .ticker-item { font-size: 14px; padding: 0 14px; gap: 10px; }
+  .ticker-band-2 { top: 28%; }
+  .ticker-band-3 { top: 65%; }
+
+  /* ── SERVICE / FORMULÁRIO ───────────────────────────── */
+  #service { padding: 56px 0 64px; }
+  .service-inner {
+    flex-direction: column;
+    padding: 0 20px;
+    gap: 32px;
+  }
+  .service-title { font-size: clamp(28px, 7vw, 40px); }
+  .service-form-col { flex: none; width: 100%; max-width: 100%; }
+  .form-card {
+    padding: 20px;
+    gap: 14px;
+    border-radius: 12px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .form-group { width: 100%; }
+  .form-label { font-size: 14px; }
+  .form-input {
+    height: 44px;
+    font-size: 15px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .form-select-wrap { width: 100%; }
+  .form-btn {
+    height: 52px;
+    font-size: 14px;
+    width: 100%;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── LOGOS ──────────────────────────────────────────── */
+  #logos { padding: 28px 0; }
+  .logos-title { font-size: 16px; padding: 0 20px; }
+  .logo-item { height: 24px; }
+
+  /* ── DEPOIMENTOS ────────────────────────────────────── */
+  #testimonials { padding: 56px 0 64px; overflow: hidden; }
+  .testimonials-inner { gap: 36px; padding: 0 24px; }
+  .testimonials-heading {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 14px;
+    align-items: center;
+  }
+  .testimonials-arrow svg { width: 40px; height: 40px; }
+  .testimonials-heading h2 { font-size: clamp(32px, 9vw, 52px); }
+  .testimonials-track { padding-bottom: 0; }
+  .testimonial-card { width: 300px; padding: 14px 14px 20px; }
+  .card-video { height: 180px; }
+  .card-logo { height: 22px; }
+  .card-quote { font-size: 13px; }
+  .card-client-name { font-size: 13px; }
+  .card-client-role { font-size: 11px; }
+
+  /* ── MANIFESTO ──────────────────────────────────────── */
+  #manifesto { padding: 64px 24px 40px; }
+  .manifesto-text { font-size: clamp(28px, 7.5vw, 48px); }
+
+  /* ── STATS ──────────────────────────────────────────── */
+  #stats { padding: 0 24px 64px; }
+  .stats-line { margin-bottom: 0; }
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .stat-divider { display: none; }
+  .stat-item {
+    padding: 28px 0;
+    align-items: flex-start;
+    border-bottom: 1px solid #e0e0de;
+  }
+  .stat-item:last-child { border-bottom: none; }
+  .stat-number { font-size: clamp(52px, 14vw, 80px); }
+  .stat-label { font-size: 15px; text-align: left; }
+
+  /* ── CTA ────────────────────────────────────────────── */
+  #cta { padding: 56px 24px 64px; }
+  .cta-inner { gap: 36px; }
+  .cta-text-block { max-width: 100%; text-align: center; min-height: unset; }
+  .cta-title { font-size: clamp(22px, 6vw, 32px); }
+  .cta-sub { font-size: 15px; }
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+  .cta-buttons .btn-primary,
+  .cta-buttons .btn-ghost { width: 100%; justify-content: center; }
+
+  /* ── FOOTER ─────────────────────────────────────────── */
+  footer { background: #fff; }
+  .footer-logo-bar { padding: 36px 24px 28px; }
+  .footer-main { padding: 28px 24px 40px; gap: 36px; }
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .footer-nav { gap: 18px 28px; flex-wrap: wrap; }
+  .footer-nav-link { font-size: 12px; }
+  .footer-social { gap: 16px; }
+  .footer-details {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .footer-cta-block { max-width: 100%; }
+  .footer-cta-block h3 { font-size: clamp(22px, 6vw, 34px); }
+  .footer-connect-title { font-size: 16px; }
+  .footer-connect-link { font-size: 14px; }
+  .footer-address { font-size: 14px; }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .footer-legal { gap: 16px; }
+  .footer-legal-link { font-size: 13px; }
+  .footer-copy { font-size: 13px; }
+}
+
+/* ============================================================
+   RESPONSIVE — SMALL MOBILE (≤480px)
+   ============================================================ */
+@media (max-width: 480px) {
+  .hero-content { padding: 24px 20px 190px; }
+  .hero-title h1 { font-size: 28px; }
+  .hero-logo { width: 110px; }
+
+  .btn-primary { font-size: 11px; padding: 9px 9px 9px 16px; }
+  .btn-ghost { font-size: 11px; padding: 9px 9px 9px 16px; }
+
+  .service-inner { padding: 0 20px; }
+  .service-title { font-size: 28px; }
+
+  .testimonials-inner { padding: 0 20px; }
+  .testimonial-card { width: 270px; }
+  .card-video { height: 160px; }
+
+  .manifesto-text { font-size: 26px; }
+
+  .footer-main { padding: 24px 20px 36px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SECTION 1 — HERO (exact reference match)
+     ============================================================ -->
+<section id="hero">
+  <div class="hero-inner">
+
+    <!-- LEFT COLUMN — white bg, all text content -->
+    <div class="hero-content">
+
+      <!-- Logo: flag icon + "united" wordmark -->
+      <div class="hero-logo reveal">
+        <img src="https://framerusercontent.com/images/G5jwz9CLG7ksDjFSyzQ9kInRsVs.png" alt="United Logo" loading="lazy">
+      </div>
+
+      <!-- H1: black text, "EMPRESAS DE INVESTIMENTO" in blue -->
+      <div class="hero-title reveal reveal-delay-1">
+        <h1>
+          A MAIOR ASSESSORIA DE<br>
+          MARKETING PARA <span class="blue">EMPRESAS<br>
+          DE INVESTIMENTO</span> DA<br>
+          AMÉRICA LATINA.
+        </h1>
+      </div>
+
+      <!-- Subtitle: thin Onest, black -->
+      <p class="hero-subtitle reveal reveal-delay-2">
+        Escalamos empresas do mercado financeiro<br>
+        com estratégia, execução e tecnologia.
+      </p>
+
+      <!-- CTA + Social Proof -->
+      <div class="hero-cta reveal reveal-delay-3">
+        <!-- Blue pill button with diagonal arrow icon -->
+        <a href="https://wa.me/5521979310451" target="_blank" rel="noopener" class="btn-primary hero-btn">
+          QUERO MAIS INFORMAÇÕES
+          <span class="btn-icon">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+              <path d="M2.5 10.5L10.5 2.5M10.5 2.5H4.5M10.5 2.5V8.5" stroke="#004CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+
+        <!-- Social proof: avatars + separator + text -->
+        <div class="social-proof">
+          <div class="avatars">
+            <img src="https://framerusercontent.com/images/6jU977aDAF7FFtg5FSGQxMH8uk.png" alt="Cliente" loading="lazy">
+            <img src="https://framerusercontent.com/images/LIRbU9HAZBhl73hXEfGTt9FcJyA.png" alt="Cliente" loading="lazy">
+            <img src="https://framerusercontent.com/images/wAg4l2FCgV3DuZ5MK1hoUBRCA.png" alt="Cliente" loading="lazy">
+            <img src="https://framerusercontent.com/images/0yYnfTGVxQ09tmTmkZ60xW5lq0.png" alt="Cliente" loading="lazy">
+          </div>
+          <div class="divider-v"></div>
+          <span class="social-proof-text">600+ Empresas Atendidas</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN — empty spacer; actual image is absolute on #hero -->
+    <div class="hero-image-col"></div>
+
+  </div><!-- /.hero-inner -->
+
+  <!-- PHOTO: absolutely positioned, right side, full natural height, behind tarjas -->
+  <img
+    class="hero-photo"
+    src="https://framerusercontent.com/images/dSIB6a7VVHWfo8mt1KQNaApAgI.png"
+    alt="Profissional United"
+    loading="eager"
+  >
+
+  <!-- TICKER BANDS — 2 diagonal bands at bottom -->
+  <div class="ticker-section">
+    <div class="ticker-band ticker-band-2">
+      <div class="ticker-track-rev">
+        <span class="ticker-item">500 PROJETOS ATENDIDOS <span class="ticker-sep">✕</span> + DE 1 BI EM CAPTAÇÃO <span class="ticker-sep">✕</span> + 10 ANOS DE MERCADO <span class="ticker-sep">✕</span> EXPERIÊNCIA NO MERCADO FINANCEIRO <span class="ticker-sep">✕</span></span>
+        <span class="ticker-item">500 PROJETOS ATENDIDOS <span class="ticker-sep">✕</span> + DE 1 BI EM CAPTAÇÃO <span class="ticker-sep">✕</span> + 10 ANOS DE MERCADO <span class="ticker-sep">✕</span> EXPERIÊNCIA NO MERCADO FINANCEIRO <span class="ticker-sep">✕</span></span>
+        <span class="ticker-item">500 PROJETOS ATENDIDOS <span class="ticker-sep">✕</span> + DE 1 BI EM CAPTAÇÃO <span class="ticker-sep">✕</span> + 10 ANOS DE MERCADO <span class="ticker-sep">✕</span> EXPERIÊNCIA NO MERCADO FINANCEIRO <span class="ticker-sep">✕</span></span>
+      </div>
+    </div>
+
+    <!-- Band 3: BLACK, rotated +6deg (bottom) -->
+    <div class="ticker-band ticker-band-3">
+      <div class="ticker-track">
+        <span class="ticker-item">+ 10 ANOS DE MERCADO <span class="ticker-sep">✕</span> 500 PROJETOS ATENDIDOS <span class="ticker-sep">✕</span> + DE 1 BI EM CAPTAÇÃO <span class="ticker-sep">✕</span> EXPERIÊNCIA NO MERCADO FINANCEIRO <span class="ticker-sep">✕</span></span>
+        <span class="ticker-item">+ 10 ANOS DE MERCADO <span class="ticker-sep">✕</span> 500 PROJETOS ATENDIDOS <span class="ticker-sep">✕</span> + DE 1 BI EM CAPTAÇÃO <span class="ticker-sep">✕</span> EXPERIÊNCIA NO MERCADO FINANCEIRO <span class="ticker-sep">✕</span></span>
+        <span class="ticker-item">+ 10 ANOS DE MERCADO <span class="ticker-sep">✕</span> 500 PROJETOS ATENDIDOS <span class="ticker-sep">✕</span> + DE 1 BI EM CAPTAÇÃO <span class="ticker-sep">✕</span> EXPERIÊNCIA NO MERCADO FINANCEIRO <span class="ticker-sep">✕</span></span>
+      </div>
+    </div>
+
+  </div><!-- /.ticker-section -->
+</section>
+
+<!-- ============================================================
+     SECTION 2 — FORMULÁRIO / SERVICE
+     ============================================================ -->
+<section id="service">
+  <div class="service-inner">
+
+    <!-- Left: big title only -->
+    <div class="service-content reveal">
+      <h2 class="service-title">VOCÊ ESTÁ PRESTES A<br>ESCALAR SUA OPERAÇÃO</h2>
+
+      <!-- Feature 1 -->
+      <div class="service-feature">
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="service-feature-title">Complete o formulário</p>
+        <p class="service-feature-desc">Forneça suas informações no formulário ao lado. Garantimos a segurança total de seus dados. Serão usados apenas para contato.</p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="service-feature">
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 10.999h2A10 10 0 0 0 3.058 6m-.554-3.27v3.27H5.77M4 13.001H2A10 10 0 0 0 20.942 18m.554 3.27v-3.27H18.23" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="service-feature-title">Receba uma ligação personalizada</p>
+        <p class="service-feature-desc">Em um prazo de até 5 minutos em horário comercial, um dos nossos especialistas entrará em contato diretamente para agendar a reunião mais importante com você.</p>
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <div class="service-form-col reveal reveal-delay-2">
+      <form class="form-card" id="contactForm" onsubmit="handleFormSubmit(event)">
+        <div class="form-group">
+          <label class="form-label" for="nome">Nome</label>
+          <input type="text" id="nome" name="name" class="form-input" placeholder="Seu nome">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="whatsapp">WhatsApp</label>
+          <input type="tel" id="whatsapp" name="whatsapp" class="form-input" placeholder="+55 DDD" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input type="email" id="email" name="email" class="form-input" placeholder="Seu melhor email">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="segmento">Qual o seu Segmento?</label>
+          <div class="form-select-wrap">
+            <select id="segmento" name="segmento" class="form-input" required>
+              <option value="" disabled selected>Escritório de investimento credenciado</option>
+              <option value="escritorio">Escritório de investimento credenciado</option>
+              <option value="corretora">Corretora</option>
+              <option value="fundo">Fundo</option>
+              <option value="captacao">Empresa de Captação</option>
+              <option value="financeira">Financeira</option>
+              <option value="crypto">Tokenização ou Cripto</option>
+              <option value="trader-forex">Trader Forex</option>
+              <option value="trader-b3">Trader B3</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="faturamento">Qual o seu Faturamento?</label>
+          <div class="form-select-wrap">
+            <select id="faturamento" name="faturamento" class="form-input" required>
+              <option value="" disabled selected>R$XXX</option>
+              <option value="ate50k">Até 50 mil</option>
+              <option value="50-100k">50 a 100 mil</option>
+              <option value="100-200k">100 a 200 mil</option>
+              <option value="200-400k">200 a 400 mil</option>
+              <option value="400-600k">400 a 600 mil</option>
+              <option value="1-5m">1 a 5 Milhões</option>
+              <option value="5m+">Acima de 5 milhões</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="form-btn">RECEBER MAIS INFORMAÇÕES</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 3 — LOGOS
+     ============================================================ -->
+<section id="logos">
+  <div class="logos-inner">
+    <p class="logos-title reveal">Empresas que utilizam a nossa metodologia</p>
+    <div class="logos-carousel">
+      <div class="logos-track">
+        <div class="logo-item"><img src="https://framerusercontent.com/images/i3D8XBoyrBbk6EbcTUmwzZShPE.png" alt="Cliente 1" loading="lazy"></div>
+        <div class="logo-item"><img src="https://framerusercontent.com/images/WQkKl9J2XSyuMnAkqadIQgdRass.png" alt="Cliente 2" loading="lazy"></div>
+        <div class="logo-item"><img src="https://framerusercontent.com/images/R30cbJB75185FOaAemWo9NVvQQ.png" alt="Cliente 3" loading="lazy"></div>
+        <div class="logo-item"><img src="https://framerusercontent.com/images/pZFM5iWWyB50PTESW1cSOlYRDY.png" alt="Cliente 4" loading="lazy"></div>
+        <div class="logo-item"><img src="https://framerusercontent.com/images/zNiOGvVX96gDQvtXoww21X84r5k.png" alt="Cliente 5" loading="lazy"></div>
+        <div class="logo-item"><img src="https://framerusercontent.com/images/18MU9pCeHjIxUJcNi55v0j1aVs.png" alt="Cliente 6" loading="lazy"></div>
+        <div class="logo-item"><img src="https://framerusercontent.com/images/Y8oL7vt5IxC1BDNz37tkdeTHmg.png" alt="Cliente 7" loading="lazy"></div>
+        <!-- Duplicate for infinite loop -->
+        <div class="logo-item"><img src="https://framerusercontent.com/images/i3D8XBoyrBbk6EbcTUmwzZShPE.png" alt="Cliente 1" loading="lazy"></div>
+        <div class="logo-item"><img src="https://framerusercontent.com/images/WQkKl9J2XSyuMnAkqadIQgdRass.png" alt="Cliente 2" loading="lazy"></div>
+        <div class="logo-item"><img src="https://framerusercontent.com/images/R30cbJB75185FOaAemWo9NVvQQ.png" alt="Cliente 3" loading="lazy"></div>
+        <div class="logo-item"><img src="https://framerusercontent.com/images/pZFM5iWWyB50PTESW1cSOlYRDY.png" alt="Cliente 4" loading="lazy"></div>
+        <div class="logo-item"><img src="https://framerusercontent.com/images/zNiOGvVX96gDQvtXoww21X84r5k.png" alt="Cliente 5" loading="lazy"></div>
+        <div class="logo-item"><img src="https://framerusercontent.com/images/18MU9pCeHjIxUJcNi55v0j1aVs.png" alt="Cliente 6" loading="lazy"></div>
+        <div class="logo-item"><img src="https://framerusercontent.com/images/Y8oL7vt5IxC1BDNz37tkdeTHmg.png" alt="Cliente 7" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 4 — DEPOIMENTOS
+     ============================================================ -->
+<section id="testimonials">
+  <div class="testimonials-inner">
+    <!-- Heading — centered, curved arrow + title -->
+    <div class="testimonials-heading reveal">
+      <span class="testimonials-arrow">
+        <!-- curved arrow pointing down-left, like ↙ -->
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M52 16C52 16 28 16 20 36C14 52 24 60 24 60M24 60L14 46M24 60L38 54" stroke="#03020B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <h2>ELES FALAM POR NÓS</h2>
+    </div>
+
+    <!-- Carousel -->
+    <div class="testimonials-carousel-wrap">
+      <div class="testimonials-track" id="testimonialsTrack">
+
+        <!-- Card 1 — Dexcap -->
+        <div class="testimonial-card">
+          <div class="card-video">
+            <iframe src="https://iframe.mediadelivery.net/embed/234627/cd8c4c22-d07a-4258-9e11-226268b5334c?autoplay=false&loop=false&muted=false&preload=true" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
+          </div>
+          <div class="card-info">
+            <img class="card-logo" src="https://framerusercontent.com/images/18MU9pCeHjIxUJcNi55v0j1aVs.png" alt="Dexcap" loading="lazy">
+            <p class="card-quote">"Our results and online presence went through the roof more or less overnight, mind-blowing!"</p>
+            <div class="card-client">
+              <span class="card-client-name">Andre Mileto</span>
+              <span class="card-client-role">COO Dexcap</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 — Ribus -->
+        <div class="testimonial-card">
+          <div class="card-video">
+            <iframe src="https://iframe.mediadelivery.net/embed/234627/2f4a10f9-5026-47a5-bcef-b278209803f0?autoplay=false&loop=false&muted=false&preload=true" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
+          </div>
+          <div class="card-info">
+            <img class="card-logo" src="https://framerusercontent.com/images/R30cbJB75185FOaAemWo9NVvQQ.png" alt="Ribus" loading="lazy">
+            <p class="card-quote">"These guys don't mess around. We saw results from month one. If you want to grow your business, look no further."</p>
+            <div class="card-client">
+              <span class="card-client-name">Daniel Carius</span>
+              <span class="card-client-role">CEO Ribus</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 — Hantec -->
+        <div class="testimonial-card">
+          <div class="card-video">
+            <iframe src="https://iframe.mediadelivery.net/embed/234627/a0441df0-99d3-4a6d-890c-fb8fde82b977?autoplay=false&loop=false&muted=false&preload=true" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
+          </div>
+          <div class="card-info">
+            <img class="card-logo" src="https://framerusercontent.com/images/zNiOGvVX96gDQvtXoww21X84r5k.png" alt="Hantec" loading="lazy">
+            <p class="card-quote">"Conversion absolutely blew the previous agency we were working with out of the water."</p>
+            <div class="card-client">
+              <span class="card-client-name">Joao</span>
+              <span class="card-client-role">Diretor Hantec</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 — Sectze -->
+        <div class="testimonial-card">
+          <div class="card-video">
+            <iframe src="https://iframe.mediadelivery.net/embed/234627/746ab4f2-6b78-4eb0-92a0-a799a32130d1?autoplay=false&loop=false&muted=false&preload=true" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
+          </div>
+          <div class="card-info">
+            <img class="card-logo" src="https://framerusercontent.com/images/WQkKl9J2XSyuMnAkqadIQgdRass.png" alt="Sectze" loading="lazy">
+            <p class="card-quote">"From where we were before Conversion to where we are now; it's absolutely apart."</p>
+            <div class="card-client">
+              <span class="card-client-name">Victor Fernandes</span>
+              <span class="card-client-role">CEO Sectze</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.testimonials-track -->
+
+      <!-- Nav buttons -->
+      <div class="testimonials-nav">
+        <button class="t-nav-btn" id="prevBtn" onclick="goToSlide(currentSlide - 1)" disabled aria-label="Anterior">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="t-nav-btn" id="nextBtn" onclick="goToSlide(currentSlide + 1)" aria-label="Próximo">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 5 — MANIFESTO
+     ============================================================ -->
+<section id="manifesto">
+  <div class="manifesto-inner">
+    <p class="manifesto-text" id="manifestoText">
+      Unimos estratégia, execução e tecnologia para escalar empresas de forma consistente.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 6 — STATS
+     ============================================================ -->
+<section id="stats">
+  <div class="stats-inner">
+    <div class="stats-line"></div>
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <span class="stat-number" data-target="500" id="stat1">500+</span>
+        <span class="stat-label">Projetos Atendidos</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item reveal reveal-delay-1">
+        <span class="stat-number" data-target="6" id="stat2">6+</span>
+        <span class="stat-label">Estados</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item reveal reveal-delay-2">
+        <span class="stat-number" data-target="100" id="stat3">100+</span>
+        <span class="stat-label">Consultorias Entregues</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 7 — CTA / MÉTODO
+     ============================================================ -->
+<section id="cta">
+  <div class="cta-inner">
+    <div class="cta-text-block reveal">
+      <p class="cta-tag">ASSESSORIA UNITED</p>
+      <h2 class="cta-title">
+        EXISTE UM <strong>MÉTODO COMPROVADO</strong> PARA QUE SEU PROJETO <strong>NUNCA PARE</strong> DE <strong>VENDER/CAPTAR</strong>
+      </h2>
+      <p class="cta-sub">Se você seguir, irá manter seu negócio faturando todos os dias.</p>
+    </div>
+
+    <div class="cta-buttons reveal reveal-delay-1">
+      <a href="https://wa.me/5521979310451" target="_blank" rel="noopener" class="btn-primary">
+        QUERO MAIS INFORMAÇÕES
+        <span class="btn-icon">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+            <path d="M2.5 10.5L10.5 2.5M10.5 2.5H4.5M10.5 2.5V8.5" stroke="#004CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+      <a href="https://wa.me/5521979310451" target="_blank" rel="noopener" class="btn-ghost">
+        Falar no WhatsApp
+        <span class="btn-icon">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+            <path d="M2.5 10.5L10.5 2.5M10.5 2.5H4.5M10.5 2.5V8.5" stroke="#03020B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+
+  <!-- Logo row -->
+  <div class="footer-logo-bar">
+    <img class="footer-logo" src="https://framerusercontent.com/images/G5jwz9CLG7ksDjFSyzQ9kInRsVs.png" alt="United Logo" loading="lazy">
+  </div>
+
+  <!-- Full-width divider -->
+  <hr class="footer-hr">
+
+  <div class="footer-main">
+
+    <!-- Row 1: Nav links (left) + Social icons (right) -->
+    <div class="footer-top">
+      <nav class="footer-nav">
+        <a href="#" class="footer-nav-link">Início</a>
+        <a href="#" class="footer-nav-link">Sobre</a>
+        <a href="#" class="footer-nav-link">Serviços</a>
+        <a href="#" class="footer-nav-link">Blog</a>
+        <a href="https://wa.me/5521979310451" target="_blank" rel="noopener" class="footer-nav-link">Contato</a>
+      </nav>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/assessoriaunited/" target="_blank" rel="noopener" aria-label="Instagram">
+          <img src="https://framerusercontent.com/images/GVVp6YA6Wk0eT5Y1Z1fMxP3U0.svg" alt="Instagram" loading="lazy">
+        </a>
+        <a href="https://wa.me/5521979310451" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#000"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Row 2: CTA (left) + Connect (right) -->
+    <div class="footer-details">
+      <div class="footer-cta-block">
+        <h3>Pronto para escalar sua<br>empresa de investimento?</h3>
+        <a href="#service" class="btn-primary" style="align-self:flex-start;">
+          FALAR NO WHATSAPP
+          <span class="btn-icon">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 10L10 2M10 2H4M10 2V8" stroke="#004CFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+
+      <div class="footer-connect">
+        <span class="footer-connect-title">Contato</span>
+        <div class="footer-connect-list">
+          <a href="https://wa.me/5521979310451" target="_blank" rel="noopener" class="footer-connect-link">+55 21 97931-0451</a>
+          <a href="https://www.instagram.com/assessoriaunited/" target="_blank" rel="noopener" class="footer-connect-link">@assessoriaunited</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 3: Copyright only -->
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 United Assessoria. Todos os direitos reservados.</p>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+// ===== SCROLL REVEAL =====
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ===== FORM SUBMIT — WhatsApp formatado =====
+function handleFormSubmit(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn  = form.querySelector('.form-btn');
+
+  // Coleta valores
+  const nome       = (form.querySelector('#nome')?.value || '').trim() || '(não informado)';
+  const whatsapp   = (form.querySelector('#whatsapp')?.value || '').trim() || '(não informado)';
+  const email      = (form.querySelector('#email')?.value || '').trim() || '(não informado)';
+  const segSelect  = form.querySelector('#segmento');
+  const fatSelect  = form.querySelector('#faturamento');
+  const segmento   = segSelect?.options[segSelect.selectedIndex]?.text || '(não informado)';
+  const faturamento = fatSelect?.options[fatSelect.selectedIndex]?.text || '(não informado)';
+
+  // Mensagem formatada
+  const msg =
+    `🚀 *Novo Lead — United Assessoria*
+
+` +
+    `👤 *Nome:* ${nome}
+` +
+    `📱 *WhatsApp:* ${whatsapp}
+` +
+    `📧 *E-mail:* ${email}
+` +
+    `🏢 *Segmento:* ${segmento}
+` +
+    `💰 *Faturamento:* ${faturamento}
+
+` +
+    `_Enviado pelo formulário do site._`;
+
+  // Número de destino (sem +)
+  const numero = '5521979310451';
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
+
+  // Feedback visual
+  btn.textContent = 'ABRINDO WHATSAPP...';
+  btn.style.background = '#00c853';
+  btn.disabled = true;
+
+  // Abre WhatsApp
+  window.open(url, '_blank');
+
+  // Reseta após 3s
+  setTimeout(() => {
+    btn.textContent = 'RECEBER MAIS INFORMAÇÕES';
+    btn.style.background = '';
+    btn.disabled = false;
+    form.reset();
+  }, 3000);
+}
+
+// ===== TESTIMONIALS CAROUSEL =====
+let currentSlide = 0;
+const track = document.getElementById('testimonialsTrack');
+const cards = document.querySelectorAll('.testimonial-card');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+function goToSlide(index) {
+  currentSlide = Math.max(0, Math.min(index, cards.length - 1));
+  track.scrollTo({ left: cards[currentSlide].offsetLeft, behavior: 'smooth' });
+  prevBtn.disabled = currentSlide === 0;
+  nextBtn.disabled = currentSlide === cards.length - 1;
+}
+
+// Video lazy load
+document.querySelectorAll('.card-video-thumb').forEach(thumb => {
+  thumb.addEventListener('click', () => {
+    const src = thumb.dataset.videoSrc;
+    const iframe = document.createElement('iframe');
+    iframe.src = src + '?autoplay=false&loop=false&muted=false&preload=true&responsive=false';
+    iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
+    iframe.allow = 'accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;';
+    iframe.allowFullscreen = true;
+    thumb.parentElement.style.position = 'relative';
+    thumb.parentElement.appendChild(iframe);
+    thumb.remove();
+  });
+});
+
+// ===== COUNTUP ANIMATION =====
+let statsAnimated = false;
+const statsSection = document.getElementById('stats');
+
+function animateCount(el, target, duration) {
+  const start = performance.now();
+  function step(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(eased * target) + '+';
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !statsAnimated) {
+      statsAnimated = true;
+      animateCount(document.getElementById('stat1'), 500, 2000);
+      animateCount(document.getElementById('stat2'), 6, 1000);
+      animateCount(document.getElementById('stat3'), 100, 1800);
+    }
+  });
+}, { threshold: 0.3 });
+statsObserver.observe(statsSection);
+
+// Manifesto: solid black text, no scroll animation needed
+</script>
+</body>
+</html>
