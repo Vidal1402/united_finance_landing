@@ -1101,7 +1101,7 @@ footer {
     overflow-x: clip;
   }
   .hero-logo { width: 120px; }
-  .hero-title h1 { font-size: clamp(36px, 10vw, 56px); line-height: 0.95em; }
+  .hero-title h1 { font-size: clamp(40px, 11.5vw, 62px); line-height: 0.93em; }
   .hero-subtitle { font-size: 16px; line-height: 1.45em; }
   .hero-subtitle br { display: none; }
   .hero-cta { gap: 18px; }
@@ -1144,9 +1144,12 @@ footer {
   .ticker-band { left: 0; right: 0; }
   .ticker-track,
   .ticker-track-rev {
-    animation: none;
-    transform: none;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
   }
+  .ticker-track { animation-name: scroll-left; }
+  .ticker-track-rev { animation-name: scroll-right; }
 
   /* ── SERVICE / FORMULÁRIO ───────────────────────────── */
   #service { padding: 56px 0 64px; }
@@ -1258,7 +1261,7 @@ footer {
    ============================================================ */
 @media (max-width: 480px) {
   .hero-content { padding: 24px 20px 32px; }
-  .hero-title h1 { font-size: 34px; line-height: 0.95em; }
+  .hero-title h1 { font-size: 38px; line-height: 0.93em; }
   .hero-logo { width: 110px; }
 
   .btn-primary { font-size: 11px; padding: 9px 9px 9px 16px; }
