@@ -721,10 +721,10 @@ p {
   align-items: center;
   justify-content: center;
   transition: opacity 0.2s, transform 0.2s;
-  background: #e8341a;
+  background: var(--azul);
 }
 .t-nav-btn:disabled { opacity: 0.3; cursor: default; }
-.t-nav-btn:not(:disabled):hover { transform: scale(1.06); background: #cc2a12; }
+.t-nav-btn:not(:disabled):hover { transform: scale(1.06); background: var(--azul-escuro); }
 .t-nav-btn svg { width: 22px; height: 22px; }
 
 /* ============================================================
@@ -1511,7 +1511,7 @@ footer {
         <!-- Card 1 — Dexcap -->
         <div class="testimonial-card">
           <div class="card-video">
-            <iframe src="https://iframe.mediadelivery.net/embed/234627/cd8c4c22-d07a-4258-9e11-226268b5334c?autoplay=false&loop=false&muted=false&preload=true" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
+            <iframe src="https://iframe.mediadelivery.net/embed/234627/cd8c4c22-d07a-4258-9e11-226268b5334c?autoplay=false&loop=false&muted=false&preload=true&accent=004CFF&primaryColor=004CFF" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
           </div>
           <div class="card-info">
             <img class="card-logo" src="https://framerusercontent.com/images/18MU9pCeHjIxUJcNi55v0j1aVs.png" alt="Dexcap" loading="lazy">
@@ -1526,7 +1526,7 @@ footer {
         <!-- Card 2 — Ribus -->
         <div class="testimonial-card">
           <div class="card-video">
-            <iframe src="https://iframe.mediadelivery.net/embed/234627/2f4a10f9-5026-47a5-bcef-b278209803f0?autoplay=false&loop=false&muted=false&preload=true" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
+            <iframe src="https://iframe.mediadelivery.net/embed/234627/2f4a10f9-5026-47a5-bcef-b278209803f0?autoplay=false&loop=false&muted=false&preload=true&accent=004CFF&primaryColor=004CFF" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
           </div>
           <div class="card-info">
             <img class="card-logo" src="https://framerusercontent.com/images/R30cbJB75185FOaAemWo9NVvQQ.png" alt="Ribus" loading="lazy">
@@ -1541,7 +1541,7 @@ footer {
         <!-- Card 3 — Hantec -->
         <div class="testimonial-card">
           <div class="card-video">
-            <iframe src="https://iframe.mediadelivery.net/embed/234627/a0441df0-99d3-4a6d-890c-fb8fde82b977?autoplay=false&loop=false&muted=false&preload=true" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
+            <iframe src="https://iframe.mediadelivery.net/embed/234627/a0441df0-99d3-4a6d-890c-fb8fde82b977?autoplay=false&loop=false&muted=false&preload=true&accent=004CFF&primaryColor=004CFF" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
           </div>
           <div class="card-info">
             <img class="card-logo" src="https://framerusercontent.com/images/zNiOGvVX96gDQvtXoww21X84r5k.png" alt="Hantec" loading="lazy">
@@ -1556,7 +1556,7 @@ footer {
         <!-- Card 4 — Sectze -->
         <div class="testimonial-card">
           <div class="card-video">
-            <iframe src="https://iframe.mediadelivery.net/embed/234627/746ab4f2-6b78-4eb0-92a0-a799a32130d1?autoplay=false&loop=false&muted=false&preload=true" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
+            <iframe src="https://iframe.mediadelivery.net/embed/234627/746ab4f2-6b78-4eb0-92a0-a799a32130d1?autoplay=false&loop=false&muted=false&preload=true&accent=004CFF&primaryColor=004CFF" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
           </div>
           <div class="card-info">
             <img class="card-logo" src="https://framerusercontent.com/images/WQkKl9J2XSyuMnAkqadIQgdRass.png" alt="Sectze" loading="lazy">
@@ -1768,7 +1768,7 @@ document.querySelectorAll('.card-video-thumb').forEach(thumb => {
   thumb.addEventListener('click', () => {
     const src = thumb.dataset.videoSrc;
     const iframe = document.createElement('iframe');
-    iframe.src = src + '?autoplay=false&loop=false&muted=false&preload=true&responsive=false';
+    iframe.src = src + '?autoplay=false&loop=false&muted=false&preload=true&responsive=false&accent=004CFF&primaryColor=004CFF';
     iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
     iframe.allow = 'accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;';
     iframe.allowFullscreen = true;
