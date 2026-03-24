@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kuato — Assessoria de Marketing para Empresas de Investimento</title>
+<meta name="description" content="United — assessoria de marketing para empresas de investimento. Tráfego pago, CRM, branding, pitch deck, treinamento e metodologia ACCE para escalar captação.">
+<meta name="theme-color" content="#004CFF">
+<title>United — Assessoria de Marketing para Empresas de Investimento</title>
+<link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&family=Big+Shoulders+Display:wght@400;700;800;900&display=swap" rel="stylesheet">
@@ -99,6 +102,8 @@ p {
 }
 .btn-primary .btn-icon svg { display: block; }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,76,255,0.4); }
+.btn-primary.btn-cta-long,
+.btn-ghost.btn-cta-long { white-space: normal; text-align: center; line-height: 1.15; padding: 12px 18px; max-width: 100%; }
 
 .btn-ghost {
   background: transparent;
@@ -567,6 +572,236 @@ p {
   transition: opacity 0.2s;
 }
 .logo-item img:hover { opacity: 1; }
+
+/* ============================================================
+   SECTION — SERVIÇOS (detalhados)
+   ============================================================ */
+#servicos {
+  background: #f5f5f3;
+  padding: 88px 30px 96px;
+}
+.servicos-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.servicos-kicker {
+  font-family: 'Onest', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--azul);
+  margin-bottom: 16px;
+  text-align: center;
+}
+.servicos-title {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 800;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1em;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: var(--preto);
+  max-width: 920px;
+  margin: 0 auto 14px;
+}
+.servicos-lead {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.5em;
+  color: rgba(3,2,11,0.65);
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 44px;
+}
+.servicos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.servico-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 26px 22px 30px;
+  border: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+}
+.servico-card-num {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 800;
+  font-size: 26px;
+  color: var(--azul);
+  line-height: 1;
+}
+.servico-card h3 {
+  font-family: 'Onest', sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--preto);
+  letter-spacing: -0.02em;
+}
+.servico-card p {
+  font-family: 'Onest', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.55em;
+  color: rgba(3,2,11,0.72);
+  flex: 1;
+}
+
+/* ============================================================
+   SECTION — METODOLOGIA ACCE
+   ============================================================ */
+#metodologia-acce {
+  background: var(--preto);
+  padding: 88px 30px 96px;
+}
+.acce-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.acce-kicker {
+  font-family: 'Onest', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--azul);
+  margin-bottom: 16px;
+  text-align: center;
+}
+.acce-title {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 800;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1em;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #fff;
+  max-width: 900px;
+  margin: 0 auto 16px;
+}
+.acce-lead {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.55em;
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+.acce-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.acce-pillar {
+  background: #121212;
+  border-radius: 14px;
+  padding: 22px 18px 26px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.acce-letter {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 800;
+  font-size: 34px;
+  color: var(--azul);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.acce-pillar h3 {
+  font-family: 'Onest', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+.acce-pillar p {
+  font-family: 'Onest', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.5em;
+  color: rgba(255,255,255,0.55);
+}
+
+/* ============================================================
+   SECTION — CASES (resultados)
+   ============================================================ */
+#cases {
+  background: #fff;
+  padding: 80px 30px 88px;
+}
+.cases-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.cases-title {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 800;
+  font-size: clamp(30px, 4.5vw, 48px);
+  line-height: 1em;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: var(--preto);
+  margin-bottom: 12px;
+}
+.cases-lead {
+  font-family: 'Onest', sans-serif;
+  font-size: 15px;
+  line-height: 1.5em;
+  color: rgba(3,2,11,0.6);
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 40px;
+}
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.case-card {
+  background: #f5f5f3;
+  border-radius: 16px;
+  padding: 26px 22px 28px;
+  border: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.case-metric {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, 40px);
+  color: var(--azul);
+  line-height: 1;
+}
+.case-card h3 {
+  font-family: 'Onest', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--preto);
+}
+.case-card p {
+  font-family: 'Onest', sans-serif;
+  font-size: 13px;
+  line-height: 1.55em;
+  color: rgba(3,2,11,0.65);
+  flex: 1;
+}
+.case-note {
+  font-family: 'Onest', sans-serif;
+  font-size: 11px;
+  line-height: 1.45em;
+  color: rgba(3,2,11,0.45);
+  font-style: italic;
+}
 
 /* ============================================================
    SECTION 4 — DEPOIMENTOS / ELES FALAM POR NÓS
@@ -1067,6 +1302,10 @@ footer {
   #manifesto { padding: 80px 40px 50px; }
   #stats { padding: 0 40px 80px; }
 
+  .servicos-grid { grid-template-columns: repeat(2, 1fr); }
+  .acce-grid { grid-template-columns: repeat(2, 1fr); }
+  .cases-grid { grid-template-columns: repeat(2, 1fr); }
+
   .footer-logo-bar { padding: 50px 40px 32px; }
   .footer-main { padding: 36px 40px 48px; }
 }
@@ -1169,6 +1408,17 @@ footer {
   #logos { padding: 28px 0; }
   .logos-title { font-size: 16px; padding: 0 20px; }
   .logo-item { height: 24px; }
+
+  #servicos { padding: 56px 24px 64px; }
+  .servicos-lead { margin-bottom: 32px; }
+  .servicos-grid { grid-template-columns: 1fr; gap: 16px; }
+
+  #metodologia-acce { padding: 56px 24px 64px; }
+  .acce-grid { grid-template-columns: 1fr; gap: 14px; }
+  .acce-lead { margin-bottom: 28px; }
+
+  #cases { padding: 56px 24px 64px; }
+  .cases-grid { grid-template-columns: 1fr; gap: 16px; }
 
   /* ── DEPOIMENTOS ────────────────────────────────────── */
   #testimonials { padding: 56px 0 64px; overflow: hidden; }
@@ -1316,8 +1566,8 @@ footer {
       <!-- CTA + Social Proof -->
       <div class="hero-cta reveal reveal-delay-3">
         <!-- Blue pill button with diagonal arrow icon -->
-        <a href="https://wa.me/5521979310451" target="_blank" rel="noopener" class="btn-primary hero-btn">
-          QUERO MAIS INFORMAÇÕES
+        <a href="https://wa.me/5521979310451?text=Ol%C3%A1%2C%20quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20para%20o%20meu%20escrit%C3%B3rio." target="_blank" rel="noopener" class="btn-primary hero-btn btn-cta-long">
+          AGENDAR DIAGNÓSTICO GRATUITO
           <span class="btn-icon">
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
               <path d="M2.5 10.5L10.5 2.5M10.5 2.5H4.5M10.5 2.5V8.5" stroke="#004CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1453,7 +1703,7 @@ footer {
             </select>
           </div>
         </div>
-        <button type="submit" class="form-btn">RECEBER MAIS INFORMAÇÕES</button>
+        <button type="submit" class="form-btn">SOLICITAR DIAGNÓSTICO GRATUITO</button>
       </form>
     </div>
 
@@ -1489,6 +1739,82 @@ footer {
 </section>
 
 <!-- ============================================================
+     SERVIÇOS (alinhado ao Instagram)
+     ============================================================ -->
+<section id="servicos">
+  <div class="servicos-inner">
+    <p class="servicos-kicker reveal">O que entregamos</p>
+    <h2 class="servicos-title reveal">SERVIÇOS PARA ESCRITÓRIOS E EMPRESAS DO MERCADO FINANCEIRO</h2>
+    <p class="servicos-lead reveal">Os mesmos pilares que apresentamos no Instagram — agora com contexto direto na landing, para quem chega do feed não perder o fio da meada.</p>
+    <div class="servicos-grid">
+      <article class="servico-card reveal">
+        <span class="servico-card-num">01</span>
+        <h3>Tráfego pago</h3>
+        <p>Campanhas em Meta e Google com criativos e mensagens pensados para captação e qualificação de investidores, com acompanhamento de métricas que importam para o seu funil.</p>
+      </article>
+      <article class="servico-card reveal reveal-delay-1">
+        <span class="servico-card-num">02</span>
+        <h3>CRM e automação</h3>
+        <p>Organização de leads, fluxos de nutrição e integrações para o time comercial responder rápido e não perder oportunidades por falta de follow-up.</p>
+      </article>
+      <article class="servico-card reveal reveal-delay-2">
+        <span class="servico-card-num">03</span>
+        <h3>Branding e posicionamento</h3>
+        <p>Narrativa, identidade verbal e visual alinhadas à regulação e à confiança que o mercado financeiro exige — sem parecer “template genérico”.</p>
+      </article>
+      <article class="servico-card reveal">
+        <span class="servico-card-num">04</span>
+        <h3>Pitch deck e materiais comerciais</h3>
+        <p>Apresentações e peças para reuniões, roadshows e prospecção institucional, com foco em clareza, compliance e conversão.</p>
+      </article>
+      <article class="servico-card reveal reveal-delay-1">
+        <span class="servico-card-num">05</span>
+        <h3>Treinamento de equipe</h3>
+        <p>Capacitação de SDRs, assessores e marketing interno para usar o método, as ferramentas e o discurso certo na prática do dia a dia.</p>
+      </article>
+      <article class="servico-card reveal reveal-delay-2">
+        <span class="servico-card-num">06</span>
+        <h3>Estratégia e conteúdo</h3>
+        <p>Linha editorial, SEO, redes sociais e peças de autoridade que sustentam demanda orgânica e reforçam reputação no longo prazo.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     METODOLOGIA ACCE
+     ============================================================ -->
+<section id="metodologia-acce">
+  <div class="acce-inner">
+    <p class="acce-kicker reveal">Metodologia United</p>
+    <h2 class="acce-title reveal">FRAMEWORK ACCE</h2>
+    <p class="acce-lead reveal">Autoridade, Captação, Conversão e Escala — o método que usamos para alinhar marketing, vendas e operação no mercado de investimentos.</p>
+    <div class="acce-grid">
+      <div class="acce-pillar reveal">
+        <div class="acce-letter">A</div>
+        <h3>Autoridade</h3>
+        <p>Conteúdo, PR e presença digital que geram confiança antes mesmo da primeira conversa com o investidor.</p>
+      </div>
+      <div class="acce-pillar reveal reveal-delay-1">
+        <div class="acce-letter">C</div>
+        <h3>Captação</h3>
+        <p>Tráfego e inbound estruturados para trazer volume e qualidade de leads compatíveis com o seu produto e perfil de cliente.</p>
+      </div>
+      <div class="acce-pillar reveal reveal-delay-2">
+        <div class="acce-letter">C</div>
+        <h3>Conversão</h3>
+        <p>CRM, automações e jornada comercial para transformar interesse em reunião, proposta e contrato.</p>
+      </div>
+      <div class="acce-pillar reveal reveal-delay-3">
+        <div class="acce-letter">E</div>
+        <h3>Escala</h3>
+        <p>Processos, treinamento e otimização contínua para crescer sem perder padrão de atendimento nem compliance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      SECTION 4 — DEPOIMENTOS
      ============================================================ -->
 <section id="testimonials">
@@ -1515,7 +1841,7 @@ footer {
           </div>
           <div class="card-info">
             <img class="card-logo" src="https://framerusercontent.com/images/18MU9pCeHjIxUJcNi55v0j1aVs.png" alt="Dexcap" loading="lazy">
-            <p class="card-quote">"Our results and online presence went through the roof more or less overnight, mind-blowing!"</p>
+            <p class="card-quote">"Nossos resultados e presença digital dispararam praticamente da noite para o dia — impressionante."</p>
             <div class="card-client">
               <span class="card-client-name">Andre Mileto</span>
               <span class="card-client-role">COO Dexcap</span>
@@ -1530,7 +1856,7 @@ footer {
           </div>
           <div class="card-info">
             <img class="card-logo" src="https://framerusercontent.com/images/R30cbJB75185FOaAemWo9NVvQQ.png" alt="Ribus" loading="lazy">
-            <p class="card-quote">"These guys don't mess around. We saw results from month one. If you want to grow your business, look no further."</p>
+            <p class="card-quote">"Eles vão direto ao ponto. Vimos resultado já no primeiro mês. Se você quer escalar, não precisa procurar outro lugar."</p>
             <div class="card-client">
               <span class="card-client-name">Daniel Carius</span>
               <span class="card-client-role">CEO Ribus</span>
@@ -1545,9 +1871,9 @@ footer {
           </div>
           <div class="card-info">
             <img class="card-logo" src="https://framerusercontent.com/images/zNiOGvVX96gDQvtXoww21X84r5k.png" alt="Hantec" loading="lazy">
-            <p class="card-quote">"Conversion absolutely blew the previous agency we were working with out of the water."</p>
+            <p class="card-quote">"A conversão superou de longe a agência com que a gente trabalhava antes."</p>
             <div class="card-client">
-              <span class="card-client-name">Joao</span>
+              <span class="card-client-name">João</span>
               <span class="card-client-role">Diretor Hantec</span>
             </div>
           </div>
@@ -1560,7 +1886,7 @@ footer {
           </div>
           <div class="card-info">
             <img class="card-logo" src="https://framerusercontent.com/images/WQkKl9J2XSyuMnAkqadIQgdRass.png" alt="Sectze" loading="lazy">
-            <p class="card-quote">"From where we were before Conversion to where we are now; it's absolutely apart."</p>
+            <p class="card-quote">"De onde estávamos antes até onde estamos hoje — o salto é absurdo, não tem comparação."</p>
             <div class="card-client">
               <span class="card-client-name">Victor Fernandes</span>
               <span class="card-client-role">CEO Sectze</span>
@@ -1620,6 +1946,36 @@ footer {
 </section>
 
 <!-- ============================================================
+     CASES — resultados (referência)
+     ============================================================ -->
+<section id="cases">
+  <div class="cases-inner">
+    <h2 class="cases-title reveal">RESULTADOS QUE REPLICAMOS NO MERCADO FINANCEIRO</h2>
+    <p class="cases-lead reveal">Exemplos de magnitude de resultado que entregamos com escritórios e empresas do setor — números ilustrativos para proteger sigilo comercial; na conversa mostramos cases com contexto.</p>
+    <div class="cases-grid">
+      <article class="case-card reveal">
+        <span class="case-metric">+R$ 50M</span>
+        <h3>Captação em ~6 meses</h3>
+        <p>Escritório de investimentos: funil de tráfego + CRM + discurso comercial alinhado ao método ACCE.</p>
+        <p class="case-note">Cenário típico; valores e prazos variam por operação e produto.</p>
+      </article>
+      <article class="case-card reveal reveal-delay-1">
+        <span class="case-metric">+180%</span>
+        <h3>Leads qualificados em 90 dias</h3>
+        <p>Campanhas e landing com mensagem específica para investidor, reduzindo ruído e aumentando taxa de reunião.</p>
+        <p class="case-note">Referência de ordem de grandeza após implementação completa.</p>
+      </article>
+      <article class="case-card reveal reveal-delay-2">
+        <span class="case-metric">3×</span>
+        <h3>Reuniões comerciais mensais</h3>
+        <p>Automação de follow-up e priorização de MQLs para o time fechar mais sem aumentar headcount na mesma proporção.</p>
+        <p class="case-note">Resultado depende de capacidade interna e oferta.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      SECTION 7 — CTA / MÉTODO
      ============================================================ -->
 <section id="cta">
@@ -1633,16 +1989,16 @@ footer {
     </div>
 
     <div class="cta-buttons reveal reveal-delay-1">
-      <a href="https://wa.me/5521979310451" target="_blank" rel="noopener" class="btn-primary">
-        QUERO MAIS INFORMAÇÕES
+      <a href="https://wa.me/5521979310451?text=Ol%C3%A1%2C%20quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20para%20o%20meu%20escrit%C3%B3rio." target="_blank" rel="noopener" class="btn-primary btn-cta-long">
+        AGENDAR DIAGNÓSTICO GRATUITO
         <span class="btn-icon">
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
             <path d="M2.5 10.5L10.5 2.5M10.5 2.5H4.5M10.5 2.5V8.5" stroke="#004CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </span>
       </a>
-      <a href="https://wa.me/5521979310451" target="_blank" rel="noopener" class="btn-ghost">
-        Falar no WhatsApp
+      <a href="https://wa.me/5521979310451?text=Ol%C3%A1%2C%20quero%20ver%20o%20plano%20para%20o%20meu%20escrit%C3%B3rio." target="_blank" rel="noopener" class="btn-ghost btn-cta-long">
+        VER PLANO PARA MEU ESCRITÓRIO
         <span class="btn-icon">
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
             <path d="M2.5 10.5L10.5 2.5M10.5 2.5H4.5M10.5 2.5V8.5" stroke="#03020B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1670,10 +2026,10 @@ footer {
     <!-- Row 1: Nav links (left) + Social icons (right) -->
     <div class="footer-top">
       <nav class="footer-nav">
-        <a href="#" class="footer-nav-link">Início</a>
-        <a href="#" class="footer-nav-link">Sobre</a>
-        <a href="#" class="footer-nav-link">Serviços</a>
-        <a href="#" class="footer-nav-link">Blog</a>
+        <a href="index.html#hero" class="footer-nav-link">Início</a>
+        <a href="sobre.html" class="footer-nav-link">Sobre</a>
+        <a href="servicos.html" class="footer-nav-link">Serviços</a>
+        <a href="blog.html" class="footer-nav-link">Blog</a>
         <a href="https://wa.me/5521979310451" target="_blank" rel="noopener" class="footer-nav-link">Contato</a>
       </nav>
       <div class="footer-social">
@@ -1692,8 +2048,8 @@ footer {
     <div class="footer-details">
       <div class="footer-cta-block">
         <h3>Pronto para escalar sua<br>empresa de investimento?</h3>
-        <a href="#service" class="btn-primary" style="align-self:flex-start;">
-          FALAR NO WHATSAPP
+        <a href="https://wa.me/5521979310451?text=Ol%C3%A1%2C%20quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20para%20o%20meu%20escrit%C3%B3rio." target="_blank" rel="noopener" class="btn-primary btn-cta-long" style="align-self:flex-start;">
+          AGENDAR DIAGNÓSTICO
           <span class="btn-icon">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
               <path d="M2 10L10 2M10 2H4M10 2V8" stroke="#004CFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1713,7 +2069,7 @@ footer {
 
     <!-- Row 3: Copyright only -->
     <div class="footer-bottom">
-      <p class="footer-copy">© 2025 United Assessoria. Todos os direitos reservados.</p>
+      <p class="footer-copy">© 2026 United Assessoria. Todos os direitos reservados.</p>
     </div>
 
   </div>
@@ -1742,7 +2098,7 @@ function handleFormSubmit(e) {
   btn.style.background = '#00c853';
   btn.disabled = true;
   setTimeout(() => {
-    btn.textContent = 'RECEBER MAIS INFORMAÇÕES';
+    btn.textContent = 'SOLICITAR DIAGNÓSTICO GRATUITO';
     btn.style.background = '';
     btn.disabled = false;
     e.target.reset();
