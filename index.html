@@ -441,7 +441,9 @@ p {
 #hero {
   background: #ffffff;
   position: relative;
-  /* NO overflow:hidden — image must overflow freely */
+  z-index: 0;
+  isolation: isolate;
+  /* NO overflow:hidden — image must overflow freely; isolate mantém a foto “presa” à camada do hero no desktop */
 }
 
 /* Single-column layout for content only; image is absolutely positioned */
@@ -482,7 +484,7 @@ p {
   width: 58%;
   height: auto;
   display: block;
-  z-index: 5;
+  z-index: 4;
   pointer-events: none;
 }
 
@@ -633,6 +635,8 @@ p {
 #service {
   background: var(--preto);
   padding: 100px 0 120px;
+  position: relative;
+  z-index: 11;
 }
 .service-inner {
   max-width: 1355px;
@@ -705,6 +709,8 @@ p {
 /* Right: form card — white floating, heavy rounded, big shadow */
 .service-form-col {
   flex: 0 0 400px;
+  position: relative;
+  z-index: 2;
 }
 .form-card {
   background: #fff;
@@ -714,6 +720,8 @@ p {
   flex-direction: column;
   gap: 16px;
   box-shadow: 0 20px 80px rgba(0,0,0,0.5), 0 4px 24px rgba(0,0,0,0.25);
+  position: relative;
+  z-index: 1;
 }
 .form-group {
   display: flex;
@@ -2080,7 +2088,7 @@ footer {
       <li><a href="blog.html">Blog</a></li>
       <li><a href="index.html#cases">Cases</a></li>
     </ul>
-    <a href="https://wa.me/5521979310451?text=Ol%C3%A1%2C%20vim%20pelo%20site%20United." target="_blank" rel="noopener" class="nav-cta-pill nav-cta-pill--desktop">WhatsApp <span class="nav-cta-arrow" aria-hidden="true">→</span></a>
+    <a href="#service" class="nav-cta-pill nav-cta-pill--desktop">WhatsApp <span class="nav-cta-arrow" aria-hidden="true">→</span></a>
     <button type="button" class="nav-burger" id="navBurger" aria-label="Abrir menu" aria-expanded="false" aria-controls="navOverlay">
       <span></span><span></span><span></span>
     </button>
@@ -2103,7 +2111,7 @@ footer {
       <a href="servicos.html">Serviços</a>
       <a href="blog.html">Blog</a>
       <a href="index.html#cases">Cases</a>
-      <a href="https://wa.me/5521979310451?text=Ol%C3%A1%2C%20vim%20pelo%20site%20United." target="_blank" rel="noopener" class="nav-overlay-cta">Fale no WhatsApp →</a>
+      <a href="#service" class="nav-overlay-cta">WhatsApp →</a>
     </div>
   </div>
 </div>
@@ -2141,7 +2149,7 @@ footer {
       <!-- CTA + Social Proof -->
       <div class="hero-cta reveal reveal-delay-3">
         <!-- Blue pill button with diagonal arrow icon -->
-        <a href="https://wa.me/5521979310451?text=Ol%C3%A1%2C%20quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20para%20o%20meu%20escrit%C3%B3rio." target="_blank" rel="noopener" class="btn-primary hero-btn btn-cta-long">
+        <a href="#service" class="btn-primary hero-btn btn-cta-long">
           AGENDAR DIAGNÓSTICO GRATUITO
           <span class="btn-icon">
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
@@ -2663,7 +2671,7 @@ footer {
     </div>
 
     <div class="cta-buttons reveal reveal-delay-1">
-      <a href="https://wa.me/5521979310451?text=Ol%C3%A1%2C%20quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20para%20o%20meu%20escrit%C3%B3rio." target="_blank" rel="noopener" class="btn-primary btn-cta-long">
+      <a href="#service" class="btn-primary btn-cta-long">
         AGENDAR DIAGNÓSTICO GRATUITO
         <span class="btn-icon">
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
@@ -2671,7 +2679,7 @@ footer {
           </svg>
         </span>
       </a>
-      <a href="https://wa.me/5521979310451?text=Ol%C3%A1%2C%20quero%20ver%20o%20plano%20para%20o%20meu%20escrit%C3%B3rio." target="_blank" rel="noopener" class="btn-ghost btn-cta-long">
+      <a href="#service" class="btn-ghost btn-cta-long">
         VER PLANO PARA MEU ESCRITÓRIO
         <span class="btn-icon">
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
@@ -2704,13 +2712,13 @@ footer {
         <a href="sobre.html" class="footer-nav-link">Sobre</a>
         <a href="servicos.html" class="footer-nav-link">Serviços</a>
         <a href="blog.html" class="footer-nav-link">Blog</a>
-        <a href="https://wa.me/5521979310451" target="_blank" rel="noopener" class="footer-nav-link">Contato</a>
+        <a href="index.html#service" class="footer-nav-link">Contato</a>
       </nav>
       <div class="footer-social">
         <a href="https://www.instagram.com/assessoriaunited/" target="_blank" rel="noopener" aria-label="Instagram">
           <img src="https://framerusercontent.com/images/GVVp6YA6Wk0eT5Y1Z1fMxP3U0.svg" alt="Instagram" loading="lazy">
         </a>
-        <a href="https://wa.me/5521979310451" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <a href="index.html#service" aria-label="Ir para o formulário de contato">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#000"/>
           </svg>
@@ -2722,7 +2730,7 @@ footer {
     <div class="footer-details">
       <div class="footer-cta-block">
         <h3>Pronto para escalar sua<br>empresa de investimento?</h3>
-        <a href="https://wa.me/5521979310451?text=Ol%C3%A1%2C%20quero%20agendar%20um%20diagn%C3%B3stico%20gratuito%20para%20o%20meu%20escrit%C3%B3rio." target="_blank" rel="noopener" class="btn-primary btn-cta-long" style="align-self:flex-start;">
+        <a href="index.html#service" class="btn-primary btn-cta-long" style="align-self:flex-start;">
           AGENDAR DIAGNÓSTICO
           <span class="btn-icon">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -2735,7 +2743,7 @@ footer {
       <div class="footer-connect">
         <span class="footer-connect-title">Contato</span>
         <div class="footer-connect-list">
-          <a href="https://wa.me/5521979310451" target="_blank" rel="noopener" class="footer-connect-link">+55 21 97931-0451</a>
+          <a href="index.html#service" class="footer-connect-link">+55 21 97931-0451</a>
           <a href="https://www.instagram.com/assessoriaunited/" target="_blank" rel="noopener" class="footer-connect-link">@assessoriaunited</a>
         </div>
       </div>
