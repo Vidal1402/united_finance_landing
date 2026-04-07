@@ -337,15 +337,15 @@ section[id] { scroll-margin-top: 88px; }
 
 /* ===== CSS VARIABLES ===== */
 :root {
-  --preto: #03020B;
+  --preto: #000000;
   --branco: #FFFFFF;
   --azul: #F9FF3E;
   --azul-escuro: #d4dc32;
   --vermelho-vs: #dc2626;
   --azul-ticker: #F9FF3E;
-  --cinza-fundo: #0D0D0D;
+  --cinza-fundo: #000000;
   --cinza-claro: #F7F7F7;
-  --cinza-card: #0F0F0F;
+  --cinza-card: #000000;
   --texto-muted: rgba(255,255,255,0.55);
   --borda-sutil: rgba(255,255,255,0.1);
 }
@@ -669,11 +669,14 @@ p {
    SECTION 2 — FORMULÁRIO / SERVICE
    ============================================================ */
 #service {
-  background: var(--preto);
+  background: #000;
   padding: 170px 0 120px;
   position: relative;
   z-index: 11;
   margin-top: -70px;
+}
+.service-inner {
+  background: transparent;
 }
 .service-inner {
   max-width: 1355px;
@@ -692,7 +695,7 @@ p {
   flex-direction: column;
   gap: 24px;
   padding-top: 4px;
-  background: var(--preto);
+  background: #000;
 }
 
 /* Title: very large, fills full left column */
@@ -840,12 +843,13 @@ p {
   align-items: center;
 }
 .logos-title {
-  font-family: 'Onest', sans-serif;
+  font-family: 'Big Shoulders Display', sans-serif;
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 700;
   color: #fff;
-  letter-spacing: -0.02em;
-  line-height: 1.4em;
+  letter-spacing: 0.02em;
+  line-height: 1.15em;
+  text-transform: uppercase;
   text-align: center;
 }
 
