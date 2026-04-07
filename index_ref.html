@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="United — assessoria de marketing para empresas de investimento. Tráfego pago, CRM, branding, pitch deck, treinamento e metodologia ACCE para escalar captação.">
+<meta name="theme-color" content="#004CFF">
 <title>United Finance — Assessoria de Marketing para Empresas de Investimento</title>
+<link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700&family=Big+Shoulders+Display:wght@400;700;800;900&display=swap" rel="stylesheet">
@@ -11,22 +14,295 @@
 <style>
 /* ===== RESET & BASE ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-  max-width: 100%;
-}
+html { scroll-behavior: smooth; }
 body {
   font-family: 'Onest', sans-serif;
   font-weight: 400;
   color: #03020B;
   background: #fff;
   overflow-x: hidden;
-  max-width: 100vw;
   -webkit-font-smoothing: antialiased;
 }
+body.nav-open { overflow: hidden; }
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
+
+/* ===== SITE NAV — estilo United (vidro) / hamburger mobile ===== */
+.site-nav-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 16px max(28px, env(safe-area-inset-left)) 0 max(28px, env(safe-area-inset-right));
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+body.nav-open .site-nav-wrap {
+  z-index: 1002;
+}
+.nav-pill {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 920px;
+  min-height: 54px;
+  background: rgba(255, 255, 255, 0.78);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 10px 8px 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+.nav-brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 4px 2px;
+}
+.nav-brand img {
+  height: 24px;
+  width: auto;
+  display: block;
+}
+.nav-menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 2vw, 26px);
+  flex: 1;
+  margin: 0;
+  padding: 0 6px;
+}
+.nav-menu a {
+  font-family: 'Onest', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(3, 2, 11, 0.58);
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  transition: color 0.2s ease;
+}
+.nav-menu a:hover,
+.nav-menu a:focus-visible { color: var(--azul); outline: none; }
+.nav-cta-pill {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Onest', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--azul);
+  padding: 10px 16px 10px 18px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0, 76, 255, 0.25);
+}
+.nav-cta-pill:hover {
+  background: var(--azul-escuro);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 76, 255, 0.35);
+}
+.nav-cta-pill .nav-cta-arrow { font-size: 14px; line-height: 1; opacity: 0.95; }
+.nav-burger {
+  display: none;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 12px;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-burger span {
+  position: absolute;
+  left: 50%;
+  width: 22px;
+  height: 2px;
+  margin-left: -11px;
+  background: var(--preto);
+  border-radius: 2px;
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), top 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+}
+.nav-burger span:nth-child(1) { top: 15px; }
+.nav-burger span:nth-child(2) { top: 21px; }
+.nav-burger span:nth-child(3) { top: 27px; }
+.nav-burger.is-open span:nth-child(1) {
+  top: 21px;
+  transform: rotate(45deg);
+}
+.nav-burger.is-open span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.nav-burger.is-open span:nth-child(3) {
+  top: 21px;
+  transform: rotate(-45deg);
+}
+.nav-burger:focus-visible { outline: 2px solid var(--azul); outline-offset: 2px; }
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  background: rgba(255, 255, 255, 0.94);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
+}
+body.nav-open .nav-overlay {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.nav-overlay-top {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: max(14px, env(safe-area-inset-top)) 20px 16px max(20px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  background: rgba(255, 255, 255, 0.6);
+}
+.nav-overlay-brand {
+  display: flex;
+  align-items: center;
+}
+.nav-overlay-brand img {
+  height: 26px;
+  width: auto;
+  display: block;
+}
+.nav-overlay-close {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 16px;
+  font-family: 'Onest', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(3, 2, 11, 0.55);
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+.nav-overlay-close:hover,
+.nav-overlay-close:focus-visible {
+  color: var(--azul);
+  background: rgba(0, 76, 255, 0.08);
+  border-color: rgba(0, 76, 255, 0.2);
+  outline: none;
+}
+.nav-overlay-close .nav-overlay-close-x {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+  margin-top: -1px;
+}
+.nav-overlay-scroll {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 24px max(24px, env(safe-area-inset-left)) 32px max(24px, env(safe-area-inset-right));
+  padding-bottom: max(32px, env(safe-area-inset-bottom));
+}
+.nav-overlay-inner {
+  max-width: 400px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.nav-overlay a:not(.nav-overlay-cta) {
+  font-family: 'Onest', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: rgba(3, 2, 11, 0.88);
+  padding: 18px 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  letter-spacing: -0.02em;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+.nav-overlay a:not(.nav-overlay-cta):hover,
+.nav-overlay a:not(.nav-overlay-cta):focus-visible {
+  color: var(--azul);
+  padding-left: 8px;
+  outline: none;
+}
+.nav-overlay .nav-overlay-cta {
+  margin-top: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--azul);
+  padding: 16px 28px;
+  border-radius: 999px;
+  border: none;
+  text-align: center;
+  box-shadow: 0 4px 24px rgba(0, 76, 255, 0.32);
+}
+.nav-overlay .nav-overlay-cta:hover { background: var(--azul-escuro); color: #fff; }
+
+section[id] { scroll-margin-top: 88px; }
+
+@media (max-width: 900px) {
+  section[id] { scroll-margin-top: 72px; }
+  .site-nav-wrap {
+    padding-top: 12px;
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+  }
+  .nav-menu { display: none; }
+  .nav-cta-pill--desktop { display: none !important; }
+  .nav-burger { display: flex; }
+  .nav-pill {
+    max-width: calc(100vw - 48px);
+    padding: 6px 8px 6px 14px;
+    gap: 8px;
+    min-height: 50px;
+    justify-content: space-between;
+  }
+}
 
 /* ===== CSS VARIABLES ===== */
 :root {
@@ -34,6 +310,7 @@ img { max-width: 100%; display: block; }
   --branco: #FFFFFF;
   --azul: #004CFF;
   --azul-escuro: #002FFF;
+  --vermelho-vs: #dc2626;
   --azul-ticker: #0C1FED;
   --cinza-fundo: #0D0D0D;
   --cinza-claro: #F7F7F7;
@@ -104,6 +381,8 @@ p {
 }
 .btn-primary .btn-icon svg { display: block; }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,76,255,0.4); }
+.btn-primary.btn-cta-long,
+.btn-ghost.btn-cta-long { white-space: normal; text-align: center; line-height: 1.15; padding: 12px 18px; max-width: 100%; }
 
 .btn-ghost {
   background: transparent;
@@ -162,8 +441,9 @@ p {
 #hero {
   background: #ffffff;
   position: relative;
-  overflow: hidden;
-  max-width: 100vw;
+  z-index: 0;
+  isolation: isolate;
+  /* NO overflow:hidden — image must overflow freely; isolate mantém a foto “presa” à camada do hero no desktop */
 }
 
 /* Single-column layout for content only; image is absolutely positioned */
@@ -177,7 +457,7 @@ p {
 
 /* LEFT COLUMN — white bg, text */
 .hero-content {
-  padding: 50px 60px 180px;
+  padding: 50px 60px 180px 80px;
   display: flex;
   flex-direction: column;
   gap: 34px;
@@ -204,7 +484,7 @@ p {
   width: 58%;
   height: auto;
   display: block;
-  z-index: 5;
+  z-index: 4;
   pointer-events: none;
 }
 
@@ -272,12 +552,11 @@ p {
 .ticker-section {
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
+  left: -60px;
+  right: -60px;
   height: 260px;
-  z-index: 10;
+  z-index: 10;   /* above the photo (z-index 5) */
   pointer-events: none;
-  overflow: hidden;
 }
 
 @keyframes scroll-left {
@@ -291,8 +570,8 @@ p {
 
 .ticker-band {
   position: absolute;
-  left: -10%;
-  right: -10%;
+  left: -80px;
+  right: -80px;
   height: 54px;
   overflow: hidden;
   display: flex;
@@ -356,6 +635,8 @@ p {
 #service {
   background: var(--preto);
   padding: 100px 0 120px;
+  position: relative;
+  z-index: 11;
 }
 .service-inner {
   max-width: 1355px;
@@ -428,6 +709,8 @@ p {
 /* Right: form card — white floating, heavy rounded, big shadow */
 .service-form-col {
   flex: 0 0 400px;
+  position: relative;
+  z-index: 2;
 }
 .form-card {
   background: #fff;
@@ -437,6 +720,8 @@ p {
   flex-direction: column;
   gap: 16px;
   box-shadow: 0 20px 80px rgba(0,0,0,0.5), 0 4px 24px rgba(0,0,0,0.25);
+  position: relative;
+  z-index: 1;
 }
 .form-group {
   display: flex;
@@ -574,6 +859,378 @@ p {
   transition: opacity 0.2s;
 }
 .logo-item img:hover { opacity: 1; }
+
+/* ============================================================
+   SECTION — SERVIÇOS (detalhados)
+   ============================================================ */
+#servicos {
+  background: #f5f5f3;
+  padding: 88px 30px 96px;
+}
+.servicos-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.servicos-kicker {
+  font-family: 'Onest', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--azul);
+  margin-bottom: 16px;
+  text-align: center;
+}
+.servicos-title {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 800;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1em;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: var(--preto);
+  max-width: 920px;
+  margin: 0 auto 14px;
+}
+.servicos-lead {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.5em;
+  color: rgba(3,2,11,0.65);
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 44px;
+}
+.servicos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.servico-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 26px 22px 30px;
+  border: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+}
+.servico-card-num {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 800;
+  font-size: 26px;
+  color: var(--azul);
+  line-height: 1;
+}
+.servico-card h3 {
+  font-family: 'Onest', sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--preto);
+  letter-spacing: -0.02em;
+}
+.servico-card p {
+  font-family: 'Onest', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.55em;
+  color: rgba(3,2,11,0.72);
+  flex: 1;
+}
+
+/* ============================================================
+   SECTION — METODOLOGIA ACCE
+   ============================================================ */
+#metodologia-acce {
+  background: var(--preto);
+  padding: 88px 30px 96px;
+}
+.acce-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.acce-kicker {
+  font-family: 'Onest', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--azul);
+  margin-bottom: 16px;
+  text-align: center;
+}
+.acce-title {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 800;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1em;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #fff;
+  max-width: 900px;
+  margin: 0 auto 16px;
+}
+.acce-lead {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.55em;
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+.acce-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+.acce-pillar {
+  background: #121212;
+  border-radius: 14px;
+  padding: 22px 18px 26px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.acce-letter {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 800;
+  font-size: 34px;
+  color: var(--azul);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.acce-pillar h3 {
+  font-family: 'Onest', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+.acce-pillar p {
+  font-family: 'Onest', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.5em;
+  color: rgba(255,255,255,0.55);
+}
+
+/* ============================================================
+   SECTION — COMPARATIVO UNITED vs GENÉRICO
+   ============================================================ */
+#comparativo {
+  background: #fff;
+  padding: 100px 40px 120px;
+  position: relative;
+}
+.vs-inner {
+  max-width: 980px;
+  margin: 0 auto;
+}
+.vs-top {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  margin-bottom: 64px;
+}
+.vs-top-logo {
+  justify-self: start;
+  height: 26px;
+  width: auto;
+  opacity: 0.92;
+}
+.vs-top-center {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(12px, 1.5vw, 14px);
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(3,2,11,0.45);
+  max-width: 380px;
+  line-height: 1.5;
+}
+.vs-top-handle {
+  justify-self: end;
+  font-family: 'Onest', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(3,2,11,0.5);
+}
+.vs-top-handle:hover { color: var(--azul); }
+.vs-hero-titles {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px 40px;
+  margin-bottom: 40px;
+}
+.vs-side-title {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 700;
+  font-size: clamp(20px, 3.6vw, 32px);
+  line-height: 1.12;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+.vs-side-title.vs-united { text-align: right; color: var(--preto); }
+.vs-side-title.vs-united .vs-blue { color: var(--azul); }
+.vs-side-title.vs-generic { text-align: left; color: var(--preto); }
+.vs-side-title.vs-generic .vs-red { color: var(--vermelho-vs); }
+.vs-symbol {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 800;
+  font-size: clamp(40px, 9vw, 72px);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(3,2,11,0.22);
+  text-align: center;
+  user-select: none;
+}
+.vs-question {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 700;
+  font-size: clamp(17px, 2.8vw, 26px);
+  line-height: 1.35;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: rgba(3,2,11,0.88);
+  max-width: 640px;
+  margin: 0 auto 72px;
+  font-style: normal;
+}
+.vs-question .vs-emph { color: var(--azul); font-weight: 800; }
+.vs-col { min-width: 0; }
+.vs-col-label {
+  display: none;
+  font-family: 'Onest', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.vs-col-label--pro { color: var(--azul); }
+.vs-col-label--con { color: var(--vermelho-vs); }
+.vs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 0 56px;
+  align-items: start;
+}
+.vs-divider {
+  width: 1px;
+  min-height: 100%;
+  background: rgba(0,0,0,0.06);
+}
+.vs-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.vs-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.vs-icon {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-top: 4px;
+  opacity: 0.95;
+}
+.vs-item-text {
+  font-family: 'Onest', sans-serif;
+  font-size: clamp(15px, 1.4vw, 17px);
+  font-weight: 400;
+  line-height: 1.65;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  color: rgba(3,2,11,0.78);
+}
+.vs-item-text .hl-blue { color: var(--azul); font-weight: 600; }
+.vs-item-text .hl-red { color: var(--vermelho-vs); font-weight: 600; }
+
+/* ============================================================
+   SECTION — CASES (resultados)
+   ============================================================ */
+#cases {
+  background: #fff;
+  padding: 80px 30px 88px;
+}
+.cases-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.cases-title {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 800;
+  font-size: clamp(30px, 4.5vw, 48px);
+  line-height: 1em;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: var(--preto);
+  margin-bottom: 12px;
+}
+.cases-lead {
+  font-family: 'Onest', sans-serif;
+  font-size: 15px;
+  line-height: 1.5em;
+  color: rgba(3,2,11,0.6);
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 40px;
+}
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.case-card {
+  background: #f5f5f3;
+  border-radius: 16px;
+  padding: 26px 22px 28px;
+  border: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.case-metric {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, 40px);
+  color: var(--azul);
+  line-height: 1;
+}
+.case-card h3 {
+  font-family: 'Onest', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--preto);
+}
+.case-card p {
+  font-family: 'Onest', sans-serif;
+  font-size: 13px;
+  line-height: 1.55em;
+  color: rgba(3,2,11,0.65);
+  flex: 1;
+}
+.case-note {
+  font-family: 'Onest', sans-serif;
+  font-size: 11px;
+  line-height: 1.45em;
+  color: rgba(3,2,11,0.45);
+  font-style: italic;
+}
 
 /* ============================================================
    SECTION 4 — DEPOIMENTOS / ELES FALAM POR NÓS
@@ -728,10 +1385,10 @@ p {
   align-items: center;
   justify-content: center;
   transition: opacity 0.2s, transform 0.2s;
-  background: #e8341a;
+  background: var(--azul);
 }
 .t-nav-btn:disabled { opacity: 0.3; cursor: default; }
-.t-nav-btn:not(:disabled):hover { transform: scale(1.06); background: #cc2a12; }
+.t-nav-btn:not(:disabled):hover { transform: scale(1.06); background: var(--azul-escuro); }
 .t-nav-btn svg { width: 22px; height: 22px; }
 
 /* ============================================================
@@ -1064,7 +1721,7 @@ footer {
 @media (max-width: 1199px) {
   .hero-inner { grid-template-columns: 60% 40%; }
   .hero-photo { width: 48%; }
-  .hero-content { padding: 40px 40px 180px; gap: 28px; }
+  .hero-content { padding: 40px 40px 180px 56px; gap: 28px; }
   .hero-title h1 { font-size: clamp(26px, 3.4vw, 40px); }
 
   .service-inner { padding: 0 30px; gap: 50px; }
@@ -1074,6 +1731,10 @@ footer {
   #manifesto { padding: 80px 40px 50px; }
   #stats { padding: 0 40px 80px; }
 
+  .servicos-grid { grid-template-columns: repeat(2, 1fr); }
+  .acce-grid { grid-template-columns: repeat(2, 1fr); }
+  .cases-grid { grid-template-columns: repeat(2, 1fr); }
+
   .footer-logo-bar { padding: 50px 40px 32px; }
   .footer-main { padding: 36px 40px 48px; }
 }
@@ -1082,21 +1743,33 @@ footer {
    RESPONSIVE — MOBILE (≤809px)
    ============================================================ */
 @media (max-width: 809px) {
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
 
   /* ── HERO ───────────────────────────────────────────── */
-  .hero-inner { grid-template-columns: 1fr; overflow: hidden; }
+  #hero {
+    display: flex;
+    flex-direction: column;
+    overflow-x: clip;
+  }
+  .hero-inner {
+    grid-template-columns: 1fr;
+    overflow-x: clip;
+  }
 
   .hero-content {
-    padding: 28px 24px 200px;
+    padding: 28px 24px 36px;
     gap: 20px;
     background: #fff;
     position: relative;
     z-index: 3;
     width: 100%;
-    max-width: 100%;
+    overflow-x: clip;
   }
   .hero-logo { width: 120px; }
-  .hero-title h1 { font-size: clamp(30px, 8vw, 44px); line-height: 1em; }
+  .hero-title h1 { font-size: clamp(40px, 11.5vw, 62px); line-height: 0.93em; }
   .hero-subtitle { font-size: 16px; line-height: 1.45em; }
   .hero-subtitle br { display: none; }
   .hero-cta { gap: 18px; }
@@ -1106,58 +1779,174 @@ footer {
   .avatars img { width: 36px; height: 36px; }
   .divider-v { margin: 0 12px; }
 
-  /* Photo: smaller, right side, semi-transparent on mobile */
+  /* Photo at the top on mobile, matching the visual reference */
   .hero-photo {
-    width: 60%;
-    right: 0;
-    opacity: 0.2;
-    z-index: 1;
+    position: relative;
+    top: auto;
+    right: auto;
+    order: -1;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    transform: none;
+    opacity: 1;
+    z-index: 4;
   }
 
   /* Tickers smaller */
-  .ticker-section { height: 180px; }
+  .ticker-section {
+    position: relative;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    margin-top: -14px;
+    height: 145px;
+    z-index: 2;
+    overflow: hidden;
+  }
   .ticker-band { height: 42px; }
   .ticker-item { font-size: 14px; padding: 0 14px; gap: 10px; }
-  .ticker-band-2 { top: 28%; }
-  .ticker-band-3 { top: 65%; }
+  .ticker-band-2 { top: 18%; }
+  .ticker-band-3 { top: 52%; }
+  .ticker-band { left: 0; right: 0; }
+  .ticker-track,
+  .ticker-track-rev {
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  .ticker-track { animation-name: scroll-left; }
+  .ticker-track-rev { animation-name: scroll-right; }
 
   /* ── SERVICE / FORMULÁRIO ───────────────────────────── */
   #service { padding: 56px 0 64px; }
   .service-inner {
     flex-direction: column;
-    padding: 0 20px;
-    gap: 32px;
+    padding: 0 24px;
+    gap: 36px;
   }
-  .service-title { font-size: clamp(28px, 7vw, 40px); }
-  .service-form-col { flex: none; width: 100%; max-width: 100%; }
-  .form-card {
-    padding: 20px;
-    gap: 14px;
-    border-radius: 12px;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  .form-group { width: 100%; }
+  .service-title { font-size: clamp(30px, 7vw, 42px); }
+  .service-form-col { flex: none; width: 100%; }
+  .form-card { padding: 24px 20px; gap: 14px; border-radius: 14px; }
   .form-label { font-size: 14px; }
-  .form-input {
-    height: 44px;
-    font-size: 15px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-  }
-  .form-select-wrap { width: 100%; }
-  .form-btn {
-    height: 52px;
-    font-size: 14px;
-    width: 100%;
-    letter-spacing: 0.04em;
-  }
+  .form-input { height: 42px; font-size: 14px; }
+  .form-btn { height: 50px; font-size: 14px; }
 
   /* ── LOGOS ──────────────────────────────────────────── */
   #logos { padding: 28px 0; }
   .logos-title { font-size: 16px; padding: 0 20px; }
   .logo-item { height: 24px; }
+
+  #servicos { padding: 56px 24px 64px; }
+  .servicos-lead { margin-bottom: 32px; }
+  .servicos-grid { grid-template-columns: 1fr; gap: 16px; }
+
+  #metodologia-acce { padding: 56px 24px 64px; }
+  .acce-grid { grid-template-columns: 1fr; gap: 14px; }
+  .acce-lead { margin-bottom: 28px; }
+
+  #cases { padding: 56px 24px 64px; }
+  .cases-grid { grid-template-columns: 1fr; gap: 16px; }
+
+  #comparativo {
+    padding-top: 80px;
+    padding-bottom: 96px;
+    padding-left: max(20px, env(safe-area-inset-left));
+    padding-right: max(20px, env(safe-area-inset-right));
+  }
+  .vs-inner { max-width: 100%; }
+  .vs-top {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 22px;
+    padding-bottom: 32px;
+    margin-bottom: 40px;
+  }
+  .vs-top-logo { justify-self: center; height: 26px; }
+  .vs-top-center {
+    max-width: 100%;
+    padding: 0 8px;
+    line-height: 1.55;
+  }
+  .vs-top-handle {
+    justify-self: center;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 8px 14px;
+    margin: -8px 0;
+    border-radius: 999px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .vs-top-handle:active { background: rgba(0,76,255,0.08); }
+  .vs-hero-titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 28px;
+  }
+  .vs-side-title {
+    font-size: clamp(17px, 4.8vw, 24px);
+    letter-spacing: 0.04em;
+  }
+  .vs-side-title.vs-united {
+    order: 1;
+    text-align: center;
+    padding-bottom: 6px;
+  }
+  .vs-symbol {
+    order: 2;
+    font-size: clamp(40px, 14vw, 64px);
+    -webkit-text-stroke: 1px rgba(3,2,11,0.16);
+    margin: 4px 0 10px;
+  }
+  .vs-side-title.vs-generic {
+    order: 3;
+    text-align: center;
+    padding-top: 2px;
+  }
+  .vs-question {
+    margin-bottom: 40px;
+    padding: 0 4px;
+    max-width: 100%;
+    font-size: clamp(15px, 4.2vw, 20px);
+    line-height: 1.4;
+    letter-spacing: 0.06em;
+  }
+  .vs-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: stretch;
+  }
+  .vs-divider { display: none; }
+  .vs-col-label { display: block; margin-bottom: 16px; }
+  .vs-col--pro {
+    background: rgba(0,76,255,0.045);
+    border-radius: 18px;
+    padding: 22px 18px 26px;
+    border: 1px solid rgba(0,76,255,0.09);
+  }
+  .vs-col--con {
+    background: rgba(220,38,38,0.04);
+    border-radius: 18px;
+    padding: 22px 18px 26px;
+    border: 1px solid rgba(220,38,38,0.1);
+  }
+  .vs-list { gap: 22px; }
+  .vs-item { gap: 14px; align-items: flex-start; }
+  .vs-icon {
+    width: 24px;
+    height: 24px;
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+  .vs-item-text {
+    font-size: 15px;
+    line-height: 1.62;
+  }
 
   /* ── DEPOIMENTOS ────────────────────────────────────── */
   #testimonials { padding: 56px 0 64px; overflow: hidden; }
@@ -1249,8 +2038,8 @@ footer {
    RESPONSIVE — SMALL MOBILE (≤480px)
    ============================================================ */
 @media (max-width: 480px) {
-  .hero-content { padding: 24px 20px 190px; }
-  .hero-title h1 { font-size: 28px; }
+  .hero-content { padding: 24px 20px 32px; }
+  .hero-title h1 { font-size: 38px; line-height: 0.93em; }
   .hero-logo { width: 110px; }
 
   .btn-primary { font-size: 11px; padding: 9px 9px 9px 16px; }
@@ -1266,11 +2055,66 @@ footer {
   .manifesto-text { font-size: 26px; }
 
   .footer-main { padding: 24px 20px 36px; }
+
+  #comparativo {
+    padding-top: 64px;
+    padding-bottom: 80px;
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+  .vs-top { margin-bottom: 32px; padding-bottom: 24px; }
+  .vs-symbol { font-size: clamp(36px, 13vw, 56px); margin: 2px 0 8px; }
+  .vs-question { margin-bottom: 32px; font-size: 14px; letter-spacing: 0.05em; }
+  .vs-col--pro,
+  .vs-col--con { padding: 18px 14px 22px; border-radius: 16px; }
+  .vs-col-label { font-size: 10px; margin-bottom: 14px; }
+  .vs-list { gap: 18px; }
+  .vs-item-text { font-size: 14px; line-height: 1.58; }
 }
 
 </style>
 </head>
 <body>
+
+<header class="site-nav-wrap">
+  <nav class="nav-pill" aria-label="Navegação principal">
+    <a href="index.html#hero" class="nav-brand">
+      <img src="https://framerusercontent.com/images/G5jwz9CLG7ksDjFSyzQ9kInRsVs.png" alt="United" width="120" height="32" loading="eager">
+    </a>
+    <ul class="nav-menu">
+      <li><a href="index.html#hero">Início</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="servicos.html">Serviços</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="index.html#cases">Cases</a></li>
+    </ul>
+    <a href="#service" class="nav-cta-pill nav-cta-pill--desktop">WhatsApp <span class="nav-cta-arrow" aria-hidden="true">→</span></a>
+    <button type="button" class="nav-burger" id="navBurger" aria-label="Abrir menu" aria-expanded="false" aria-controls="navOverlay">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+<div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Menu de navegação" aria-hidden="true" inert>
+  <div class="nav-overlay-top">
+    <a href="index.html#hero" class="nav-overlay-brand">
+      <img src="https://framerusercontent.com/images/G5jwz9CLG7ksDjFSyzQ9kInRsVs.png" alt="United" width="120" height="32" loading="eager">
+    </a>
+    <button type="button" class="nav-overlay-close" id="navOverlayClose" aria-label="Fechar menu">
+      <span class="nav-overlay-close-x" aria-hidden="true">×</span>
+      Fechar
+    </button>
+  </div>
+  <div class="nav-overlay-scroll">
+    <div class="nav-overlay-inner">
+      <a href="index.html#hero">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="servicos.html">Serviços</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#cases">Cases</a>
+      <a href="#service" class="nav-overlay-cta">WhatsApp →</a>
+    </div>
+  </div>
+</div>
 
 <!-- ============================================================
      SECTION 1 — HERO (exact reference match)
@@ -1305,8 +2149,8 @@ footer {
       <!-- CTA + Social Proof -->
       <div class="hero-cta reveal reveal-delay-3">
         <!-- Blue pill button with diagonal arrow icon -->
-        <a href="https://wa.me/5521979310451" target="_blank" rel="noopener" class="btn-primary hero-btn">
-          QUERO MAIS INFORMAÇÕES
+        <a href="#service" class="btn-primary hero-btn btn-cta-long">
+          AGENDAR DIAGNÓSTICO GRATUITO
           <span class="btn-icon">
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
               <path d="M2.5 10.5L10.5 2.5M10.5 2.5H4.5M10.5 2.5V8.5" stroke="#004CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1442,7 +2286,7 @@ footer {
             </select>
           </div>
         </div>
-        <button type="submit" class="form-btn">RECEBER MAIS INFORMAÇÕES</button>
+        <button type="submit" class="form-btn">SOLICITAR DIAGNÓSTICO GRATUITO</button>
       </form>
     </div>
 
@@ -1478,6 +2322,181 @@ footer {
 </section>
 
 <!-- ============================================================
+     SERVIÇOS (alinhado ao Instagram)
+     ============================================================ -->
+<section id="servicos">
+  <div class="servicos-inner">
+    <p class="servicos-kicker reveal">O que entregamos</p>
+    <h2 class="servicos-title reveal">SERVIÇOS PARA ESCRITÓRIOS E EMPRESAS DO MERCADO FINANCEIRO</h2>
+    <p class="servicos-lead reveal">Os mesmos pilares que apresentamos no Instagram — agora com contexto direto na landing, para quem chega do feed não perder o fio da meada.</p>
+    <div class="servicos-grid">
+      <article class="servico-card reveal">
+        <span class="servico-card-num">01</span>
+        <h3>Tráfego pago</h3>
+        <p>Campanhas em Meta e Google com criativos e mensagens pensados para captação e qualificação de investidores, com acompanhamento de métricas que importam para o seu funil.</p>
+      </article>
+      <article class="servico-card reveal reveal-delay-1">
+        <span class="servico-card-num">02</span>
+        <h3>CRM e automação</h3>
+        <p>Organização de leads, fluxos de nutrição e integrações para o time comercial responder rápido e não perder oportunidades por falta de follow-up.</p>
+      </article>
+      <article class="servico-card reveal reveal-delay-2">
+        <span class="servico-card-num">03</span>
+        <h3>Branding e posicionamento</h3>
+        <p>Narrativa, identidade verbal e visual alinhadas à regulação e à confiança que o mercado financeiro exige — sem parecer “template genérico”.</p>
+      </article>
+      <article class="servico-card reveal">
+        <span class="servico-card-num">04</span>
+        <h3>Pitch deck e materiais comerciais</h3>
+        <p>Apresentações e peças para reuniões, roadshows e prospecção institucional, com foco em clareza, compliance e conversão.</p>
+      </article>
+      <article class="servico-card reveal reveal-delay-1">
+        <span class="servico-card-num">05</span>
+        <h3>Treinamento de equipe</h3>
+        <p>Capacitação de SDRs, assessores e marketing interno para usar o método, as ferramentas e o discurso certo na prática do dia a dia.</p>
+      </article>
+      <article class="servico-card reveal reveal-delay-2">
+        <span class="servico-card-num">06</span>
+        <h3>Estratégia e conteúdo</h3>
+        <p>Linha editorial, SEO, redes sociais e peças de autoridade que sustentam demanda orgânica e reforçam reputação no longo prazo.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     METODOLOGIA ACCE
+     ============================================================ -->
+<section id="metodologia-acce">
+  <div class="acce-inner">
+    <p class="acce-kicker reveal">Metodologia United</p>
+    <h2 class="acce-title reveal">FRAMEWORK ACCE</h2>
+    <p class="acce-lead reveal">Autoridade, Captação, Conversão e Escala — o método que usamos para alinhar marketing, vendas e operação no mercado de investimentos.</p>
+    <div class="acce-grid">
+      <div class="acce-pillar reveal">
+        <div class="acce-letter">A</div>
+        <h3>Autoridade</h3>
+        <p>Conteúdo, PR e presença digital que geram confiança antes mesmo da primeira conversa com o investidor.</p>
+      </div>
+      <div class="acce-pillar reveal reveal-delay-1">
+        <div class="acce-letter">C</div>
+        <h3>Captação</h3>
+        <p>Tráfego e inbound estruturados para trazer volume e qualidade de leads compatíveis com o seu produto e perfil de cliente.</p>
+      </div>
+      <div class="acce-pillar reveal reveal-delay-2">
+        <div class="acce-letter">C</div>
+        <h3>Conversão</h3>
+        <p>CRM, automações e jornada comercial para transformar interesse em reunião, proposta e contrato.</p>
+      </div>
+      <div class="acce-pillar reveal reveal-delay-3">
+        <div class="acce-letter">E</div>
+        <h3>Escala</h3>
+        <p>Processos, treinamento e otimização contínua para crescer sem perder padrão de atendimento nem compliance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     COMPARATIVO — United vs marketing genérico
+     ============================================================ -->
+<section id="comparativo">
+  <div class="vs-inner">
+    <header class="vs-top reveal">
+      <img class="vs-top-logo" src="https://framerusercontent.com/images/G5jwz9CLG7ksDjFSyzQ9kInRsVs.png" alt="United" width="120" height="32" loading="lazy">
+      <p class="vs-top-center">Marketing para empresas do mercado financeiro</p>
+      <a href="https://www.instagram.com/assessoriaunited/" target="_blank" rel="noopener" class="vs-top-handle">@assessoriaunited</a>
+    </header>
+
+    <div class="vs-hero-titles reveal reveal-delay-1">
+      <div class="vs-side-title vs-united">
+        <span class="vs-black">UNITED</span> <span class="vs-blue">FINANCE</span>
+      </div>
+      <div class="vs-symbol" aria-hidden="true">VS</div>
+      <div class="vs-side-title vs-generic">
+        <span class="vs-black">MARKETING</span> <span class="vs-red">GENÉRICO</span>
+      </div>
+    </div>
+
+    <h2 class="vs-question reveal reveal-delay-2">
+      Qual das duas realmente te traz <span class="vs-emph">clientes e investidores</span>
+    </h2>
+
+    <div class="vs-grid reveal reveal-delay-3">
+      <div class="vs-col vs-col--pro">
+      <p class="vs-col-label vs-col-label--pro">United Finance</p>
+      <ul class="vs-list vs-list--pro">
+        <li class="vs-item">
+          <svg class="vs-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="14" cy="14" r="10" stroke="var(--azul)" stroke-width="1.4" fill="none" opacity="0.85"/>
+            <path d="M9 14l3 3.5 7-7" stroke="var(--azul)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="vs-item-text">Entende e conhece os <span class="hl-blue">processos do seu nicho</span></p>
+        </li>
+        <li class="vs-item">
+          <svg class="vs-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="14" cy="14" r="10" stroke="var(--azul)" stroke-width="1.4" fill="none" opacity="0.85"/>
+            <path d="M9 14l3 3.5 7-7" stroke="var(--azul)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="vs-item-text">Ajudamos você a se <span class="hl-blue">tornar referência no segmento</span></p>
+        </li>
+        <li class="vs-item">
+          <svg class="vs-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="14" cy="14" r="10" stroke="var(--azul)" stroke-width="1.4" fill="none" opacity="0.85"/>
+            <path d="M9 14l3 3.5 7-7" stroke="var(--azul)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="vs-item-text">Ajusta sua jornada de <span class="hl-blue">captação</span></p>
+        </li>
+        <li class="vs-item">
+          <svg class="vs-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="14" cy="14" r="10" stroke="var(--azul)" stroke-width="1.4" fill="none" opacity="0.85"/>
+            <path d="M9 14l3 3.5 7-7" stroke="var(--azul)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="vs-item-text"><span class="hl-blue">Focada em resultados</span> do objetivo do seu escritório ou projeto</p>
+        </li>
+      </ul>
+      </div>
+
+      <div class="vs-divider" aria-hidden="true"></div>
+
+      <div class="vs-col vs-col--con">
+      <p class="vs-col-label vs-col-label--con">Marketing genérico</p>
+      <ul class="vs-list vs-list--con">
+        <li class="vs-item">
+          <svg class="vs-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="14" cy="14" r="10" stroke="var(--vermelho-vs)" stroke-width="1.4" fill="none" opacity="0.75"/>
+            <path d="M10 10l8 8M18 10l-8 8" stroke="var(--vermelho-vs)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <p class="vs-item-text"><span class="hl-red">Não sabe sobre</span> o segmento e você precisa ensinar</p>
+        </li>
+        <li class="vs-item">
+          <svg class="vs-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="14" cy="14" r="10" stroke="var(--vermelho-vs)" stroke-width="1.4" fill="none" opacity="0.75"/>
+            <path d="M10 10l8 8M18 10l-8 8" stroke="var(--vermelho-vs)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <p class="vs-item-text">Campanhas para todo mundo <span class="hl-red">sem segmentação inteligente</span></p>
+        </li>
+        <li class="vs-item">
+          <svg class="vs-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="14" cy="14" r="10" stroke="var(--vermelho-vs)" stroke-width="1.4" fill="none" opacity="0.75"/>
+            <path d="M10 10l8 8M18 10l-8 8" stroke="var(--vermelho-vs)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <p class="vs-item-text">Nenhum controle do depois: <span class="hl-red">o lead cai e some</span></p>
+        </li>
+        <li class="vs-item">
+          <svg class="vs-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="14" cy="14" r="10" stroke="var(--vermelho-vs)" stroke-width="1.4" fill="none" opacity="0.75"/>
+            <path d="M10 10l8 8M18 10l-8 8" stroke="var(--vermelho-vs)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <p class="vs-item-text">Você continua <span class="hl-red">dependendo de indicação e sazonalidade</span></p>
+        </li>
+      </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      SECTION 4 — DEPOIMENTOS
      ============================================================ -->
 <section id="testimonials">
@@ -1500,11 +2519,11 @@ footer {
         <!-- Card 1 — Dexcap -->
         <div class="testimonial-card">
           <div class="card-video">
-            <iframe src="https://iframe.mediadelivery.net/embed/234627/cd8c4c22-d07a-4258-9e11-226268b5334c?autoplay=false&loop=false&muted=false&preload=true" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
+            <iframe src="https://iframe.mediadelivery.net/embed/234627/cd8c4c22-d07a-4258-9e11-226268b5334c?autoplay=false&loop=false&muted=false&preload=true&accent=004CFF&primaryColor=004CFF" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
           </div>
           <div class="card-info">
             <img class="card-logo" src="https://framerusercontent.com/images/18MU9pCeHjIxUJcNi55v0j1aVs.png" alt="Dexcap" loading="lazy">
-            <p class="card-quote">"Our results and online presence went through the roof more or less overnight, mind-blowing!"</p>
+            <p class="card-quote">"Nossos resultados e presença digital dispararam praticamente da noite para o dia — impressionante."</p>
             <div class="card-client">
               <span class="card-client-name">Andre Mileto</span>
               <span class="card-client-role">COO Dexcap</span>
@@ -1515,11 +2534,11 @@ footer {
         <!-- Card 2 — Ribus -->
         <div class="testimonial-card">
           <div class="card-video">
-            <iframe src="https://iframe.mediadelivery.net/embed/234627/2f4a10f9-5026-47a5-bcef-b278209803f0?autoplay=false&loop=false&muted=false&preload=true" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
+            <iframe src="https://iframe.mediadelivery.net/embed/234627/2f4a10f9-5026-47a5-bcef-b278209803f0?autoplay=false&loop=false&muted=false&preload=true&accent=004CFF&primaryColor=004CFF" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
           </div>
           <div class="card-info">
             <img class="card-logo" src="https://framerusercontent.com/images/R30cbJB75185FOaAemWo9NVvQQ.png" alt="Ribus" loading="lazy">
-            <p class="card-quote">"These guys don't mess around. We saw results from month one. If you want to grow your business, look no further."</p>
+            <p class="card-quote">"Eles vão direto ao ponto. Vimos resultado já no primeiro mês. Se você quer escalar, não precisa procurar outro lugar."</p>
             <div class="card-client">
               <span class="card-client-name">Daniel Carius</span>
               <span class="card-client-role">CEO Ribus</span>
@@ -1530,13 +2549,13 @@ footer {
         <!-- Card 3 — Hantec -->
         <div class="testimonial-card">
           <div class="card-video">
-            <iframe src="https://iframe.mediadelivery.net/embed/234627/a0441df0-99d3-4a6d-890c-fb8fde82b977?autoplay=false&loop=false&muted=false&preload=true" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
+            <iframe src="https://iframe.mediadelivery.net/embed/234627/a0441df0-99d3-4a6d-890c-fb8fde82b977?autoplay=false&loop=false&muted=false&preload=true&accent=004CFF&primaryColor=004CFF" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
           </div>
           <div class="card-info">
             <img class="card-logo" src="https://framerusercontent.com/images/zNiOGvVX96gDQvtXoww21X84r5k.png" alt="Hantec" loading="lazy">
-            <p class="card-quote">"Conversion absolutely blew the previous agency we were working with out of the water."</p>
+            <p class="card-quote">"A conversão superou de longe a agência com que a gente trabalhava antes."</p>
             <div class="card-client">
-              <span class="card-client-name">Joao</span>
+              <span class="card-client-name">João</span>
               <span class="card-client-role">Diretor Hantec</span>
             </div>
           </div>
@@ -1545,11 +2564,11 @@ footer {
         <!-- Card 4 — Sectze -->
         <div class="testimonial-card">
           <div class="card-video">
-            <iframe src="https://iframe.mediadelivery.net/embed/234627/746ab4f2-6b78-4eb0-92a0-a799a32130d1?autoplay=false&loop=false&muted=false&preload=true" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
+            <iframe src="https://iframe.mediadelivery.net/embed/234627/746ab4f2-6b78-4eb0-92a0-a799a32130d1?autoplay=false&loop=false&muted=false&preload=true&accent=004CFF&primaryColor=004CFF" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
           </div>
           <div class="card-info">
             <img class="card-logo" src="https://framerusercontent.com/images/WQkKl9J2XSyuMnAkqadIQgdRass.png" alt="Sectze" loading="lazy">
-            <p class="card-quote">"From where we were before Conversion to where we are now; it's absolutely apart."</p>
+            <p class="card-quote">"De onde estávamos antes até onde estamos hoje — o salto é absurdo, não tem comparação."</p>
             <div class="card-client">
               <span class="card-client-name">Victor Fernandes</span>
               <span class="card-client-role">CEO Sectze</span>
@@ -1609,6 +2628,36 @@ footer {
 </section>
 
 <!-- ============================================================
+     CASES — resultados (referência)
+     ============================================================ -->
+<section id="cases">
+  <div class="cases-inner">
+    <h2 class="cases-title reveal">RESULTADOS QUE REPLICAMOS NO MERCADO FINANCEIRO</h2>
+    <p class="cases-lead reveal">Exemplos de magnitude de resultado que entregamos com escritórios e empresas do setor — números ilustrativos para proteger sigilo comercial; na conversa mostramos cases com contexto.</p>
+    <div class="cases-grid">
+      <article class="case-card reveal">
+        <span class="case-metric">+R$ 50M</span>
+        <h3>Captação em ~6 meses</h3>
+        <p>Escritório de investimentos: funil de tráfego + CRM + discurso comercial alinhado ao método ACCE.</p>
+        <p class="case-note">Cenário típico; valores e prazos variam por operação e produto.</p>
+      </article>
+      <article class="case-card reveal reveal-delay-1">
+        <span class="case-metric">+180%</span>
+        <h3>Leads qualificados em 90 dias</h3>
+        <p>Campanhas e landing com mensagem específica para investidor, reduzindo ruído e aumentando taxa de reunião.</p>
+        <p class="case-note">Referência de ordem de grandeza após implementação completa.</p>
+      </article>
+      <article class="case-card reveal reveal-delay-2">
+        <span class="case-metric">3×</span>
+        <h3>Reuniões comerciais mensais</h3>
+        <p>Automação de follow-up e priorização de MQLs para o time fechar mais sem aumentar headcount na mesma proporção.</p>
+        <p class="case-note">Resultado depende de capacidade interna e oferta.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      SECTION 7 — CTA / MÉTODO
      ============================================================ -->
 <section id="cta">
@@ -1622,16 +2671,16 @@ footer {
     </div>
 
     <div class="cta-buttons reveal reveal-delay-1">
-      <a href="https://wa.me/5521979310451" target="_blank" rel="noopener" class="btn-primary">
-        QUERO MAIS INFORMAÇÕES
+      <a href="#service" class="btn-primary btn-cta-long">
+        AGENDAR DIAGNÓSTICO GRATUITO
         <span class="btn-icon">
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
             <path d="M2.5 10.5L10.5 2.5M10.5 2.5H4.5M10.5 2.5V8.5" stroke="#004CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </span>
       </a>
-      <a href="https://wa.me/5521979310451" target="_blank" rel="noopener" class="btn-ghost">
-        Falar no WhatsApp
+      <a href="#service" class="btn-ghost btn-cta-long">
+        VER PLANO PARA MEU ESCRITÓRIO
         <span class="btn-icon">
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
             <path d="M2.5 10.5L10.5 2.5M10.5 2.5H4.5M10.5 2.5V8.5" stroke="#03020B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1659,17 +2708,17 @@ footer {
     <!-- Row 1: Nav links (left) + Social icons (right) -->
     <div class="footer-top">
       <nav class="footer-nav">
-        <a href="#" class="footer-nav-link">Início</a>
-        <a href="#" class="footer-nav-link">Sobre</a>
-        <a href="#" class="footer-nav-link">Serviços</a>
-        <a href="#" class="footer-nav-link">Blog</a>
-        <a href="https://wa.me/5521979310451" target="_blank" rel="noopener" class="footer-nav-link">Contato</a>
+        <a href="index.html#hero" class="footer-nav-link">Início</a>
+        <a href="sobre.html" class="footer-nav-link">Sobre</a>
+        <a href="servicos.html" class="footer-nav-link">Serviços</a>
+        <a href="blog.html" class="footer-nav-link">Blog</a>
+        <a href="index.html#service" class="footer-nav-link">Contato</a>
       </nav>
       <div class="footer-social">
         <a href="https://www.instagram.com/assessoriaunited/" target="_blank" rel="noopener" aria-label="Instagram">
           <img src="https://framerusercontent.com/images/GVVp6YA6Wk0eT5Y1Z1fMxP3U0.svg" alt="Instagram" loading="lazy">
         </a>
-        <a href="https://wa.me/5521979310451" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <a href="index.html#service" aria-label="Ir para o formulário de contato">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#000"/>
           </svg>
@@ -1681,8 +2730,8 @@ footer {
     <div class="footer-details">
       <div class="footer-cta-block">
         <h3>Pronto para escalar sua<br>empresa de investimento?</h3>
-        <a href="#service" class="btn-primary" style="align-self:flex-start;">
-          FALAR NO WHATSAPP
+        <a href="index.html#service" class="btn-primary btn-cta-long" style="align-self:flex-start;">
+          AGENDAR DIAGNÓSTICO
           <span class="btn-icon">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
               <path d="M2 10L10 2M10 2H4M10 2V8" stroke="#004CFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1694,7 +2743,7 @@ footer {
       <div class="footer-connect">
         <span class="footer-connect-title">Contato</span>
         <div class="footer-connect-list">
-          <a href="https://wa.me/5521979310451" target="_blank" rel="noopener" class="footer-connect-link">+55 21 97931-0451</a>
+          <a href="index.html#service" class="footer-connect-link">+55 21 97931-0451</a>
           <a href="https://www.instagram.com/assessoriaunited/" target="_blank" rel="noopener" class="footer-connect-link">@assessoriaunited</a>
         </div>
       </div>
@@ -1702,7 +2751,7 @@ footer {
 
     <!-- Row 3: Copyright only -->
     <div class="footer-bottom">
-      <p class="footer-copy">© 2025 United Assessoria. Todos os direitos reservados.</p>
+      <p class="footer-copy">© 2026 United Assessoria. Todos os direitos reservados.</p>
     </div>
 
   </div>
@@ -1712,6 +2761,41 @@ footer {
      JAVASCRIPT
      ============================================================ -->
 <script>
+// ===== NAV MOBILE (hamburger + overlay) =====
+(function () {
+  const burger = document.getElementById('navBurger');
+  const overlay = document.getElementById('navOverlay');
+  const closeBtn = document.getElementById('navOverlayClose');
+  const scrollArea = overlay ? overlay.querySelector('.nav-overlay-scroll') : null;
+  if (!burger || !overlay) return;
+  function setNavOpen(open) {
+    document.body.classList.toggle('nav-open', open);
+    burger.classList.toggle('is-open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    overlay.setAttribute('aria-hidden', String(!open));
+    if (open) overlay.removeAttribute('inert');
+    else overlay.setAttribute('inert', '');
+  }
+  burger.addEventListener('click', function () {
+    setNavOpen(!document.body.classList.contains('nav-open'));
+  });
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function () { setNavOpen(false); });
+  }
+  overlay.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { setNavOpen(false); });
+  });
+  if (scrollArea) {
+    scrollArea.addEventListener('click', function (e) {
+      if (e.target === scrollArea) setNavOpen(false);
+    });
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') setNavOpen(false);
+  });
+})();
+
 // ===== SCROLL REVEAL =====
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => {
@@ -1723,58 +2807,19 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// ===== FORM SUBMIT — WhatsApp formatado =====
+// ===== FORM SUBMIT =====
 function handleFormSubmit(e) {
   e.preventDefault();
-  const form = e.target;
-  const btn  = form.querySelector('.form-btn');
-
-  // Coleta valores
-  const nome       = (form.querySelector('#nome')?.value || '').trim() || '(não informado)';
-  const whatsapp   = (form.querySelector('#whatsapp')?.value || '').trim() || '(não informado)';
-  const email      = (form.querySelector('#email')?.value || '').trim() || '(não informado)';
-  const segSelect  = form.querySelector('#segmento');
-  const fatSelect  = form.querySelector('#faturamento');
-  const segmento   = segSelect?.options[segSelect.selectedIndex]?.text || '(não informado)';
-  const faturamento = fatSelect?.options[fatSelect.selectedIndex]?.text || '(não informado)';
-
-  // Mensagem formatada
-  const msg =
-    `🚀 *Novo Lead — United Assessoria*
-
-` +
-    `👤 *Nome:* ${nome}
-` +
-    `📱 *WhatsApp:* ${whatsapp}
-` +
-    `📧 *E-mail:* ${email}
-` +
-    `🏢 *Segmento:* ${segmento}
-` +
-    `💰 *Faturamento:* ${faturamento}
-
-` +
-    `_Enviado pelo formulário do site._`;
-
-  // Número de destino (sem +)
-  const numero = '5521979310451';
-  const url = `https://wa.me/${numero}?text=${encodeURIComponent(msg)}`;
-
-  // Feedback visual
-  btn.textContent = 'ABRINDO WHATSAPP...';
+  const btn = e.target.querySelector('.form-btn');
+  btn.textContent = 'ENVIADO! EM BREVE ENTRAREMOS EM CONTATO';
   btn.style.background = '#00c853';
   btn.disabled = true;
-
-  // Abre WhatsApp
-  window.open(url, '_blank');
-
-  // Reseta após 3s
   setTimeout(() => {
-    btn.textContent = 'RECEBER MAIS INFORMAÇÕES';
+    btn.textContent = 'SOLICITAR DIAGNÓSTICO GRATUITO';
     btn.style.background = '';
     btn.disabled = false;
-    form.reset();
-  }, 3000);
+    e.target.reset();
+  }, 4000);
 }
 
 // ===== TESTIMONIALS CAROUSEL =====
@@ -1796,7 +2841,7 @@ document.querySelectorAll('.card-video-thumb').forEach(thumb => {
   thumb.addEventListener('click', () => {
     const src = thumb.dataset.videoSrc;
     const iframe = document.createElement('iframe');
-    iframe.src = src + '?autoplay=false&loop=false&muted=false&preload=true&responsive=false';
+    iframe.src = src + '?autoplay=false&loop=false&muted=false&preload=true&responsive=false&accent=004CFF&primaryColor=004CFF';
     iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
     iframe.allow = 'accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;';
     iframe.allowFullscreen = true;

@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="United — assessoria de marketing para empresas de investimento. Tráfego pago, CRM, branding, pitch deck, treinamento e metodologia ACCE para escalar captação.">
-<meta name="theme-color" content="#004CFF">
-<title>United Finance — Assessoria de Marketing para Empresas de Investimento</title>
+<meta name="description" content="United Imob — marketing estratégico para empresas do mercado imobiliário. Posicionamento, tráfego, CRM, criativos, sites, vídeos com IA e geração contínua de leads.">
+<meta name="theme-color" content="#000000">
+<title>United Imob — Marketing Estratégico para o Mercado Imobiliário</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,6 +26,32 @@ body {
 body.nav-open { overflow: hidden; }
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
+
+/* ===== MARCA — united imob. (texto + bandeira) ===== */
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Onest', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.04em;
+  text-transform: lowercase;
+  line-height: 1;
+  color: var(--azul);
+}
+.brand-lockup__flag {
+  flex-shrink: 0;
+  width: 20px;
+  height: 24px;
+  display: block;
+}
+.brand-lockup__u { color: var(--preto); }
+.brand-lockup__i { color: var(--azul); }
+.brand-lockup--on-dark .brand-lockup__u { color: #fff; }
+.brand-lockup--on-dark { color: var(--azul); }
+.brand-lockup--footer { font-size: clamp(1.15rem, 2.5vw, 1.65rem); gap: 12px; }
+.brand-lockup--footer .brand-lockup__flag { width: 26px; height: 30px; }
 
 /* ===== SITE NAV — estilo United (vidro) / hamburger mobile ===== */
 .site-nav-wrap {
@@ -65,11 +91,7 @@ body.nav-open .site-nav-wrap {
   flex-shrink: 0;
   padding: 4px 2px;
 }
-.nav-brand img {
-  height: 24px;
-  width: auto;
-  display: block;
-}
+.nav-brand.brand-lockup { padding: 4px 0; }
 .nav-menu {
   list-style: none;
   display: flex;
@@ -102,19 +124,19 @@ body.nav-open .site-nav-wrap {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--preto);
   background: var(--azul);
   padding: 10px 16px 10px 18px;
   border-radius: 999px;
   border: none;
   cursor: pointer;
   transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 4px 16px rgba(0, 76, 255, 0.25);
+  box-shadow: 0 4px 16px rgba(249, 255, 62, 0.35);
 }
 .nav-cta-pill:hover {
   background: var(--azul-escuro);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(0, 76, 255, 0.35);
+  box-shadow: 0 6px 20px rgba(249, 255, 62, 0.45);
 }
 .nav-cta-pill .nav-cta-arrow { font-size: 14px; line-height: 1; opacity: 0.95; }
 .nav-burger {
@@ -221,9 +243,9 @@ body.nav-open .nav-overlay {
 }
 .nav-overlay-close:hover,
 .nav-overlay-close:focus-visible {
-  color: var(--azul);
-  background: rgba(0, 76, 255, 0.08);
-  border-color: rgba(0, 76, 255, 0.2);
+  color: var(--preto);
+  background: rgba(249, 255, 62, 0.22);
+  border-color: rgba(249, 255, 62, 0.45);
   outline: none;
 }
 .nav-overlay-close .nav-overlay-close-x {
@@ -273,15 +295,15 @@ body.nav-open .nav-overlay {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #fff;
+  color: var(--preto);
   background: var(--azul);
   padding: 16px 28px;
   border-radius: 999px;
   border: none;
   text-align: center;
-  box-shadow: 0 4px 24px rgba(0, 76, 255, 0.32);
+  box-shadow: 0 4px 24px rgba(249, 255, 62, 0.35);
 }
-.nav-overlay .nav-overlay-cta:hover { background: var(--azul-escuro); color: #fff; }
+.nav-overlay .nav-overlay-cta:hover { background: var(--azul-escuro); color: var(--preto); }
 
 section[id] { scroll-margin-top: 88px; }
 
@@ -308,10 +330,10 @@ section[id] { scroll-margin-top: 88px; }
 :root {
   --preto: #03020B;
   --branco: #FFFFFF;
-  --azul: #004CFF;
-  --azul-escuro: #002FFF;
+  --azul: #F9FF3E;
+  --azul-escuro: #d4dc32;
   --vermelho-vs: #dc2626;
-  --azul-ticker: #0C1FED;
+  --azul-ticker: #F9FF3E;
   --cinza-fundo: #0D0D0D;
   --cinza-claro: #F7F7F7;
   --cinza-card: #0F0F0F;
@@ -353,7 +375,7 @@ p {
 /* ===== BUTTONS ===== */
 .btn-primary {
   background: var(--azul);
-  color: #FFF;
+  color: var(--preto);
   font-family: 'Onest', sans-serif;
   font-weight: 600;
   font-size: 12px;
@@ -380,7 +402,7 @@ p {
   flex-shrink: 0;
 }
 .btn-primary .btn-icon svg { display: block; }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,76,255,0.4); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(249,255,62,0.45); }
 .btn-primary.btn-cta-long,
 .btn-ghost.btn-cta-long { white-space: normal; text-align: center; line-height: 1.15; padding: 12px 18px; max-width: 100%; }
 
@@ -583,7 +605,11 @@ p {
   top: 28%;
   transform: translateY(0) rotate(-6deg);
   background: var(--azul-ticker);
-  box-shadow: 0 2px 20px rgba(12,31,237,0.4);
+  box-shadow: 0 2px 20px rgba(249, 255, 62, 0.35);
+}
+.ticker-band-2 .ticker-item,
+.ticker-band-2 .ticker-sep {
+  color: var(--preto);
 }
 /* Band 3 — black, lower */
 .ticker-band-3 {
@@ -751,7 +777,7 @@ p {
   -webkit-appearance: none;
 }
 .form-input::placeholder { color: #bbb; }
-.form-input:focus { border-color: var(--azul); box-shadow: 0 0 0 2px rgba(0,76,255,0.1); }
+.form-input:focus { border-color: var(--preto); box-shadow: 0 0 0 2px rgba(249,255,62,0.35); }
 .form-select-wrap { position: relative; }
 .form-select-wrap::after {
   content: '';
@@ -767,7 +793,7 @@ p {
 }
 .form-btn {
   background: var(--azul);
-  color: #fff;
+  color: var(--preto);
   font-family: 'Onest', sans-serif;
   font-size: 15px;
   font-weight: 700;
@@ -781,7 +807,7 @@ p {
   transition: background 0.2s, transform 0.2s;
   margin-top: 4px;
 }
-.form-btn:hover { background: #003acc; transform: translateY(-1px); }
+.form-btn:hover { background: var(--azul-escuro); transform: translateY(-1px); }
 
 /* ============================================================
    SECTION 3 — LOGOS
@@ -859,6 +885,19 @@ p {
   transition: opacity 0.2s;
 }
 .logo-item img:hover { opacity: 1; }
+.logo-item--text {
+  height: auto !important;
+  padding: 0 8px;
+}
+.logo-item--text span {
+  font-family: 'Big Shoulders Display', sans-serif;
+  font-weight: 800;
+  font-size: clamp(14px, 1.5vw, 18px);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.82);
+  white-space: nowrap;
+}
 
 /* ============================================================
    SECTION — SERVIÇOS (detalhados)
@@ -940,6 +979,27 @@ p {
   flex: 1;
 }
 
+/* Ajuste dedicado para a seção Público (5 cards) */
+#publico .servicos-grid {
+  margin-top: 8px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+#publico .servico-card {
+  height: 100%;
+  min-height: 250px;
+}
+#publico .servico-card:nth-child(1),
+#publico .servico-card:nth-child(2),
+#publico .servico-card:nth-child(3) {
+  grid-column: span 2;
+}
+#publico .servico-card:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+#publico .servico-card:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
 /* ============================================================
    SECTION — METODOLOGIA ACCE
    ============================================================ */
@@ -984,7 +1044,7 @@ p {
 }
 .acce-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
 .acce-pillar {
@@ -1043,6 +1103,12 @@ p {
   height: 26px;
   width: auto;
   opacity: 0.92;
+}
+.vs-top-logo.brand-lockup {
+  height: auto;
+  display: inline-flex;
+  align-items: center;
+  opacity: 1;
 }
 .vs-top-center {
   font-family: 'Onest', sans-serif;
@@ -1386,10 +1452,18 @@ p {
   justify-content: center;
   transition: opacity 0.2s, transform 0.2s;
   background: var(--azul);
+  color: var(--preto);
 }
 .t-nav-btn:disabled { opacity: 0.3; cursor: default; }
 .t-nav-btn:not(:disabled):hover { transform: scale(1.06); background: var(--azul-escuro); }
 .t-nav-btn svg { width: 22px; height: 22px; }
+
+.card-video--static {
+  height: 210px;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(0.88) contrast(1.05);
+}
 
 /* ============================================================
    SECTION 5 — MANIFESTO / TEXTO ANIMADO
@@ -1734,6 +1808,16 @@ footer {
   .servicos-grid { grid-template-columns: repeat(2, 1fr); }
   .acce-grid { grid-template-columns: repeat(2, 1fr); }
   .cases-grid { grid-template-columns: repeat(2, 1fr); }
+  #publico .servicos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #publico .servico-card:nth-child(1),
+  #publico .servico-card:nth-child(2),
+  #publico .servico-card:nth-child(4),
+  #publico .servico-card:nth-child(5) {
+    grid-column: auto;
+  }
+  #publico .servico-card:nth-child(3) { grid-column: 1 / -1; }
 
   .footer-logo-bar { padding: 50px 40px 32px; }
   .footer-main { padding: 36px 40px 48px; }
@@ -1841,6 +1925,19 @@ footer {
   #servicos { padding: 56px 24px 64px; }
   .servicos-lead { margin-bottom: 32px; }
   .servicos-grid { grid-template-columns: 1fr; gap: 16px; }
+  #publico .servicos-grid {
+    grid-template-columns: 1fr;
+  }
+  #publico .servico-card {
+    min-height: 0;
+  }
+  #publico .servico-card:nth-child(1),
+  #publico .servico-card:nth-child(2),
+  #publico .servico-card:nth-child(3),
+  #publico .servico-card:nth-child(4),
+  #publico .servico-card:nth-child(5) {
+    grid-column: auto;
+  }
 
   #metodologia-acce { padding: 56px 24px 64px; }
   .acce-grid { grid-template-columns: 1fr; gap: 14px; }
@@ -1880,7 +1977,7 @@ footer {
     border-radius: 999px;
     transition: background 0.2s, color 0.2s;
   }
-  .vs-top-handle:active { background: rgba(0,76,255,0.08); }
+  .vs-top-handle:active { background: rgba(249,255,62,0.2); }
   .vs-hero-titles {
     display: flex;
     flex-direction: column;
@@ -1924,10 +2021,10 @@ footer {
   .vs-divider { display: none; }
   .vs-col-label { display: block; margin-bottom: 16px; }
   .vs-col--pro {
-    background: rgba(0,76,255,0.045);
+    background: rgba(249,255,62,0.12);
     border-radius: 18px;
     padding: 22px 18px 26px;
-    border: 1px solid rgba(0,76,255,0.09);
+    border: 1px solid rgba(249,255,62,0.28);
   }
   .vs-col--con {
     background: rgba(220,38,38,0.04);
@@ -1961,7 +2058,7 @@ footer {
   .testimonials-heading h2 { font-size: clamp(32px, 9vw, 52px); }
   .testimonials-track { padding-bottom: 0; }
   .testimonial-card { width: 300px; padding: 14px 14px 20px; }
-  .card-video { height: 180px; }
+  .card-video, .card-video--static { height: 180px; }
   .card-logo { height: 22px; }
   .card-quote { font-size: 13px; }
   .card-client-name { font-size: 13px; }
@@ -2050,7 +2147,7 @@ footer {
 
   .testimonials-inner { padding: 0 20px; }
   .testimonial-card { width: 270px; }
-  .card-video { height: 160px; }
+  .card-video, .card-video--static { height: 160px; }
 
   .manifesto-text { font-size: 26px; }
 
@@ -2078,17 +2175,18 @@ footer {
 
 <header class="site-nav-wrap">
   <nav class="nav-pill" aria-label="Navegação principal">
-    <a href="index.html#hero" class="nav-brand">
-      <img src="https://framerusercontent.com/images/G5jwz9CLG7ksDjFSyzQ9kInRsVs.png" alt="United" width="120" height="32" loading="eager">
+    <a href="#hero" class="nav-brand brand-lockup" aria-label="United Imob — página inicial">
+      <svg class="brand-lockup__flag" viewBox="0 0 28 36" width="20" height="26" aria-hidden="true"><path fill="currentColor" d="M6 2v32M6 7l18-4v14L6 18V7z"/></svg>
+      <span><span class="brand-lockup__u">united</span> <span class="brand-lockup__i">imob.</span></span>
     </a>
     <ul class="nav-menu">
-      <li><a href="index.html#hero">Início</a></li>
-      <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="servicos.html">Serviços</a></li>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="index.html#cases">Cases</a></li>
+      <li><a href="#hero">Início</a></li>
+      <li><a href="#publico">Sobre</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#cases">Cases</a></li>
     </ul>
-    <a href="#service" class="nav-cta-pill nav-cta-pill--desktop">WhatsApp <span class="nav-cta-arrow" aria-hidden="true">→</span></a>
+    <a href="#service" class="nav-cta-pill nav-cta-pill--desktop">Diagnóstico <span class="nav-cta-arrow" aria-hidden="true">→</span></a>
     <button type="button" class="nav-burger" id="navBurger" aria-label="Abrir menu" aria-expanded="false" aria-controls="navOverlay">
       <span></span><span></span><span></span>
     </button>
@@ -2096,8 +2194,9 @@ footer {
 </header>
 <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Menu de navegação" aria-hidden="true" inert>
   <div class="nav-overlay-top">
-    <a href="index.html#hero" class="nav-overlay-brand">
-      <img src="https://framerusercontent.com/images/G5jwz9CLG7ksDjFSyzQ9kInRsVs.png" alt="United" width="120" height="32" loading="eager">
+    <a href="#hero" class="nav-overlay-brand brand-lockup" aria-label="United Imob">
+      <svg class="brand-lockup__flag" viewBox="0 0 28 36" width="22" height="28" aria-hidden="true"><path fill="currentColor" d="M6 2v32M6 7l18-4v14L6 18V7z"/></svg>
+      <span><span class="brand-lockup__u">united</span> <span class="brand-lockup__i">imob.</span></span>
     </a>
     <button type="button" class="nav-overlay-close" id="navOverlayClose" aria-label="Fechar menu">
       <span class="nav-overlay-close-x" aria-hidden="true">×</span>
@@ -2106,12 +2205,12 @@ footer {
   </div>
   <div class="nav-overlay-scroll">
     <div class="nav-overlay-inner">
-      <a href="index.html#hero">Início</a>
-      <a href="sobre.html">Sobre</a>
-      <a href="servicos.html">Serviços</a>
-      <a href="blog.html">Blog</a>
-      <a href="index.html#cases">Cases</a>
-      <a href="#service" class="nav-overlay-cta">WhatsApp →</a>
+      <a href="#hero">Início</a>
+      <a href="#publico">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#blog">Blog</a>
+      <a href="#cases">Cases</a>
+      <a href="#service" class="nav-overlay-cta">Solicitar diagnóstico →</a>
     </div>
   </div>
 </div>
@@ -2125,40 +2224,38 @@ footer {
     <!-- LEFT COLUMN — white bg, all text content -->
     <div class="hero-content">
 
-      <!-- Logo: flag icon + "united" wordmark -->
+      <!-- Logo: united imob. -->
       <div class="hero-logo reveal">
-        <img src="https://framerusercontent.com/images/G5jwz9CLG7ksDjFSyzQ9kInRsVs.png" alt="United Logo" loading="lazy">
+        <span class="brand-lockup" style="font-size:clamp(1.2rem,2.2vw,1.6rem)" aria-hidden="true">
+          <svg class="brand-lockup__flag" viewBox="0 0 28 36" width="24" height="30" aria-hidden="true"><path fill="currentColor" d="M6 2v32M6 7l18-4v14L6 18V7z"/></svg>
+          <span><span class="brand-lockup__u">united</span> <span class="brand-lockup__i">imob.</span></span>
+        </span>
       </div>
 
-      <!-- H1: black text, "EMPRESAS DE INVESTIMENTO" in blue -->
       <div class="hero-title reveal reveal-delay-1">
         <h1>
-          A MAIOR ASSESSORIA DE<br>
-          MARKETING PARA <span class="blue">EMPRESAS<br>
-          DE INVESTIMENTO</span> DA<br>
-          AMÉRICA LATINA.
+          UNITED IMOB<br>
+          <span class="blue">MARKETING ESTRATÉGICO</span><br>
+          PARA EMPRESAS DO<br>
+          MERCADO IMOBILIÁRIO
         </h1>
       </div>
 
-      <!-- Subtitle: thin Onest, black -->
       <p class="hero-subtitle reveal reveal-delay-2">
-        Escalamos empresas do mercado financeiro<br>
-        com estratégia, execução e tecnologia.
+        A United Imob cria estruturas completas de marketing, posicionamento e geração de vendas para empresas do setor imobiliário.<br><br>
+        Trabalhamos com estratégia, tecnologia e comunicação para transformar presença digital em geração contínua de clientes e oportunidades de negócio.
       </p>
 
-      <!-- CTA + Social Proof -->
       <div class="hero-cta reveal reveal-delay-3">
-        <!-- Blue pill button with diagonal arrow icon -->
         <a href="#service" class="btn-primary hero-btn btn-cta-long">
-          AGENDAR DIAGNÓSTICO GRATUITO
+          Solicitar diagnóstico estratégico
           <span class="btn-icon">
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-              <path d="M2.5 10.5L10.5 2.5M10.5 2.5H4.5M10.5 2.5V8.5" stroke="#004CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2.5 10.5L10.5 2.5M10.5 2.5H4.5M10.5 2.5V8.5" stroke="#03020B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </a>
 
-        <!-- Social proof: avatars + separator + text -->
         <div class="social-proof">
           <div class="avatars">
             <img src="https://framerusercontent.com/images/6jU977aDAF7FFtg5FSGQxMH8uk.png" alt="Cliente" loading="lazy">
@@ -2167,7 +2264,7 @@ footer {
             <img src="https://framerusercontent.com/images/0yYnfTGVxQ09tmTmkZ60xW5lq0.png" alt="Cliente" loading="lazy">
           </div>
           <div class="divider-v"></div>
-          <span class="social-proof-text">600+ Empresas Atendidas</span>
+          <span class="social-proof-text">Mais visibilidade · leads · visitas · vendas</span>
         </div>
       </div>
     </div>
@@ -2181,7 +2278,7 @@ footer {
   <img
     class="hero-photo"
     src="https://framerusercontent.com/images/dSIB6a7VVHWfo8mt1KQNaApAgI.png"
-    alt="Profissional United"
+    alt="Profissional United Imob"
     loading="eager"
   >
 
@@ -2189,18 +2286,18 @@ footer {
   <div class="ticker-section">
     <div class="ticker-band ticker-band-2">
       <div class="ticker-track-rev">
-        <span class="ticker-item">500 PROJETOS ATENDIDOS <span class="ticker-sep">✕</span> + DE 1 BI EM CAPTAÇÃO <span class="ticker-sep">✕</span> + 10 ANOS DE MERCADO <span class="ticker-sep">✕</span> EXPERIÊNCIA NO MERCADO FINANCEIRO <span class="ticker-sep">✕</span></span>
-        <span class="ticker-item">500 PROJETOS ATENDIDOS <span class="ticker-sep">✕</span> + DE 1 BI EM CAPTAÇÃO <span class="ticker-sep">✕</span> + 10 ANOS DE MERCADO <span class="ticker-sep">✕</span> EXPERIÊNCIA NO MERCADO FINANCEIRO <span class="ticker-sep">✕</span></span>
-        <span class="ticker-item">500 PROJETOS ATENDIDOS <span class="ticker-sep">✕</span> + DE 1 BI EM CAPTAÇÃO <span class="ticker-sep">✕</span> + 10 ANOS DE MERCADO <span class="ticker-sep">✕</span> EXPERIÊNCIA NO MERCADO FINANCEIRO <span class="ticker-sep">✕</span></span>
+        <span class="ticker-item">MARKETING IMOBILIÁRIO <span class="ticker-sep">✕</span> LANÇAMENTOS <span class="ticker-sep">✕</span> LEADS QUALIFICADOS <span class="ticker-sep">✕</span> POSICIONAMENTO DE MARCA <span class="ticker-sep">✕</span> TRÁFEGO PAGO <span class="ticker-sep">✕</span></span>
+        <span class="ticker-item">MARKETING IMOBILIÁRIO <span class="ticker-sep">✕</span> LANÇAMENTOS <span class="ticker-sep">✕</span> LEADS QUALIFICADOS <span class="ticker-sep">✕</span> POSICIONAMENTO DE MARCA <span class="ticker-sep">✕</span> TRÁFEGO PAGO <span class="ticker-sep">✕</span></span>
+        <span class="ticker-item">MARKETING IMOBILIÁRIO <span class="ticker-sep">✕</span> LANÇAMENTOS <span class="ticker-sep">✕</span> LEADS QUALIFICADOS <span class="ticker-sep">✕</span> POSICIONAMENTO DE MARCA <span class="ticker-sep">✕</span> TRÁFEGO PAGO <span class="ticker-sep">✕</span></span>
       </div>
     </div>
 
     <!-- Band 3: BLACK, rotated +6deg (bottom) -->
     <div class="ticker-band ticker-band-3">
       <div class="ticker-track">
-        <span class="ticker-item">+ 10 ANOS DE MERCADO <span class="ticker-sep">✕</span> 500 PROJETOS ATENDIDOS <span class="ticker-sep">✕</span> + DE 1 BI EM CAPTAÇÃO <span class="ticker-sep">✕</span> EXPERIÊNCIA NO MERCADO FINANCEIRO <span class="ticker-sep">✕</span></span>
-        <span class="ticker-item">+ 10 ANOS DE MERCADO <span class="ticker-sep">✕</span> 500 PROJETOS ATENDIDOS <span class="ticker-sep">✕</span> + DE 1 BI EM CAPTAÇÃO <span class="ticker-sep">✕</span> EXPERIÊNCIA NO MERCADO FINANCEIRO <span class="ticker-sep">✕</span></span>
-        <span class="ticker-item">+ 10 ANOS DE MERCADO <span class="ticker-sep">✕</span> 500 PROJETOS ATENDIDOS <span class="ticker-sep">✕</span> + DE 1 BI EM CAPTAÇÃO <span class="ticker-sep">✕</span> EXPERIÊNCIA NO MERCADO FINANCEIRO <span class="ticker-sep">✕</span></span>
+        <span class="ticker-item">INCORPORADORAS <span class="ticker-sep">✕</span> CONSTRUTORAS <span class="ticker-sep">✕</span> IMOBILIÁRIAS <span class="ticker-sep">✕</span> CORRETORES <span class="ticker-sep">✕</span> ECOSSISTEMA IMOBILIÁRIO <span class="ticker-sep">✕</span></span>
+        <span class="ticker-item">INCORPORADORAS <span class="ticker-sep">✕</span> CONSTRUTORAS <span class="ticker-sep">✕</span> IMOBILIÁRIAS <span class="ticker-sep">✕</span> CORRETORES <span class="ticker-sep">✕</span> ECOSSISTEMA IMOBILIÁRIO <span class="ticker-sep">✕</span></span>
+        <span class="ticker-item">INCORPORADORAS <span class="ticker-sep">✕</span> CONSTRUTORAS <span class="ticker-sep">✕</span> IMOBILIÁRIAS <span class="ticker-sep">✕</span> CORRETORES <span class="ticker-sep">✕</span> ECOSSISTEMA IMOBILIÁRIO <span class="ticker-sep">✕</span></span>
       </div>
     </div>
 
@@ -2215,28 +2312,36 @@ footer {
 
     <!-- Left: big title only -->
     <div class="service-content reveal">
-      <h2 class="service-title">VOCÊ ESTÁ PRESTES A<br>ESCALAR SUA OPERAÇÃO</h2>
+      <h2 class="service-title">ESTRUTURAMOS OPERAÇÕES DE<br>MARKETING QUE VENDEM IMÓVEIS</h2>
 
-      <!-- Feature 1 -->
       <div class="service-feature">
         <div class="service-icon-wrap">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <p class="service-feature-title">Complete o formulário</p>
-        <p class="service-feature-desc">Forneça suas informações no formulário ao lado. Garantimos a segurança total de seus dados. Serão usados apenas para contato.</p>
+        <p class="service-feature-title">Para quem trabalhamos</p>
+        <p class="service-feature-desc">A United Imob atende empresas e profissionais do mercado imobiliário que querem crescer com escala, posicionamento forte e estratégia comercial estruturada — incorporadoras, construtoras, imobiliárias, corretores e empresas do ecossistema.</p>
       </div>
 
-      <!-- Feature 2 -->
+      <div class="service-feature">
+        <div class="service-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="service-feature-title">Complete o diagnóstico</p>
+        <p class="service-feature-desc">Preencha o formulário ao lado. Usaremos seus dados apenas para retorno do time e agendamento do diagnóstico estratégico.</p>
+      </div>
+
       <div class="service-feature">
         <div class="service-icon-wrap">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M20 10.999h2A10 10 0 0 0 3.058 6m-.554-3.27v3.27H5.77M4 13.001H2A10 10 0 0 0 20.942 18m.554 3.27v-3.27H18.23" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <p class="service-feature-title">Receba uma ligação personalizada</p>
-        <p class="service-feature-desc">Em um prazo de até 5 minutos em horário comercial, um dos nossos especialistas entrará em contato diretamente para agendar a reunião mais importante com você.</p>
+        <p class="service-feature-title">Próximo passo comercial</p>
+        <p class="service-feature-desc">Em horário comercial, nosso time entra em contato para alinhar contexto, objetivos e como estruturar sua operação de marketing e geração de oportunidades.</p>
       </div>
     </div>
 
@@ -2259,15 +2364,13 @@ footer {
           <label class="form-label" for="segmento">Qual o seu Segmento?</label>
           <div class="form-select-wrap">
             <select id="segmento" name="segmento" class="form-input" required>
-              <option value="" disabled selected>Escritório de investimento credenciado</option>
-              <option value="escritorio">Escritório de investimento credenciado</option>
-              <option value="corretora">Corretora</option>
-              <option value="fundo">Fundo</option>
-              <option value="captacao">Empresa de Captação</option>
-              <option value="financeira">Financeira</option>
-              <option value="crypto">Tokenização ou Cripto</option>
-              <option value="trader-forex">Trader Forex</option>
-              <option value="trader-b3">Trader B3</option>
+              <option value="" disabled selected>Selecione seu segmento</option>
+              <option value="incorporadora">Incorporadora</option>
+              <option value="construtora">Construtora</option>
+              <option value="imobiliaria">Imobiliária</option>
+              <option value="corretor">Corretor de imóveis</option>
+              <option value="ecossistema">Empresa do setor imobiliário</option>
+              <option value="outro">Outro</option>
             </select>
           </div>
         </div>
@@ -2286,7 +2389,7 @@ footer {
             </select>
           </div>
         </div>
-        <button type="submit" class="form-btn">SOLICITAR DIAGNÓSTICO GRATUITO</button>
+        <button type="submit" class="form-btn">Solicitar diagnóstico estratégico</button>
       </form>
     </div>
 
@@ -2298,25 +2401,59 @@ footer {
      ============================================================ -->
 <section id="logos">
   <div class="logos-inner">
-    <p class="logos-title reveal">Empresas que utilizam a nossa metodologia</p>
+    <p class="logos-title reveal">Atendemos todo o ecossistema do mercado imobiliário</p>
     <div class="logos-carousel">
       <div class="logos-track">
-        <div class="logo-item"><img src="https://framerusercontent.com/images/i3D8XBoyrBbk6EbcTUmwzZShPE.png" alt="Cliente 1" loading="lazy"></div>
-        <div class="logo-item"><img src="https://framerusercontent.com/images/WQkKl9J2XSyuMnAkqadIQgdRass.png" alt="Cliente 2" loading="lazy"></div>
-        <div class="logo-item"><img src="https://framerusercontent.com/images/R30cbJB75185FOaAemWo9NVvQQ.png" alt="Cliente 3" loading="lazy"></div>
-        <div class="logo-item"><img src="https://framerusercontent.com/images/pZFM5iWWyB50PTESW1cSOlYRDY.png" alt="Cliente 4" loading="lazy"></div>
-        <div class="logo-item"><img src="https://framerusercontent.com/images/zNiOGvVX96gDQvtXoww21X84r5k.png" alt="Cliente 5" loading="lazy"></div>
-        <div class="logo-item"><img src="https://framerusercontent.com/images/18MU9pCeHjIxUJcNi55v0j1aVs.png" alt="Cliente 6" loading="lazy"></div>
-        <div class="logo-item"><img src="https://framerusercontent.com/images/Y8oL7vt5IxC1BDNz37tkdeTHmg.png" alt="Cliente 7" loading="lazy"></div>
-        <!-- Duplicate for infinite loop -->
-        <div class="logo-item"><img src="https://framerusercontent.com/images/i3D8XBoyrBbk6EbcTUmwzZShPE.png" alt="Cliente 1" loading="lazy"></div>
-        <div class="logo-item"><img src="https://framerusercontent.com/images/WQkKl9J2XSyuMnAkqadIQgdRass.png" alt="Cliente 2" loading="lazy"></div>
-        <div class="logo-item"><img src="https://framerusercontent.com/images/R30cbJB75185FOaAemWo9NVvQQ.png" alt="Cliente 3" loading="lazy"></div>
-        <div class="logo-item"><img src="https://framerusercontent.com/images/pZFM5iWWyB50PTESW1cSOlYRDY.png" alt="Cliente 4" loading="lazy"></div>
-        <div class="logo-item"><img src="https://framerusercontent.com/images/zNiOGvVX96gDQvtXoww21X84r5k.png" alt="Cliente 5" loading="lazy"></div>
-        <div class="logo-item"><img src="https://framerusercontent.com/images/18MU9pCeHjIxUJcNi55v0j1aVs.png" alt="Cliente 6" loading="lazy"></div>
-        <div class="logo-item"><img src="https://framerusercontent.com/images/Y8oL7vt5IxC1BDNz37tkdeTHmg.png" alt="Cliente 7" loading="lazy"></div>
+        <div class="logo-item logo-item--text"><span>Incorporadoras</span></div>
+        <div class="logo-item logo-item--text"><span>Construtoras</span></div>
+        <div class="logo-item logo-item--text"><span>Imobiliárias</span></div>
+        <div class="logo-item logo-item--text"><span>Corretores</span></div>
+        <div class="logo-item logo-item--text"><span>Empresas do setor</span></div>
+        <div class="logo-item logo-item--text"><span>Lançamentos</span></div>
+        <div class="logo-item logo-item--text"><span>Empreendimentos</span></div>
+        <div class="logo-item logo-item--text"><span>Incorporadoras</span></div>
+        <div class="logo-item logo-item--text"><span>Construtoras</span></div>
+        <div class="logo-item logo-item--text"><span>Imobiliárias</span></div>
+        <div class="logo-item logo-item--text"><span>Corretores</span></div>
+        <div class="logo-item logo-item--text"><span>Empresas do setor</span></div>
+        <div class="logo-item logo-item--text"><span>Lançamentos</span></div>
+        <div class="logo-item logo-item--text"><span>Empreendimentos</span></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="publico" style="background:#fafaf8;padding:72px 30px 80px;border-top:1px solid rgba(0,0,0,0.06)">
+  <div class="servicos-inner">
+    <p class="servicos-kicker reveal">Público</p>
+    <h2 class="servicos-title reveal">PARA QUEM TRABALHAMOS</h2>
+    <p class="servicos-lead reveal">A United Imob atende empresas e profissionais que fazem parte do mercado imobiliário e querem crescer com escala, posicionamento forte e estratégia comercial estruturada.</p>
+    <div class="servicos-grid">
+      <article class="servico-card reveal">
+        <span class="servico-card-num">01</span>
+        <h3>Incorporadoras</h3>
+        <p>Estruturação de marketing para lançamentos, geração de demanda e aceleração de vendas de empreendimentos.</p>
+      </article>
+      <article class="servico-card reveal reveal-delay-1">
+        <span class="servico-card-num">02</span>
+        <h3>Construtoras</h3>
+        <p>Posicionamento de marca, presença digital e geração de oportunidades comerciais.</p>
+      </article>
+      <article class="servico-card reveal reveal-delay-2">
+        <span class="servico-card-num">03</span>
+        <h3>Imobiliárias</h3>
+        <p>Estruturação de marketing e geração contínua de leads para aumentar volume de vendas.</p>
+      </article>
+      <article class="servico-card reveal">
+        <span class="servico-card-num">04</span>
+        <h3>Corretores de imóveis</h3>
+        <p>Construção de posicionamento estratégico e estrutura de captação de clientes.</p>
+      </article>
+      <article class="servico-card reveal reveal-delay-1">
+        <span class="servico-card-num">05</span>
+        <h3>Empresas do setor imobiliário</h3>
+        <p>Soluções de marketing para empresas que atuam dentro do ecossistema imobiliário.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -2326,39 +2463,39 @@ footer {
      ============================================================ -->
 <section id="servicos">
   <div class="servicos-inner">
-    <p class="servicos-kicker reveal">O que entregamos</p>
-    <h2 class="servicos-title reveal">SERVIÇOS PARA ESCRITÓRIOS E EMPRESAS DO MERCADO FINANCEIRO</h2>
-    <p class="servicos-lead reveal">Os mesmos pilares que apresentamos no Instagram — agora com contexto direto na landing, para quem chega do feed não perder o fio da meada.</p>
+    <p class="servicos-kicker reveal">Soluções</p>
+    <h2 class="servicos-title reveal">NOSSAS SOLUÇÕES PARA O MERCADO IMOBILIÁRIO</h2>
+    <p class="servicos-lead reveal">A United Imob oferece uma estrutura completa de marketing voltada para empresas do setor imobiliário — da identidade à geração contínua de oportunidades. Nosso trabalho é estruturar operações que ampliam visibilidade, fortalecem autoridade e aumentam vendas no mercado.</p>
     <div class="servicos-grid">
       <article class="servico-card reveal">
         <span class="servico-card-num">01</span>
-        <h3>Tráfego pago</h3>
-        <p>Campanhas em Meta e Google com criativos e mensagens pensados para captação e qualificação de investidores, com acompanhamento de métricas que importam para o seu funil.</p>
+        <h3>Identidade visual e direção em design</h3>
+        <p>Desenvolvimento de identidade visual e direção criativa para empresas, empreendimentos e projetos imobiliários. Criamos marcas e materiais com posicionamento profissional e alinhado ao perfil do mercado.</p>
       </article>
       <article class="servico-card reveal reveal-delay-1">
         <span class="servico-card-num">02</span>
-        <h3>CRM e automação</h3>
-        <p>Organização de leads, fluxos de nutrição e integrações para o time comercial responder rápido e não perder oportunidades por falta de follow-up.</p>
+        <h3>Criativos estratégicos para anúncios</h3>
+        <p>Produção de criativos para campanhas de performance: anúncios digitais, geração de leads, divulgação de empreendimentos e posicionamento de marca.</p>
       </article>
       <article class="servico-card reveal reveal-delay-2">
         <span class="servico-card-num">03</span>
-        <h3>Branding e posicionamento</h3>
-        <p>Narrativa, identidade verbal e visual alinhadas à regulação e à confiança que o mercado financeiro exige — sem parecer “template genérico”.</p>
+        <h3>Máquina de vendas imobiliária</h3>
+        <p>Estruturação completa: gestão de tráfego pago, CRM, consultoria estratégica, leads qualificados e organização do funil comercial — com foco em previsibilidade de oportunidades.</p>
       </article>
       <article class="servico-card reveal">
         <span class="servico-card-num">04</span>
-        <h3>Pitch deck e materiais comerciais</h3>
-        <p>Apresentações e peças para reuniões, roadshows e prospecção institucional, com foco em clareza, compliance e conversão.</p>
+        <h3>Vídeos com inteligência artificial</h3>
+        <p>Do terreno ao projeto: vídeos que transformam terrenos, projetos e empreendimentos em experiências visuais impactantes, com IA para apresentar projetos de forma moderna e atrativa.</p>
       </article>
       <article class="servico-card reveal reveal-delay-1">
         <span class="servico-card-num">05</span>
-        <h3>Treinamento de equipe</h3>
-        <p>Capacitação de SDRs, assessores e marketing interno para usar o método, as ferramentas e o discurso certo na prática do dia a dia.</p>
+        <h3>Desenvolvimento de websites</h3>
+        <p>Sites institucionais e páginas estratégicas para incorporadoras, imobiliárias, empreendimentos e corretores — apresentação profissional e geração de leads.</p>
       </article>
       <article class="servico-card reveal reveal-delay-2">
         <span class="servico-card-num">06</span>
-        <h3>Estratégia e conteúdo</h3>
-        <p>Linha editorial, SEO, redes sociais e peças de autoridade que sustentam demanda orgânica e reforçam reputação no longo prazo.</p>
+        <h3>Redes sociais e comunicação</h3>
+        <p>Planejamento, produção e gestão de conteúdo: estratégia, produção visual, organização da comunicação digital e fortalecimento da marca no mercado.</p>
       </article>
     </div>
   </div>
@@ -2369,29 +2506,24 @@ footer {
      ============================================================ -->
 <section id="metodologia-acce">
   <div class="acce-inner">
-    <p class="acce-kicker reveal">Metodologia United</p>
-    <h2 class="acce-title reveal">FRAMEWORK ACCE</h2>
-    <p class="acce-lead reveal">Autoridade, Captação, Conversão e Escala — o método que usamos para alinhar marketing, vendas e operação no mercado de investimentos.</p>
+    <p class="acce-kicker reveal">Processo</p>
+    <h2 class="acce-title reveal">COMO FUNCIONA</h2>
+    <p class="acce-lead reveal">Diagnóstico, estratégia e implementação — da análise do cenário atual à operação gerando oportunidades de venda de forma contínua.</p>
     <div class="acce-grid">
       <div class="acce-pillar reveal">
-        <div class="acce-letter">A</div>
-        <h3>Autoridade</h3>
-        <p>Conteúdo, PR e presença digital que geram confiança antes mesmo da primeira conversa com o investidor.</p>
+        <div class="acce-letter">1</div>
+        <h3>Diagnóstico estratégico</h3>
+        <p>Analisamos o posicionamento atual da empresa, presença digital e objetivos de crescimento.</p>
       </div>
       <div class="acce-pillar reveal reveal-delay-1">
-        <div class="acce-letter">C</div>
-        <h3>Captação</h3>
-        <p>Tráfego e inbound estruturados para trazer volume e qualidade de leads compatíveis com o seu produto e perfil de cliente.</p>
+        <div class="acce-letter">2</div>
+        <h3>Estruturação da estratégia</h3>
+        <p>Definimos as ações de marketing, comunicação e geração de leads mais adequadas ao seu contexto.</p>
       </div>
       <div class="acce-pillar reveal reveal-delay-2">
-        <div class="acce-letter">C</div>
-        <h3>Conversão</h3>
-        <p>CRM, automações e jornada comercial para transformar interesse em reunião, proposta e contrato.</p>
-      </div>
-      <div class="acce-pillar reveal reveal-delay-3">
-        <div class="acce-letter">E</div>
-        <h3>Escala</h3>
-        <p>Processos, treinamento e otimização contínua para crescer sem perder padrão de atendimento nem compliance.</p>
+        <div class="acce-letter">3</div>
+        <h3>Implementação da operação</h3>
+        <p>Colocamos a estrutura em funcionamento para gerar oportunidades comerciais de forma contínua.</p>
       </div>
     </div>
   </div>
@@ -2402,57 +2534,62 @@ footer {
      ============================================================ -->
 <section id="comparativo">
   <div class="vs-inner">
+    <p class="logos-title reveal" style="color:rgba(3,2,11,0.72);max-width:720px;margin:0 auto 40px;text-align:center;font-size:clamp(15px,1.4vw,18px);line-height:1.55;padding:0 12px"><strong style="display:block;margin-bottom:10px;font-family:'Big Shoulders Display',sans-serif;font-size:clamp(20px,2.5vw,26px);letter-spacing:0.04em;text-transform:uppercase;color:var(--preto)">O novo marketing imobiliário</strong> O mercado imobiliário está cada vez mais competitivo. Hoje não basta apenas anunciar imóveis em portais ou depender de indicações. Empresas que crescem de forma consistente estruturam operações de marketing capazes de gerar compradores todos os dias — com posicionamento forte, campanhas estratégicas, geração constante de leads, presença digital profissional e estrutura comercial organizada. A United Imob atua exatamente nesse ponto: transformar marketing em uma máquina de geração de oportunidades de venda.</p>
+
     <header class="vs-top reveal">
-      <img class="vs-top-logo" src="https://framerusercontent.com/images/G5jwz9CLG7ksDjFSyzQ9kInRsVs.png" alt="United" width="120" height="32" loading="lazy">
-      <p class="vs-top-center">Marketing para empresas do mercado financeiro</p>
-      <a href="https://www.instagram.com/assessoriaunited/" target="_blank" rel="noopener" class="vs-top-handle">@assessoriaunited</a>
+      <span class="vs-top-logo brand-lockup" style="height:auto" aria-hidden="true">
+        <svg class="brand-lockup__flag" viewBox="0 0 28 36" width="22" height="28"><path fill="currentColor" d="M6 2v32M6 7l18-4v14L6 18V7z"/></svg>
+        <span><span class="brand-lockup__u">united</span> <span class="brand-lockup__i">imob.</span></span>
+      </span>
+      <p class="vs-top-center">Marketing estratégico para empresas do mercado imobiliário</p>
+      <a href="#service" class="vs-top-handle">Solicitar diagnóstico</a>
     </header>
 
     <div class="vs-hero-titles reveal reveal-delay-1">
       <div class="vs-side-title vs-united">
-        <span class="vs-black">UNITED</span> <span class="vs-blue">FINANCE</span>
+        <span class="vs-black">UNITED</span> <span class="vs-blue">IMOB</span>
       </div>
       <div class="vs-symbol" aria-hidden="true">VS</div>
       <div class="vs-side-title vs-generic">
-        <span class="vs-black">MARKETING</span> <span class="vs-red">GENÉRICO</span>
+        <span class="vs-black">SÓ ANÚNCIO</span> <span class="vs-red">NO PORTAL</span>
       </div>
     </div>
 
     <h2 class="vs-question reveal reveal-delay-2">
-      Qual das duas realmente te traz <span class="vs-emph">clientes e investidores</span>
+      Onde você quer <span class="vs-emph">compradores e visitas</span> de forma previsível?
     </h2>
 
     <div class="vs-grid reveal reveal-delay-3">
       <div class="vs-col vs-col--pro">
-      <p class="vs-col-label vs-col-label--pro">United Finance</p>
+      <p class="vs-col-label vs-col-label--pro">United Imob</p>
       <ul class="vs-list vs-list--pro">
         <li class="vs-item">
           <svg class="vs-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="14" cy="14" r="10" stroke="var(--azul)" stroke-width="1.4" fill="none" opacity="0.85"/>
             <path d="M9 14l3 3.5 7-7" stroke="var(--azul)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <p class="vs-item-text">Entende e conhece os <span class="hl-blue">processos do seu nicho</span></p>
+          <p class="vs-item-text">Especialização no <span class="hl-blue">ciclo de venda imobiliária</span> — do interesse à visita.</p>
         </li>
         <li class="vs-item">
           <svg class="vs-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="14" cy="14" r="10" stroke="var(--azul)" stroke-width="1.4" fill="none" opacity="0.85"/>
             <path d="M9 14l3 3.5 7-7" stroke="var(--azul)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <p class="vs-item-text">Ajudamos você a se <span class="hl-blue">tornar referência no segmento</span></p>
+          <p class="vs-item-text"><span class="hl-blue">Operação integrada</span>: criativos, tráfego, CRM e discurso comercial alinhados.</p>
         </li>
         <li class="vs-item">
           <svg class="vs-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="14" cy="14" r="10" stroke="var(--azul)" stroke-width="1.4" fill="none" opacity="0.85"/>
             <path d="M9 14l3 3.5 7-7" stroke="var(--azul)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <p class="vs-item-text">Ajusta sua jornada de <span class="hl-blue">captação</span></p>
+          <p class="vs-item-text">Funil para <span class="hl-blue">lançamentos, estoque e corretores</span> com metas claras.</p>
         </li>
         <li class="vs-item">
           <svg class="vs-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="14" cy="14" r="10" stroke="var(--azul)" stroke-width="1.4" fill="none" opacity="0.85"/>
             <path d="M9 14l3 3.5 7-7" stroke="var(--azul)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          <p class="vs-item-text"><span class="hl-blue">Focada em resultados</span> do objetivo do seu escritório ou projeto</p>
+          <p class="vs-item-text"><span class="hl-blue">Marketing como máquina</span> de oportunidades — não só post esporádico.</p>
         </li>
       </ul>
       </div>
@@ -2460,35 +2597,35 @@ footer {
       <div class="vs-divider" aria-hidden="true"></div>
 
       <div class="vs-col vs-col--con">
-      <p class="vs-col-label vs-col-label--con">Marketing genérico</p>
+      <p class="vs-col-label vs-col-label--con">Abordagem desconectada</p>
       <ul class="vs-list vs-list--con">
         <li class="vs-item">
           <svg class="vs-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="14" cy="14" r="10" stroke="var(--vermelho-vs)" stroke-width="1.4" fill="none" opacity="0.75"/>
             <path d="M10 10l8 8M18 10l-8 8" stroke="var(--vermelho-vs)" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
-          <p class="vs-item-text"><span class="hl-red">Não sabe sobre</span> o segmento e você precisa ensinar</p>
+          <p class="vs-item-text"><span class="hl-red">Só anúncio genérico</span> sem posicionamento nem narrativa de empreendimento.</p>
         </li>
         <li class="vs-item">
           <svg class="vs-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="14" cy="14" r="10" stroke="var(--vermelho-vs)" stroke-width="1.4" fill="none" opacity="0.75"/>
             <path d="M10 10l8 8M18 10l-8 8" stroke="var(--vermelho-vs)" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
-          <p class="vs-item-text">Campanhas para todo mundo <span class="hl-red">sem segmentação inteligente</span></p>
+          <p class="vs-item-text">Tráfego <span class="hl-red">sem CRM nem disciplina comercial</span> — oportunidade desperdiçada.</p>
         </li>
         <li class="vs-item">
           <svg class="vs-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="14" cy="14" r="10" stroke="var(--vermelho-vs)" stroke-width="1.4" fill="none" opacity="0.75"/>
             <path d="M10 10l8 8M18 10l-8 8" stroke="var(--vermelho-vs)" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
-          <p class="vs-item-text">Nenhum controle do depois: <span class="hl-red">o lead cai e some</span></p>
+          <p class="vs-item-text">Dependência excessiva de <span class="hl-red">portais e indicações</span>, sem previsibilidade.</p>
         </li>
         <li class="vs-item">
           <svg class="vs-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="14" cy="14" r="10" stroke="var(--vermelho-vs)" stroke-width="1.4" fill="none" opacity="0.75"/>
             <path d="M10 10l8 8M18 10l-8 8" stroke="var(--vermelho-vs)" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
-          <p class="vs-item-text">Você continua <span class="hl-red">dependendo de indicação e sazonalidade</span></p>
+          <p class="vs-item-text">Equipe <span class="hl-red">sem método de follow-up</span> e sem nutrição de leads.</p>
         </li>
       </ul>
       </div>
@@ -2509,82 +2646,68 @@ footer {
           <path d="M52 16C52 16 28 16 20 36C14 52 24 60 24 60M24 60L14 46M24 60L38 54" stroke="#03020B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </span>
-      <h2>ELES FALAM POR NÓS</h2>
+      <h2>QUEM CONFIA NA NOSSA OPERAÇÃO</h2>
     </div>
 
-    <!-- Carousel -->
     <div class="testimonials-carousel-wrap">
       <div class="testimonials-track" id="testimonialsTrack">
 
-        <!-- Card 1 — Dexcap -->
         <div class="testimonial-card">
-          <div class="card-video">
-            <iframe src="https://iframe.mediadelivery.net/embed/234627/cd8c4c22-d07a-4258-9e11-226268b5334c?autoplay=false&loop=false&muted=false&preload=true&accent=004CFF&primaryColor=004CFF" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
-          </div>
+          <div class="card-video card-video--static" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80')" role="img" aria-label="Empreendimento residencial"></div>
           <div class="card-info">
-            <img class="card-logo" src="https://framerusercontent.com/images/18MU9pCeHjIxUJcNi55v0j1aVs.png" alt="Dexcap" loading="lazy">
-            <p class="card-quote">"Nossos resultados e presença digital dispararam praticamente da noite para o dia — impressionante."</p>
+            <span class="brand-lockup brand-lockup--on-dark" style="font-size:14px"><svg class="brand-lockup__flag" viewBox="0 0 28 36" width="18" height="22" aria-hidden="true"><path fill="currentColor" d="M6 2v32M6 7l18-4v14L6 18V7z"/></svg><span><span class="brand-lockup__u">united</span> <span class="brand-lockup__i">imob.</span></span></span>
+            <p class="card-quote">“Operação de marketing alinhada ao lançamento: mais interesse qualificado e visitas com agenda preenchida.”</p>
             <div class="card-client">
-              <span class="card-client-name">Andre Mileto</span>
-              <span class="card-client-role">COO Dexcap</span>
+              <span class="card-client-name">Incorporadora — parceira</span>
+              <span class="card-client-role">Lançamento vertical</span>
             </div>
           </div>
         </div>
 
-        <!-- Card 2 — Ribus -->
         <div class="testimonial-card">
-          <div class="card-video">
-            <iframe src="https://iframe.mediadelivery.net/embed/234627/2f4a10f9-5026-47a5-bcef-b278209803f0?autoplay=false&loop=false&muted=false&preload=true&accent=004CFF&primaryColor=004CFF" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
-          </div>
+          <div class="card-video card-video--static" style="background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=700&q=80')" role="img" aria-label="Interior de alto padrão"></div>
           <div class="card-info">
-            <img class="card-logo" src="https://framerusercontent.com/images/R30cbJB75185FOaAemWo9NVvQQ.png" alt="Ribus" loading="lazy">
-            <p class="card-quote">"Eles vão direto ao ponto. Vimos resultado já no primeiro mês. Se você quer escalar, não precisa procurar outro lugar."</p>
+            <span class="brand-lockup brand-lockup--on-dark" style="font-size:14px"><svg class="brand-lockup__flag" viewBox="0 0 28 36" width="18" height="22" aria-hidden="true"><path fill="currentColor" d="M6 2v32M6 7l18-4v14L6 18V7z"/></svg><span><span class="brand-lockup__u">united</span> <span class="brand-lockup__i">imob.</span></span></span>
+            <p class="card-quote">“Criativos e páginas pensados para o comprador certo — pararam de gastar com lead frio.”</p>
             <div class="card-client">
-              <span class="card-client-name">Daniel Carius</span>
-              <span class="card-client-role">CEO Ribus</span>
+              <span class="card-client-name">Imobiliária — franquia</span>
+              <span class="card-client-role">Captação digital</span>
             </div>
           </div>
         </div>
 
-        <!-- Card 3 — Hantec -->
         <div class="testimonial-card">
-          <div class="card-video">
-            <iframe src="https://iframe.mediadelivery.net/embed/234627/a0441df0-99d3-4a6d-890c-fb8fde82b977?autoplay=false&loop=false&muted=false&preload=true&accent=004CFF&primaryColor=004CFF" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
-          </div>
+          <div class="card-video card-video--static" style="background-image:url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=700&q=80')" role="img" aria-label="Fachada moderna"></div>
           <div class="card-info">
-            <img class="card-logo" src="https://framerusercontent.com/images/zNiOGvVX96gDQvtXoww21X84r5k.png" alt="Hantec" loading="lazy">
-            <p class="card-quote">"A conversão superou de longe a agência com que a gente trabalhava antes."</p>
+            <span class="brand-lockup brand-lockup--on-dark" style="font-size:14px"><svg class="brand-lockup__flag" viewBox="0 0 28 36" width="18" height="22" aria-hidden="true"><path fill="currentColor" d="M6 2v32M6 7l18-4v14L6 18V7z"/></svg><span><span class="brand-lockup__u">united</span> <span class="brand-lockup__i">imob.</span></span></span>
+            <p class="card-quote">“Com CRM e tráfego integrados, o time comercial finalmente acompanha cada oportunidade.”</p>
             <div class="card-client">
-              <span class="card-client-name">João</span>
-              <span class="card-client-role">Diretor Hantec</span>
+              <span class="card-client-name">Construtora — região metropolitana</span>
+              <span class="card-client-role">Vendas e marketing</span>
             </div>
           </div>
         </div>
 
-        <!-- Card 4 — Sectze -->
         <div class="testimonial-card">
-          <div class="card-video">
-            <iframe src="https://iframe.mediadelivery.net/embed/234627/746ab4f2-6b78-4eb0-92a0-a799a32130d1?autoplay=false&loop=false&muted=false&preload=true&accent=004CFF&primaryColor=004CFF" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen></iframe>
-          </div>
+          <div class="card-video card-video--static" style="background-image:url('https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=700&q=80')" role="img" aria-label="Empreendimento à beira-mar"></div>
           <div class="card-info">
-            <img class="card-logo" src="https://framerusercontent.com/images/WQkKl9J2XSyuMnAkqadIQgdRass.png" alt="Sectze" loading="lazy">
-            <p class="card-quote">"De onde estávamos antes até onde estamos hoje — o salto é absurdo, não tem comparação."</p>
+            <span class="brand-lockup brand-lockup--on-dark" style="font-size:14px"><svg class="brand-lockup__flag" viewBox="0 0 28 36" width="18" height="22" aria-hidden="true"><path fill="currentColor" d="M6 2v32M6 7l18-4v14L6 18V7z"/></svg><span><span class="brand-lockup__u">united</span> <span class="brand-lockup__i">imob.</span></span></span>
+            <p class="card-quote">“Posicionamento e conteúdo consistentes — a marca virou referência antes da primeira visita.”</p>
             <div class="card-client">
-              <span class="card-client-name">Victor Fernandes</span>
-              <span class="card-client-role">CEO Sectze</span>
+              <span class="card-client-name">Corretor — alto padrão</span>
+              <span class="card-client-role">Marca pessoal</span>
             </div>
           </div>
         </div>
 
-      </div><!-- /.testimonials-track -->
+      </div>
 
-      <!-- Nav buttons -->
       <div class="testimonials-nav">
         <button class="t-nav-btn" id="prevBtn" onclick="goToSlide(currentSlide - 1)" disabled aria-label="Anterior">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <button class="t-nav-btn" id="nextBtn" onclick="goToSlide(currentSlide + 1)" aria-label="Próximo">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
       </div>
     </div>
@@ -2597,7 +2720,7 @@ footer {
 <section id="manifesto">
   <div class="manifesto-inner">
     <p class="manifesto-text" id="manifestoText">
-      Unimos estratégia, execução e tecnologia para escalar empresas de forma consistente.
+      Nosso foco é estruturar operações que aumentem oportunidades comerciais e fortaleçam o posicionamento no mercado imobiliário — mais visibilidade, mais leads, mais visitas, vendas em escala.
     </p>
   </div>
 </section>
@@ -2610,18 +2733,18 @@ footer {
     <div class="stats-line"></div>
     <div class="stats-grid">
       <div class="stat-item reveal">
-        <span class="stat-number" data-target="500" id="stat1">500+</span>
-        <span class="stat-label">Projetos Atendidos</span>
+        <span class="stat-number" data-target="360" id="stat1">360+</span>
+        <span class="stat-label">Campanhas e projetos no setor imobiliário</span>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item reveal reveal-delay-1">
-        <span class="stat-number" data-target="6" id="stat2">6+</span>
-        <span class="stat-label">Estados</span>
+        <span class="stat-number" data-target="8" id="stat2">8+</span>
+        <span class="stat-label">Verticais atendidas (lançamento a corretor)</span>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item reveal reveal-delay-2">
-        <span class="stat-number" data-target="100" id="stat3">100+</span>
-        <span class="stat-label">Consultorias Entregues</span>
+        <span class="stat-number" data-target="120" id="stat3">120+</span>
+        <span class="stat-label">Diagnósticos e estruturações comerciais</span>
       </div>
     </div>
   </div>
@@ -2632,26 +2755,51 @@ footer {
      ============================================================ -->
 <section id="cases">
   <div class="cases-inner">
-    <h2 class="cases-title reveal">RESULTADOS QUE REPLICAMOS NO MERCADO FINANCEIRO</h2>
-    <p class="cases-lead reveal">Exemplos de magnitude de resultado que entregamos com escritórios e empresas do setor — números ilustrativos para proteger sigilo comercial; na conversa mostramos cases com contexto.</p>
+    <h2 class="cases-title reveal">RESULTADOS QUE BUSCAMOS NO MERCADO IMOBILIÁRIO</h2>
+    <p class="cases-lead reveal">Exemplos de magnitude típica após estruturação de marketing, tráfego e CRM — números ilustrativos; no diagnóstico avaliamos metas reais da sua operação.</p>
     <div class="cases-grid">
       <article class="case-card reveal">
-        <span class="case-metric">+R$ 50M</span>
-        <h3>Captação em ~6 meses</h3>
-        <p>Escritório de investimentos: funil de tráfego + CRM + discurso comercial alinhado ao método ACCE.</p>
-        <p class="case-note">Cenário típico; valores e prazos variam por operação e produto.</p>
+        <span class="case-metric">+85%</span>
+        <h3>Leads qualificados pós-lançamento</h3>
+        <p>Incorporadora com campanhas segmentadas, páginas por produto e nutrição até visita ao decorado.</p>
+        <p class="case-note">Referência de ordem de grandeza; varia por região e ticket.</p>
       </article>
       <article class="case-card reveal reveal-delay-1">
-        <span class="case-metric">+180%</span>
-        <h3>Leads qualificados em 90 dias</h3>
-        <p>Campanhas e landing com mensagem específica para investidor, reduzindo ruído e aumentando taxa de reunião.</p>
-        <p class="case-note">Referência de ordem de grandeza após implementação completa.</p>
+        <span class="case-metric">3×</span>
+        <h3>Visitas agendadas por mês</h3>
+        <p>Imobiliária com tráfego pago, respostas rápidas no WhatsApp e fila comercial organizada no CRM.</p>
+        <p class="case-note">Depende de estoque, precificação e disponibilidade da equipe.</p>
       </article>
       <article class="case-card reveal reveal-delay-2">
-        <span class="case-metric">3×</span>
-        <h3>Reuniões comerciais mensais</h3>
-        <p>Automação de follow-up e priorização de MQLs para o time fechar mais sem aumentar headcount na mesma proporção.</p>
-        <p class="case-note">Resultado depende de capacidade interna e oferta.</p>
+        <span class="case-metric">−40%</span>
+        <h3>Custo por lead com criativo certo</h3>
+        <p>Construtora após testes de peças e mensagens alinhadas ao perfil de comprador do empreendimento.</p>
+        <p class="case-note">Resultado após fase de otimização contínua de mídia.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="blog" style="background:#fff;padding:70px 30px 84px;">
+  <div class="servicos-inner">
+    <p class="servicos-kicker reveal">Blog</p>
+    <h2 class="servicos-title reveal">CONTEUDO SOBRE MARKETING IMOBILIARIO</h2>
+    <p class="servicos-lead reveal">Publicacoes para ajudar incorporadoras, construtoras, imobiliarias e corretores a crescer com estrategia, posicionamento e geracao de oportunidades.</p>
+    <div class="servicos-grid">
+      <article class="servico-card reveal">
+        <span class="servico-card-num">01</span>
+        <h3>Como gerar leads qualificados no mercado imobiliario</h3>
+        <p>Entenda os principais canais, formatos de campanha e criterios de qualificacao para reduzir custo por lead e aumentar visitas comerciais.</p>
+      </article>
+      <article class="servico-card reveal reveal-delay-1">
+        <span class="servico-card-num">02</span>
+        <h3>Posicionamento digital para incorporadoras e imobiliarias</h3>
+        <p>Veja como construir autoridade de marca, organizar comunicacao e diferenciar empreendimentos em um mercado cada vez mais competitivo.</p>
+      </article>
+      <article class="servico-card reveal reveal-delay-2">
+        <span class="servico-card-num">03</span>
+        <h3>CRM e funil comercial: do lead a visita</h3>
+        <p>Boas praticas para estruturar atendimento, follow-up e distribuicao de oportunidades entre corretores e equipe comercial.</p>
       </article>
     </div>
   </div>
@@ -2663,30 +2811,31 @@ footer {
 <section id="cta">
   <div class="cta-inner">
     <div class="cta-text-block reveal">
-      <p class="cta-tag">ASSESSORIA UNITED</p>
+      <p class="cta-tag">Fale com a United Imob</p>
       <h2 class="cta-title">
-        EXISTE UM <strong>MÉTODO COMPROVADO</strong> PARA QUE SEU PROJETO <strong>NUNCA PARE</strong> DE <strong>VENDER/CAPTAR</strong>
+        SUA EMPRESA NO <strong>MERCADO IMOBILIÁRIO</strong> MERECE <strong>MARKETING ESTRUTURADO</strong> E <strong>OPORTUNIDADES CONTÍNUAS</strong>
       </h2>
-      <p class="cta-sub">Se você seguir, irá manter seu negócio faturando todos os dias.</p>
+      <p class="cta-sub">Se sua empresa busca crescer com posicionamento forte e geração contínua de contatos, solicite um diagnóstico estratégico e descubra como estruturar a operação.</p>
     </div>
 
     <div class="cta-buttons reveal reveal-delay-1">
       <a href="#service" class="btn-primary btn-cta-long">
-        AGENDAR DIAGNÓSTICO GRATUITO
-        <span class="btn-icon">
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-            <path d="M2.5 10.5L10.5 2.5M10.5 2.5H4.5M10.5 2.5V8.5" stroke="#004CFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-      </a>
-      <a href="#service" class="btn-ghost btn-cta-long">
-        VER PLANO PARA MEU ESCRITÓRIO
+        Solicitar diagnóstico
         <span class="btn-icon">
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
             <path d="M2.5 10.5L10.5 2.5M10.5 2.5H4.5M10.5 2.5V8.5" stroke="#03020B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </span>
       </a>
+      <a href="#servicos" class="btn-ghost btn-cta-long">
+        Ver página de serviços
+        <span class="btn-icon">
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+            <path d="M2.5 10.5L10.5 2.5M10.5 2.5H4.5M10.5 2.5V8.5" stroke="#03020B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -2697,7 +2846,10 @@ footer {
 
   <!-- Logo row -->
   <div class="footer-logo-bar">
-    <img class="footer-logo" src="https://framerusercontent.com/images/G5jwz9CLG7ksDjFSyzQ9kInRsVs.png" alt="United Logo" loading="lazy">
+    <span class="brand-lockup brand-lockup--footer" aria-label="United Imob">
+      <svg class="brand-lockup__flag" viewBox="0 0 28 36" width="28" height="34" aria-hidden="true"><path fill="currentColor" d="M6 2v32M6 7l18-4v14L6 18V7z"/></svg>
+      <span><span class="brand-lockup__u">united</span> <span class="brand-lockup__i">imob.</span></span>
+    </span>
   </div>
 
   <!-- Full-width divider -->
@@ -2708,17 +2860,17 @@ footer {
     <!-- Row 1: Nav links (left) + Social icons (right) -->
     <div class="footer-top">
       <nav class="footer-nav">
-        <a href="index.html#hero" class="footer-nav-link">Início</a>
-        <a href="sobre.html" class="footer-nav-link">Sobre</a>
-        <a href="servicos.html" class="footer-nav-link">Serviços</a>
-        <a href="blog.html" class="footer-nav-link">Blog</a>
-        <a href="index.html#service" class="footer-nav-link">Contato</a>
+        <a href="#hero" class="footer-nav-link">Início</a>
+        <a href="#publico" class="footer-nav-link">Sobre</a>
+        <a href="#servicos" class="footer-nav-link">Serviços</a>
+        <a href="#blog" class="footer-nav-link">Blog</a>
+        <a href="#service" class="footer-nav-link">Contato</a>
       </nav>
       <div class="footer-social">
-        <a href="https://www.instagram.com/assessoriaunited/" target="_blank" rel="noopener" aria-label="Instagram">
-          <img src="https://framerusercontent.com/images/GVVp6YA6Wk0eT5Y1Z1fMxP3U0.svg" alt="Instagram" loading="lazy">
+        <a href="#service" aria-label="Instagram — adicione o link oficial da United Imob">
+          <img src="https://framerusercontent.com/images/GVVp6YA6Wk0eT5Y1Z1fMxP3U0.svg" alt="" loading="lazy" width="26" height="26">
         </a>
-        <a href="index.html#service" aria-label="Ir para o formulário de contato">
+        <a href="#service" aria-label="Ir para o formulário de contato">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" fill="#000"/>
           </svg>
@@ -2729,12 +2881,12 @@ footer {
     <!-- Row 2: CTA (left) + Connect (right) -->
     <div class="footer-details">
       <div class="footer-cta-block">
-        <h3>Pronto para escalar sua<br>empresa de investimento?</h3>
-        <a href="index.html#service" class="btn-primary btn-cta-long" style="align-self:flex-start;">
-          AGENDAR DIAGNÓSTICO
+        <h3>Pronto para estruturar sua<br>operação de marketing imobiliário?</h3>
+        <a href="#service" class="btn-primary btn-cta-long" style="align-self:flex-start;">
+          Solicitar diagnóstico
           <span class="btn-icon">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M2 10L10 2M10 2H4M10 2V8" stroke="#004CFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 10L10 2M10 2H4M10 2V8" stroke="#03020B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
         </a>
@@ -2743,15 +2895,15 @@ footer {
       <div class="footer-connect">
         <span class="footer-connect-title">Contato</span>
         <div class="footer-connect-list">
-          <a href="index.html#service" class="footer-connect-link">+55 21 97931-0451</a>
-          <a href="https://www.instagram.com/assessoriaunited/" target="_blank" rel="noopener" class="footer-connect-link">@assessoriaunited</a>
+          <a href="#service" class="footer-connect-link">Formulário de contato</a>
+          <a href="#service" class="footer-connect-link">WhatsApp — informe no diagnóstico</a>
         </div>
       </div>
     </div>
 
     <!-- Row 3: Copyright only -->
     <div class="footer-bottom">
-      <p class="footer-copy">© 2026 United Assessoria. Todos os direitos reservados.</p>
+      <p class="footer-copy">© 2026 United Imob. Todos os direitos reservados.</p>
     </div>
 
   </div>
@@ -2815,7 +2967,7 @@ function handleFormSubmit(e) {
   btn.style.background = '#00c853';
   btn.disabled = true;
   setTimeout(() => {
-    btn.textContent = 'SOLICITAR DIAGNÓSTICO GRATUITO';
+    btn.textContent = 'Solicitar diagnóstico estratégico';
     btn.style.background = '';
     btn.disabled = false;
     e.target.reset();
@@ -2841,7 +2993,7 @@ document.querySelectorAll('.card-video-thumb').forEach(thumb => {
   thumb.addEventListener('click', () => {
     const src = thumb.dataset.videoSrc;
     const iframe = document.createElement('iframe');
-    iframe.src = src + '?autoplay=false&loop=false&muted=false&preload=true&responsive=false&accent=004CFF&primaryColor=004CFF';
+    iframe.src = src + '?autoplay=false&loop=false&muted=false&preload=true&responsive=false&accent=F9FF3E&primaryColor=F9FF3E';
     iframe.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;border:none;';
     iframe.allow = 'accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;';
     iframe.allowFullscreen = true;
@@ -2871,9 +3023,9 @@ const statsObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting && !statsAnimated) {
       statsAnimated = true;
-      animateCount(document.getElementById('stat1'), 500, 2000);
-      animateCount(document.getElementById('stat2'), 6, 1000);
-      animateCount(document.getElementById('stat3'), 100, 1800);
+      animateCount(document.getElementById('stat1'), 360, 2000);
+      animateCount(document.getElementById('stat2'), 8, 1000);
+      animateCount(document.getElementById('stat3'), 120, 1800);
     }
   });
 }, { threshold: 0.3 });
