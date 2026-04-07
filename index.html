@@ -100,7 +100,11 @@ body.nav-open .site-nav-wrap {
 .brand-image--nav { height: 30px; }
 .brand-image--hero { width: min(420px, 78vw); }
 .brand-image--vs { height: 34px; }
-.brand-image--footer { width: min(520px, 86vw); }
+.brand-image--footer {
+  width: auto;
+  height: 36px;
+  max-width: min(280px, 72vw);
+}
 .nav-menu {
   list-style: none;
   display: flex;
@@ -1364,9 +1368,6 @@ p {
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
   padding-bottom: 4px;
-  /* fade right edge so next card peeks */
-  -webkit-mask-image: linear-gradient(to right, black 0%, black 82%, transparent 100%);
-  mask-image: linear-gradient(to right, black 0%, black 82%, transparent 100%);
 }
 .testimonials-track::-webkit-scrollbar { display: none; }
 
@@ -1419,6 +1420,14 @@ p {
   /* color, not inverted */
   filter: none;
   opacity: 1;
+}
+.testimonial-brand-logo {
+  display: block;
+  width: 190px;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+  align-self: flex-start;
 }
 .card-quote {
   font-family: 'Onest', sans-serif;
@@ -2653,7 +2662,7 @@ footer {
         <div class="testimonial-card">
           <div class="card-video card-video--static" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80')" role="img" aria-label="Empreendimento residencial"></div>
           <div class="card-info">
-            <img src="assets/logo-united-imob.png" alt="United Imob" class="brand-image" style="height:20px;width:auto" loading="lazy">
+            <img src="assets/logo-united-imob.png" alt="United Imob" class="testimonial-brand-logo" loading="lazy">
             <p class="card-quote">“Operação de marketing alinhada ao lançamento: mais interesse qualificado e visitas com agenda preenchida.”</p>
             <div class="card-client">
               <span class="card-client-name">Incorporadora — parceira</span>
@@ -2665,7 +2674,7 @@ footer {
         <div class="testimonial-card">
           <div class="card-video card-video--static" style="background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=700&q=80')" role="img" aria-label="Interior de alto padrão"></div>
           <div class="card-info">
-            <img src="assets/logo-united-imob.png" alt="United Imob" class="brand-image" style="height:20px;width:auto" loading="lazy">
+            <img src="assets/logo-united-imob.png" alt="United Imob" class="testimonial-brand-logo" loading="lazy">
             <p class="card-quote">“Criativos e páginas pensados para o comprador certo — pararam de gastar com lead frio.”</p>
             <div class="card-client">
               <span class="card-client-name">Imobiliária — franquia</span>
@@ -2677,7 +2686,7 @@ footer {
         <div class="testimonial-card">
           <div class="card-video card-video--static" style="background-image:url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=700&q=80')" role="img" aria-label="Fachada moderna"></div>
           <div class="card-info">
-            <img src="assets/logo-united-imob.png" alt="United Imob" class="brand-image" style="height:20px;width:auto" loading="lazy">
+            <img src="assets/logo-united-imob.png" alt="United Imob" class="testimonial-brand-logo" loading="lazy">
             <p class="card-quote">“Com CRM e tráfego integrados, o time comercial finalmente acompanha cada oportunidade.”</p>
             <div class="card-client">
               <span class="card-client-name">Construtora — região metropolitana</span>
@@ -2689,7 +2698,7 @@ footer {
         <div class="testimonial-card">
           <div class="card-video card-video--static" style="background-image:url('https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=700&q=80')" role="img" aria-label="Empreendimento à beira-mar"></div>
           <div class="card-info">
-            <img src="assets/logo-united-imob.png" alt="United Imob" class="brand-image" style="height:20px;width:auto" loading="lazy">
+            <img src="assets/logo-united-imob.png" alt="United Imob" class="testimonial-brand-logo" loading="lazy">
             <p class="card-quote">“Posicionamento e conteúdo consistentes — a marca virou referência antes da primeira visita.”</p>
             <div class="card-client">
               <span class="card-client-name">Corretor — alto padrão</span>
@@ -2977,10 +2986,34 @@ const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 
 function goToSlide(index) {
+  if (!track || !cards.length || !prevBtn || !nextBtn) return;
   currentSlide = Math.max(0, Math.min(index, cards.length - 1));
   track.scrollTo({ left: cards[currentSlide].offsetLeft, behavior: 'smooth' });
   prevBtn.disabled = currentSlide === 0;
   nextBtn.disabled = currentSlide === cards.length - 1;
+}
+
+function updateCarouselState() {
+  if (!track || !cards.length || !prevBtn || !nextBtn) return;
+  const scrollLeft = track.scrollLeft;
+  let nearest = 0;
+  let minDist = Infinity;
+  cards.forEach((card, i) => {
+    const d = Math.abs(card.offsetLeft - scrollLeft);
+    if (d < minDist) {
+      minDist = d;
+      nearest = i;
+    }
+  });
+  currentSlide = nearest;
+  prevBtn.disabled = currentSlide === 0;
+  nextBtn.disabled = currentSlide === cards.length - 1;
+}
+
+if (track && cards.length && prevBtn && nextBtn) {
+  updateCarouselState();
+  track.addEventListener('scroll', updateCarouselState, { passive: true });
+  window.addEventListener('resize', updateCarouselState);
 }
 
 // Video lazy load
