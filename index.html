@@ -92,6 +92,15 @@ body.nav-open .site-nav-wrap {
   padding: 4px 2px;
 }
 .nav-brand.brand-lockup { padding: 4px 0; }
+.brand-image {
+  display: block;
+  width: auto;
+  height: auto;
+}
+.brand-image--nav { height: 30px; }
+.brand-image--hero { width: min(420px, 78vw); }
+.brand-image--vs { height: 34px; }
+.brand-image--footer { width: min(520px, 86vw); }
 .nav-menu {
   list-style: none;
   display: flex;
@@ -508,6 +517,7 @@ p {
   display: block;
   z-index: 4;
   pointer-events: none;
+  transform: translateY(36px);
 }
 
 /* Logo */
@@ -604,7 +614,7 @@ p {
 .ticker-band-2 {
   top: 28%;
   transform: translateY(0) rotate(-6deg);
-  background: var(--azul-ticker);
+  background: var(--azul);
   box-shadow: 0 2px 20px rgba(249, 255, 62, 0.35);
 }
 .ticker-band-2 .ticker-item,
@@ -660,16 +670,17 @@ p {
    ============================================================ */
 #service {
   background: var(--preto);
-  padding: 100px 0 120px;
+  padding: 170px 0 120px;
   position: relative;
   z-index: 11;
+  margin-top: -70px;
 }
 .service-inner {
   max-width: 1355px;
   margin: 0 auto;
   padding: 0 64px;
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 80px;
 }
 
@@ -679,8 +690,9 @@ p {
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 24px;
   padding-top: 4px;
+  background: var(--preto);
 }
 
 /* Title: very large, fills full left column */
@@ -688,7 +700,7 @@ p {
   color: #fff;
   font-family: 'Big Shoulders Display', sans-serif;
   font-weight: 800;
-  font-size: clamp(40px, 5vw, 68px);
+  font-size: clamp(32px, 4.1vw, 54px);
   line-height: 0.98em;
   text-transform: uppercase;
   letter-spacing: -0.02em;
@@ -698,7 +710,7 @@ p {
 .service-feature {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 .service-icon-wrap {
   width: 30px;
@@ -718,17 +730,17 @@ p {
 }
 .service-feature-title {
   font-family: 'Onest', sans-serif;
-  font-size: clamp(18px, 1.6vw, 24px);
+  font-size: clamp(16px, 1.3vw, 20px);
   font-weight: 600;
   color: #fff;
   line-height: 1.2em;
 }
 .service-feature-desc {
   font-family: 'Onest', sans-serif;
-  font-size: clamp(13px, 1.1vw, 16px);
+  font-size: clamp(12px, 0.95vw, 14px);
   font-weight: 400;
   color: rgba(156,163,175,1);
-  line-height: 1.6em;
+  line-height: 1.45em;
   max-width: 420px;
 }
 
@@ -1801,6 +1813,7 @@ footer {
   .service-inner { padding: 0 30px; gap: 50px; }
   .service-form-col { flex: 0 0 380px; }
   .service-title { font-size: clamp(34px, 4vw, 52px); }
+  #service { padding-top: 146px; margin-top: -46px; }
 
   #manifesto { padding: 80px 40px 50px; }
   #stats { padding: 0 40px 80px; }
@@ -1904,7 +1917,7 @@ footer {
   .ticker-track-rev { animation-name: scroll-right; }
 
   /* ── SERVICE / FORMULÁRIO ───────────────────────────── */
-  #service { padding: 56px 0 64px; }
+  #service { padding: 56px 0 64px; margin-top: 0; }
   .service-inner {
     flex-direction: column;
     padding: 0 24px;
@@ -2175,9 +2188,8 @@ footer {
 
 <header class="site-nav-wrap">
   <nav class="nav-pill" aria-label="Navegação principal">
-    <a href="#hero" class="nav-brand brand-lockup" aria-label="United Imob — página inicial">
-      <svg class="brand-lockup__flag" viewBox="0 0 28 36" width="20" height="26" aria-hidden="true"><path fill="currentColor" d="M6 2v32M6 7l18-4v14L6 18V7z"/></svg>
-      <span><span class="brand-lockup__u">united</span> <span class="brand-lockup__i">imob.</span></span>
+    <a href="#hero" class="nav-brand" aria-label="United Imob — página inicial">
+      <img src="assets/logo-united-imob.png" alt="United Imob" class="brand-image brand-image--nav" loading="eager">
     </a>
     <ul class="nav-menu">
       <li><a href="#hero">Início</a></li>
@@ -2194,9 +2206,8 @@ footer {
 </header>
 <div class="nav-overlay" id="navOverlay" role="dialog" aria-modal="true" aria-label="Menu de navegação" aria-hidden="true" inert>
   <div class="nav-overlay-top">
-    <a href="#hero" class="nav-overlay-brand brand-lockup" aria-label="United Imob">
-      <svg class="brand-lockup__flag" viewBox="0 0 28 36" width="22" height="28" aria-hidden="true"><path fill="currentColor" d="M6 2v32M6 7l18-4v14L6 18V7z"/></svg>
-      <span><span class="brand-lockup__u">united</span> <span class="brand-lockup__i">imob.</span></span>
+    <a href="#hero" class="nav-overlay-brand" aria-label="United Imob">
+      <img src="assets/logo-united-imob.png" alt="United Imob" class="brand-image brand-image--nav" loading="eager">
     </a>
     <button type="button" class="nav-overlay-close" id="navOverlayClose" aria-label="Fechar menu">
       <span class="nav-overlay-close-x" aria-hidden="true">×</span>
@@ -2226,10 +2237,7 @@ footer {
 
       <!-- Logo: united imob. -->
       <div class="hero-logo reveal">
-        <span class="brand-lockup" style="font-size:clamp(1.2rem,2.2vw,1.6rem)" aria-hidden="true">
-          <svg class="brand-lockup__flag" viewBox="0 0 28 36" width="24" height="30" aria-hidden="true"><path fill="currentColor" d="M6 2v32M6 7l18-4v14L6 18V7z"/></svg>
-          <span><span class="brand-lockup__u">united</span> <span class="brand-lockup__i">imob.</span></span>
-        </span>
+        <img src="assets/logo-united-imob.png" alt="United Imob" class="brand-image brand-image--hero" loading="eager">
       </div>
 
       <div class="hero-title reveal reveal-delay-1">
@@ -2242,7 +2250,6 @@ footer {
       </div>
 
       <p class="hero-subtitle reveal reveal-delay-2">
-        A United Imob cria estruturas completas de marketing, posicionamento e geração de vendas para empresas do setor imobiliário.<br><br>
         Trabalhamos com estratégia, tecnologia e comunicação para transformar presença digital em geração contínua de clientes e oportunidades de negócio.
       </p>
 
@@ -2322,16 +2329,6 @@ footer {
         </div>
         <p class="service-feature-title">Para quem trabalhamos</p>
         <p class="service-feature-desc">A United Imob atende empresas e profissionais do mercado imobiliário que querem crescer com escala, posicionamento forte e estratégia comercial estruturada — incorporadoras, construtoras, imobiliárias, corretores e empresas do ecossistema.</p>
-      </div>
-
-      <div class="service-feature">
-        <div class="service-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <p class="service-feature-title">Complete o diagnóstico</p>
-        <p class="service-feature-desc">Preencha o formulário ao lado. Usaremos seus dados apenas para retorno do time e agendamento do diagnóstico estratégico.</p>
       </div>
 
       <div class="service-feature">
@@ -2537,10 +2534,7 @@ footer {
     <p class="logos-title reveal" style="color:rgba(3,2,11,0.72);max-width:720px;margin:0 auto 40px;text-align:center;font-size:clamp(15px,1.4vw,18px);line-height:1.55;padding:0 12px"><strong style="display:block;margin-bottom:10px;font-family:'Big Shoulders Display',sans-serif;font-size:clamp(20px,2.5vw,26px);letter-spacing:0.04em;text-transform:uppercase;color:var(--preto)">O novo marketing imobiliário</strong> O mercado imobiliário está cada vez mais competitivo. Hoje não basta apenas anunciar imóveis em portais ou depender de indicações. Empresas que crescem de forma consistente estruturam operações de marketing capazes de gerar compradores todos os dias — com posicionamento forte, campanhas estratégicas, geração constante de leads, presença digital profissional e estrutura comercial organizada. A United Imob atua exatamente nesse ponto: transformar marketing em uma máquina de geração de oportunidades de venda.</p>
 
     <header class="vs-top reveal">
-      <span class="vs-top-logo brand-lockup" style="height:auto" aria-hidden="true">
-        <svg class="brand-lockup__flag" viewBox="0 0 28 36" width="22" height="28"><path fill="currentColor" d="M6 2v32M6 7l18-4v14L6 18V7z"/></svg>
-        <span><span class="brand-lockup__u">united</span> <span class="brand-lockup__i">imob.</span></span>
-      </span>
+      <img class="vs-top-logo brand-image brand-image--vs" src="assets/logo-united-imob.png" alt="United Imob" loading="lazy">
       <p class="vs-top-center">Marketing estratégico para empresas do mercado imobiliário</p>
       <a href="#service" class="vs-top-handle">Solicitar diagnóstico</a>
     </header>
@@ -2655,7 +2649,7 @@ footer {
         <div class="testimonial-card">
           <div class="card-video card-video--static" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80')" role="img" aria-label="Empreendimento residencial"></div>
           <div class="card-info">
-            <span class="brand-lockup brand-lockup--on-dark" style="font-size:14px"><svg class="brand-lockup__flag" viewBox="0 0 28 36" width="18" height="22" aria-hidden="true"><path fill="currentColor" d="M6 2v32M6 7l18-4v14L6 18V7z"/></svg><span><span class="brand-lockup__u">united</span> <span class="brand-lockup__i">imob.</span></span></span>
+            <img src="assets/logo-united-imob.png" alt="United Imob" class="brand-image" style="height:20px;width:auto" loading="lazy">
             <p class="card-quote">“Operação de marketing alinhada ao lançamento: mais interesse qualificado e visitas com agenda preenchida.”</p>
             <div class="card-client">
               <span class="card-client-name">Incorporadora — parceira</span>
@@ -2667,7 +2661,7 @@ footer {
         <div class="testimonial-card">
           <div class="card-video card-video--static" style="background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=700&q=80')" role="img" aria-label="Interior de alto padrão"></div>
           <div class="card-info">
-            <span class="brand-lockup brand-lockup--on-dark" style="font-size:14px"><svg class="brand-lockup__flag" viewBox="0 0 28 36" width="18" height="22" aria-hidden="true"><path fill="currentColor" d="M6 2v32M6 7l18-4v14L6 18V7z"/></svg><span><span class="brand-lockup__u">united</span> <span class="brand-lockup__i">imob.</span></span></span>
+            <img src="assets/logo-united-imob.png" alt="United Imob" class="brand-image" style="height:20px;width:auto" loading="lazy">
             <p class="card-quote">“Criativos e páginas pensados para o comprador certo — pararam de gastar com lead frio.”</p>
             <div class="card-client">
               <span class="card-client-name">Imobiliária — franquia</span>
@@ -2679,7 +2673,7 @@ footer {
         <div class="testimonial-card">
           <div class="card-video card-video--static" style="background-image:url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=700&q=80')" role="img" aria-label="Fachada moderna"></div>
           <div class="card-info">
-            <span class="brand-lockup brand-lockup--on-dark" style="font-size:14px"><svg class="brand-lockup__flag" viewBox="0 0 28 36" width="18" height="22" aria-hidden="true"><path fill="currentColor" d="M6 2v32M6 7l18-4v14L6 18V7z"/></svg><span><span class="brand-lockup__u">united</span> <span class="brand-lockup__i">imob.</span></span></span>
+            <img src="assets/logo-united-imob.png" alt="United Imob" class="brand-image" style="height:20px;width:auto" loading="lazy">
             <p class="card-quote">“Com CRM e tráfego integrados, o time comercial finalmente acompanha cada oportunidade.”</p>
             <div class="card-client">
               <span class="card-client-name">Construtora — região metropolitana</span>
@@ -2691,7 +2685,7 @@ footer {
         <div class="testimonial-card">
           <div class="card-video card-video--static" style="background-image:url('https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=700&q=80')" role="img" aria-label="Empreendimento à beira-mar"></div>
           <div class="card-info">
-            <span class="brand-lockup brand-lockup--on-dark" style="font-size:14px"><svg class="brand-lockup__flag" viewBox="0 0 28 36" width="18" height="22" aria-hidden="true"><path fill="currentColor" d="M6 2v32M6 7l18-4v14L6 18V7z"/></svg><span><span class="brand-lockup__u">united</span> <span class="brand-lockup__i">imob.</span></span></span>
+            <img src="assets/logo-united-imob.png" alt="United Imob" class="brand-image" style="height:20px;width:auto" loading="lazy">
             <p class="card-quote">“Posicionamento e conteúdo consistentes — a marca virou referência antes da primeira visita.”</p>
             <div class="card-client">
               <span class="card-client-name">Corretor — alto padrão</span>
@@ -2846,10 +2840,7 @@ footer {
 
   <!-- Logo row -->
   <div class="footer-logo-bar">
-    <span class="brand-lockup brand-lockup--footer" aria-label="United Imob">
-      <svg class="brand-lockup__flag" viewBox="0 0 28 36" width="28" height="34" aria-hidden="true"><path fill="currentColor" d="M6 2v32M6 7l18-4v14L6 18V7z"/></svg>
-      <span><span class="brand-lockup__u">united</span> <span class="brand-lockup__i">imob.</span></span>
-    </span>
+    <img src="assets/logo-united-imob.png" alt="United Imob" class="brand-image brand-image--footer" loading="lazy">
   </div>
 
   <!-- Full-width divider -->
